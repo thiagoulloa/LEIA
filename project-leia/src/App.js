@@ -6,7 +6,6 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      image.png
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
