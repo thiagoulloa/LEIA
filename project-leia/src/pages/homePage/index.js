@@ -1,12 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
-import Gustavo from "./images/sanches.png";
 
 function HomePage() {
+  let navigate = useNavigate();
+
   return (
     <div className="Home">
-      <h1>Se o TCC der errado é culpa dele:</h1>
-      <img id="imagem" src={Gustavo} />
+      <div className="homeBar">
+        <div className="alignLeft"></div>
+        <div className="alignRight">
+          <p id="teste">Teste</p>
+        </div>
+      </div>
     </div>
   );
 }
