@@ -10,7 +10,8 @@ function HomePage() {
       <div className="homeBar">
         <div className="alignLeft"></div>
         <div className="alignRight">
-          <p id="teste">Teste</p>
+          <p id="loginBtn">Sign In</p>
+          <button id="registerBtn">Sign Up</button>
         </div>
       </div>
     </div>
