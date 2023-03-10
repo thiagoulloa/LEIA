@@ -1,0 +1,33 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 550px;
+  background-color: #151a21;
+  border-radius: 5px;
+}
+
+.logoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #222830;
+  width: 100%;
+  height: 100px;
+}
+
+#logo {
+  width: 200px;
+  height: fit-content;
+}
