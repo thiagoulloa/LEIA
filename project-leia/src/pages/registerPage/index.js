@@ -3,19 +3,19 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import LogoLeia from "../images/logoleia.png";
 
-function LoginPage() {
+function registerPage() {
   let navigate = useNavigate();
 
   return (
-    <div className="loginPage">
+    <div className="registerPage">
       <div className="container">
         <div className="logoDiv">
           <img id="logo" src={LogoLeia}></img>
         </div>
         <div className="align-center">
           <input placeholder="Digite seu email" id="email"></input>
-          <input placeholder="Digite sua senha" id="password"></input>
-          <button>Login</button>
+          <input placeholder="Crie uma senha" id="password"></input>
+          <button>Cadastre-se</button>
           <div className="txtBtnDiv">
             <p className="textButton" id="createAccBtn">
               Crie sua conta
@@ -30,4 +30,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default registerPage;
