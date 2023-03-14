@@ -1,122 +1,118 @@
 .registerPage {
-    background-image: url("../images/wallpaperleia3.jpg");
-    background-position: 0;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: 100vh;
-    width: 100%;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 500px;
-    height: 475px;
-    background-color: #151a21;
-    border-radius: 13px;
-  
-    background: rgba(25, 175, 217, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  
-  .logoDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-right-radius: 13px;
-    border-top-left-radius: 13px;
-    background-color: #222830;
-    width: 100%;
-    height: 100px;
-  
-    background: rgba(9, 79, 99, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  
-  .align-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-  
-  #logo {
-    width: 200px;
-    height: fit-content;
-  }
-  
-  input {
-    margin: 20px;
-    padding: 10px;
-    width: 70%;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  
-  button {
-    margin: 20px;
-    width: 70%;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-    backdrop-filter: blur(7px);
-    background: transparent;
-  
-    background: rgba(9, 79, 99, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: white;
-    box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgb(6, 79, 139),
-      0 0 50px rgb(6, 79, 139), 0 0 100px rgb(6, 79, 139);
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 17px;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    cursor: pointer;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
-    height: 40px;
-    width: 75%;  
-    font-size: 20px;
-  }
-  
-  .txtBtnDiv {
-    margin: 20px;
-    display: flex;
-    width: 70%;
-    justify-content: space-between;
-  }
-  
-  
-  #createAccBtn:hover,
-  #forgotPswBtn:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
-    color: rgb(5, 230, 230);
-    transition: 0.2s;
-    
-    
-  }
-  
-  .textButton {
-    color: white;
-  }
-  
+  background-image: url("../images/wallpaperleia3.jpg");
+  background-position: 0;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 475px;
+  background-color: #151a21;
+  border-radius: 13px;
+
+  background: rgba(25, 175, 217, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.logoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 13px;
+  border-top-left-radius: 13px;
+  background-color: #222830;
+  width: 100%;
+  height: 100px;
+
+  background: rgba(9, 79, 99, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#logo {
+  width: 200px;
+  height: fit-content;
+}
+
+input {
+  margin: 20px;
+  padding: 10px;
+  width: 70%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.register-button {
+  margin: 20px;
+  width: 70%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  backdrop-filter: blur(7px);
+  background: transparent;
+
+  background: rgba(9, 79, 99, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgb(6, 79, 139),
+    0 0 50px rgb(6, 79, 139), 0 0 100px rgb(6, 79, 139);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.register-button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
+  height: 40px;
+  width: 75%;
+  font-size: 20px;
+}
+
+.txtBtnDiv {
+  margin: 20px;
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+#createAccBtn:hover,
+#forgotPswBtn:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  color: rgb(5, 230, 230);
+  transition: 0.2s;
+}
+
+.textButton {
+  color: white;
+}

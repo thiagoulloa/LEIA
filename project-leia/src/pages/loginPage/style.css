@@ -65,10 +65,10 @@ input {
   height: 35px;
   border-radius: 10px;
   border: none;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-button {
+.login-button {
   margin: 20px;
   width: 70%;
   height: 35px;
@@ -85,16 +85,16 @@ button {
   color: white;
   box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgb(6, 79, 139),
     0 0 50px rgb(6, 79, 139), 0 0 100px rgb(6, 79, 139);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 17px;
   transition: 0.3s;
 }
 
-button:hover {
+.login-button:hover {
   cursor: pointer;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
   height: 40px;
-  width: 75%;  
+  width: 75%;
   font-size: 20px;
 }
 
@@ -103,10 +103,6 @@ button:hover {
   margin: 20px;
   width: 70%;
   justify-content: space-between;
-}
-
-input :focus {
-  
 }
 
 #createAccBtn:hover,
