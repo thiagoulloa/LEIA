@@ -26,17 +26,23 @@ function WorkPage() {
     <div className="workPage">
       <div className="containers-div">
         <div className="container-text code">
+          <textarea
+            type="text"
+            className="input-code"
+            value={mensagem}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="container-text doc">
           {mensagensEnviadas.map((mensagem, index) => (
             <div key={index} className="mensagem">
               {mensagem}
             </div>
           ))}
         </div>
-        <div className="container-text doc"></div>
       </div>
 
       <form onSubmit={handleSubmit}>
-        <input type="text" value={mensagem} onChange={handleChange} />
         <button type="submit" className="glow">
           Enviar
         </button>

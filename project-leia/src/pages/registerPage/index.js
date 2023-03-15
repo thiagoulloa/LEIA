@@ -13,12 +13,21 @@ function RegisterPage() {
           <img id="logo" src={LogoLeia}></img>
         </div>
         <div className="align-center">
-          <input placeholder="Crie um username" id="username"></input>
-          <input placeholder="Digite seu email" id="email"></input>
+          <input
+            placeholder="Crie um username"
+            id="username"
+            className="input form"
+          ></input>
+          <input
+            placeholder="Digite seu email"
+            id="email"
+            className="input form"
+          ></input>
           <input
             placeholder="Crie uma senha"
             type="password"
             id="password"
+            className="input form"
           ></input>
           <button className="register-button">Cadastre-se</button>
           <div className="txtBtnDivRegister">

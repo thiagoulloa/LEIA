@@ -7,7 +7,7 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 0;
   height: 100vh;
@@ -16,8 +16,10 @@
 
 .containers-div {
   display: flex;
+  margin-top: 5vh;
   justify-content: space-evenly;
   width: 100%;
+  height: 80%;
 }
 
 .container-text {
@@ -27,8 +29,8 @@
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  height: 400px;
-  width: 350px;
+  height: 100%;
+  width: 40%;
   overflow-y: auto;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: rgba(25, 175, 217, 0.25);
@@ -42,16 +44,21 @@
   background-color: #043d4e42;
 }
 
+.input-code {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.068);
+  border: none;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: large;
+}
+
 .mensagem {
   margin-bottom: 10px;
   padding: 5px;
   border-radius: 5px;
   background-color: white;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: medium;
-}
-
-input {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: medium;
 }

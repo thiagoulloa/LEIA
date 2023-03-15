@@ -13,11 +13,16 @@ function LoginPage() {
           <img id="logo" src={LogoLeia}></img>
         </div>
         <div className="align-center">
-          <input placeholder="Digite seu email" id="email"></input>
+          <input
+            placeholder="Digite seu email"
+            id="email"
+            className="input form"
+          ></input>
           <input
             placeholder="Digite sua senha"
             type="password"
             id="password"
+            className="input form"
           ></input>
           <button className="login-button">Login</button>
           <div className="txtBtnDivLogin">
