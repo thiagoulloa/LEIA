@@ -1,0 +1,74 @@
+.workPage {
+  background-image: url("../images/wallpaperleia3.jpg");
+  background-position: 0;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.container-mensagens {
+  display: flex;
+  flex-direction: column;
+  background-color: #0ab6eb;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 400px;
+  width: 350px;
+  overflow-y: auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: rgba(25, 175, 217, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.mensagem {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: medium;
+}
+
+button {
+  margin: 20px;
+  width: 70%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  backdrop-filter: blur(7px);
+  background: transparent;
+
+  background: rgba(9, 79, 99, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgb(6, 79, 139),
+    0 0 50px rgb(6, 79, 139), 0 0 100px rgb(6, 79, 139);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
+  height: 40px;
+  width: 75%;
+  font-size: 20px;
+}
+
+input {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: medium;
+}
