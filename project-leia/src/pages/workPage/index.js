@@ -31,7 +31,9 @@ function Chat() {
       </div>
       <form onSubmit={handleSubmit}>
         <input type="text" value={mensagem} onChange={handleChange} />
-        <button type="submit">Enviar</button>
+        <button type="submit" className="glow">
+          Enviar
+        </button>
       </form>
     </div>
   );
