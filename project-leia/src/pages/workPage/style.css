@@ -1,4 +1,7 @@
 .workPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("../images/wallpaperleia3.jpg");
   background-position: 0;
   background-size: cover;
@@ -11,7 +14,13 @@
   width: 100%;
 }
 
-.container-mensagens {
+.containers-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.container-text {
   display: flex;
   flex-direction: column;
   background-color: #0ab6eb;
@@ -27,6 +36,10 @@
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.container-text.code {
+  background-color: #043d4e42;
 }
 
 .mensagem {
