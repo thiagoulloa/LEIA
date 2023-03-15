@@ -8,8 +8,8 @@ function LoginPage() {
 
   return (
     <div className="loginPage">
-      <div className="container">
-        <div className="logoDiv">
+      <div className="containerLogin">
+        <div className="logoDivLogin">
           <img id="logo" src={LogoLeia}></img>
         </div>
         <div className="align-center">
@@ -20,7 +20,7 @@ function LoginPage() {
             id="password"
           ></input>
           <button className="login-button">Login</button>
-          <div className="txtBtnDiv">
+          <div className="txtBtnDivLogin">
             <p className="textButton" id="createAccBtn">
               Crie sua conta
             </p>

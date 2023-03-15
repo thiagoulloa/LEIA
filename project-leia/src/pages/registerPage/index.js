@@ -8,8 +8,8 @@ function RegisterPage() {
 
   return (
     <div className="registerPage">
-      <div className="container">
-        <div className="logoDiv">
+      <div className="containerRegister">
+        <div className="logoDivRegister">
           <img id="logo" src={LogoLeia}></img>
         </div>
         <div className="align-center">
@@ -21,8 +21,8 @@ function RegisterPage() {
             id="password"
           ></input>
           <button className="register-button">Cadastre-se</button>
-          <div className="txtBtnDiv">
-            <p className="textButton" id="createAccBtn">
+          <div className="txtBtnDivRegister">
+            <p className="textButtonRegister" id="createAccBtn">
               Já possui uma conta?
             </p>
           </div>
