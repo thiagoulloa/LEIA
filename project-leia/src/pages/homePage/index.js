@@ -10,7 +10,9 @@ function HomePage() {
       <div className="homeBar">
         <div className="alignLeft"></div>
         <div className="alignRight">
-          <p id="loginBtn">Sign In</p>
+          <p id="loginBtn" onClick={() => navigate("/login-page")}>
+            Sign In
+          </p>
           <button id="registerBtn">Sign Up</button>
         </div>
       </div>
