@@ -1,24 +1,23 @@
 import React from "react";
-import LogoLeia from "../../images/expand-icon.png"
+import MenuButton from "./images/menubar.png";
+import BasicCard from "./components/Card";
 import "./style.css";
 
-
 export default function HomePage() {
-    const [btnState, setBtnState] = React.useState(false);
-    
-    function openNav() {
-        setBtnState((btnState) => !btnState);
-      }
+  const [btnState, setBtnState] = React.useState(false);
 
-    let toggleClassCheck = btnState ? "-open" : "";
+  function openNav() {
+    setBtnState((btnState) => !btnState);
+  }
 
-    return (
-        
-        <div className="homePage">
-            <div className={`sideMenu${toggleClassCheck}`}>
+  let toggleClassCheck = btnState ? "-open" : "";
+
+  return (
+    <div className="homePage">
+      <div className={`sideMenu${toggleClassCheck}`}>
         <div className="menubutton">
           <img
-            src={LogoLeia}
+            src={MenuButton}
             id="menubutton"
             alt="menubutton"
             onClick={() => {
@@ -26,9 +25,15 @@ export default function HomePage() {
             }}
           />
         </div>
+      </div>
+      <div className="content homePage">
+        <h1 id="title-home">Seus Arquivos:</h1>
+        <div className="cards">
+          <BasicCard />
+          <BasicCard />
+          <BasicCard />
         </div>
-            <h1>Olá Mundo</h1>
-            </div>
-        
-    );
+      </div>
+    </div>
+  );
 }

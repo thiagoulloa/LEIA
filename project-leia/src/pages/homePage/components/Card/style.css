@@ -1,0 +1,12 @@
+.card {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.555);
+  border-radius: 10px;
+  width: 250px;
+  height: 230px;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: midnightblue;
+}

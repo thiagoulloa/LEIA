@@ -1,23 +1,43 @@
 .homePage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
   background-color: #151a21;
-
 }
 
 #menubutton {
-    width: 45px;
-    height: auto;
-    cursor: pointer;
+  width: 35px;
+  height: auto;
+  padding-top: 20px;
+
+  height: auto;
+  cursor: pointer;
+}
+
+.sideMenu,
+.sideMenu-open {
+  background-color: #1f242c;
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+#title-home {
+  color: rgba(255, 255, 255, 0.555);
+}
+
+.content.homePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cards {
+  display: flex;
+  gap: 30px;
 }
