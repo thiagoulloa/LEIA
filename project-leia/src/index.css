@@ -23,6 +23,10 @@ html {
   height: 100%;
 }
 
+.loginPage, .registerPage, .homePage {
+  background-color: midnightblue;
+}
+
 .glow {
   margin: 20px;
   width: 70%;
@@ -51,4 +55,31 @@ html {
   height: 40px;
   width: 75%;
   font-size: 20px;
+}
+
+.textButton {
+  color: white;
+}
+
+.sideMenu,
+.sideMenu-open {
+  display: flex;
+  background-color: #151a21;
+  height: 100%;
+  width: 80px;
+  position: fixed;
+  border-style: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 3px;
+  overflow-x: hidden;
+  transition: 0.5s;
+  left: 0;
+  top: 0;
+}
+
+.sideMenu-open {
+  height: 100% !important;
+  width: 250px !important;
 }

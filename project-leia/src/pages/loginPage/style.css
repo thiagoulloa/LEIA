@@ -1,7 +1,4 @@
 .loginPage {
-  background-image: url("../images/wallpaperleia3.jpg");
-  background-position: 0;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,6 +52,7 @@
 
 #logo {
   width: 200px;
+  cursor: pointer;
   height: fit-content;
 }
 
@@ -102,7 +100,7 @@
   display: flex;
   margin: 20px;
   width: 70%;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #createAccBtn:hover,

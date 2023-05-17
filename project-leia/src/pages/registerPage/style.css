@@ -1,5 +1,4 @@
 .registerPage {
-  background-image: url("../images/wallpaperleia3.jpg");
   background-position: 0;
   background-size: cover;
   display: flex;
@@ -113,6 +112,4 @@
   transition: 0.2s;
 }
 
-.textButtonRegister {
-  color: white;
-}
+

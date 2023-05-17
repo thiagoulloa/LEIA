@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/loginPage";
+import IntroductionPage from "./pages/introductionPage";
 import HomePage from "./pages/homePage";
 import RegisterPage from "./pages/registerPage";
 import WorkPage from "./pages/workPage";
@@ -10,7 +11,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<IntroductionPage />} />
+        <Route path="/home-page" element={<HomePage />} />
         <Route path="/login-page" element={<LoginPage />} />
         <Route path="/register-page" element={<RegisterPage />} />
         <Route path="/work-page" element={<WorkPage />} />

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-import LogoLeia from "../images/logoleia.png";
+import LogoLeia from "../../images/logoleia.png"
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -10,7 +10,7 @@ function LoginPage() {
     <div className="loginPage">
       <div className="containerLogin">
         <div className="logoDivLogin">
-          <img id="logo" src={LogoLeia}></img>
+        <img id="logo" src={LogoLeia} onClick={()=> navigate("/") }></img>
         </div>
         <div className="align-center">
           <input
@@ -26,11 +26,8 @@ function LoginPage() {
           ></input>
           <button className="login-button">Login</button>
           <div className="txtBtnDivLogin">
-            <p className="textButton" id="createAccBtn">
+            <p className="textButton" id="createAccBtn" onClick={() => navigate("/register-page")}>
               Crie sua conta
-            </p>
-            <p className="textButton" id="forgotPswBtn">
-              Esqueceu sua senha?
             </p>
           </div>
         </div>

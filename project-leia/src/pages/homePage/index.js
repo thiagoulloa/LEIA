@@ -1,23 +1,34 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import LogoLeia from "../../images/expand-icon.png"
 import "./style.css";
 
-function HomePage() {
-  let navigate = useNavigate();
 
-  return (
-    <div className="Home">
-      <div className="homeBar">
-        <div className="alignLeft"></div>
-        <div className="alignRight">
-          <p id="loginBtn" onClick={() => navigate("/login-page")}>
-            Sign In
-          </p>
-          <button id="registerBtn">Sign Up</button>
+export default function HomePage() {
+    const [btnState, setBtnState] = React.useState(false);
+    
+    function openNav() {
+        setBtnState((btnState) => !btnState);
+      }
+
+    let toggleClassCheck = btnState ? "-open" : "";
+
+    return (
+        
+        <div className="homePage">
+            <div className={`sideMenu${toggleClassCheck}`}>
+        <div className="menubutton">
+          <img
+            src={LogoLeia}
+            id="menubutton"
+            alt="menubutton"
+            onClick={() => {
+              openNav();
+            }}
+          />
         </div>
-      </div>
-    </div>
-  );
+        </div>
+            <h1>Olá Mundo</h1>
+            </div>
+        
+    );
 }
-
-export default HomePage;
