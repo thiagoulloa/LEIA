@@ -1,40 +1,124 @@
 import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import LogoLeia from "../../images/logoleia.png";
+import * as yup from "yup";
+import Axios from "axios";
 
 function RegisterPage() {
   let navigate = useNavigate();
+  const handleClickRegister = (values) => {
+    Axios.post("http://localhost:3001/register", {
+      username: values.username,
+      email: values.email,
+      password: values.password,
+    }).then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        navigate("/login-page");
+      }
+    });
+  };
+
+  const validationRegister = yup.object().shape({
+    username: yup
+      .string()
+      .min(5, "O username deve ter pelo menos 5 caracteres")
+      .required("Este campo é obrigatório"),
+    email: yup
+      .string()
+      .email("Não é um email válido")
+      .required("Este campo é obrigatório"),
+    password: yup
+      .string()
+      .min(8, "A senha deve ter pelo menos 8 caracteres")
+      .required("Este campo é obrigatório"),
+    confirmedpassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "os campos não são iguais"),
+  });
 
   return (
     <div className="registerPage">
       <div className="containerRegister">
         <div className="logoDivRegister">
-          <img id="logo" src={LogoLeia} onClick={()=> navigate("/") }></img>
+          <img
+            id="logo"
+            src={LogoLeia}
+            onClick={() => navigate("/")}
+            alt="Logo Leia"
+          />
         </div>
         <div className="align-center">
-          <input
-            placeholder="Crie um username"
-            id="username"
-            className="input form"
-          ></input>
-          <input
-            placeholder="Digite seu email"
-            id="email"
-            className="input form"
-          ></input>
-          <input
-            placeholder="Crie uma senha"
-            type="password"
-            id="password"
-            className="input form"
-          ></input>
-          <button className="register-button">Cadastre-se</button>
-          <div className="txtBtnDivRegister">
-            <p className="textButton" id="createAccBtn" onClick={() => navigate("/login-page")}>
-              Já possui uma conta?
-            </p>
-          </div>
+          <Formik
+            initialValues={{}}
+            onSubmit={handleClickRegister}
+            validationSchema={validationRegister}
+          >
+            <Form className="register-form">
+              <Field
+                type="text"
+                name="username"
+                placeholder="Crie um username"
+                className="input form"
+              />
+              <ErrorMessage
+                name="username"
+                component="div"
+                className="error-message"
+              />
+
+              <Field
+                type="text"
+                name="email"
+                placeholder="Digite seu email"
+                className="input form"
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error-message"
+              />
+
+              <Field
+                type="password"
+                name="password"
+                placeholder="Crie uma senha"
+                className="input form"
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="error-message"
+              />
+
+              <Field
+                type="password"
+                name="confirmedpassword"
+                placeholder="Confirme sua senha"
+                className="input form"
+              />
+              <ErrorMessage
+                name="confirmedpassword"
+                component="div"
+                className="error-message"
+              />
+
+              <button className="register-button" type="submit">
+                Cadastre-se
+              </button>
+              <div className="txtBtnDivRegister">
+                <p
+                  className="textButton"
+                  id="createAccBtn"
+                  onClick={() => navigate("/login-page")}
+                >
+                  Já possui uma conta?
+                </p>
+              </div>
+            </Form>
+          </Formik>
         </div>
       </div>
     </div>

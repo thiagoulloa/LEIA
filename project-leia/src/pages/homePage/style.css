@@ -41,3 +41,19 @@
   display: flex;
   gap: 30px;
 }
+
+.logo.lateral {
+  width: 35px;
+  cursor: pointer;
+}
+
+.menu-separate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.bottom-align {
+  padding-bottom: 20px;
+}

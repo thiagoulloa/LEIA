@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   width: 500px;
-  height: 475px;
+  height: auto;
   background-color: #151a21;
   border-radius: 13px;
 
@@ -112,4 +112,6 @@
   transition: 0.2s;
 }
 
-
+.register-form {
+  width: 100%;
+}

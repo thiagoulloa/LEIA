@@ -107,3 +107,7 @@
 #forgotPswBtn:hover {
   cursor: pointer;
 }
+
+.login-form {
+  width: 100%;
+}

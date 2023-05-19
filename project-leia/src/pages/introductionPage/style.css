@@ -35,7 +35,9 @@
 
 .logo.homebar {
   width: 15%;
+  max-width: 120px;
   height: auto;
+  max-height: 55%;
 }
 
 #registerBtn {
