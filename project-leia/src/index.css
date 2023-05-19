@@ -24,7 +24,7 @@ html {
 }
 
 .loginPage, .registerPage, .homePage {
-  background-color: midnightblue;
+  background-color: rgb(6, 6, 15);
 }
 
 .glow {
