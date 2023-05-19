@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import LogoLeia from "../../images/logoleia.png";
+import blob from "../../MouseMove/MouseMove";
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -41,6 +42,8 @@ function LoginPage() {
           </div>
         </div>
       </div>
+      <div id="blob"></div>
+      <div id="blur"></div>
     </div>
   );
 }
