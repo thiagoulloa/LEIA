@@ -5,7 +5,6 @@ import "./style.css";
 import LogoLeia from "../../images/logoleia.png";
 import * as yup from "yup";
 import Axios from "axios";
-import blob from "../../MouseMove/MouseMove";
 
 function LoginPage() {
   let navigate = useNavigate();

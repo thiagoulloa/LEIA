@@ -68,21 +68,28 @@ html {
   background-color: #ffffff;
 }
 
-#information-text {
+.information-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 100px;
   color: white;
   font-size: 25px;
 }
-#information-text h3 {
+.information-text h3 {
   align-items: center;
   color: white;
 }
-#information-text p {
-  font-size: 45%;
+.information-text p {
+  font-size: 70%;
+  font-weight: bold;
+  background-color: #00000088;
   align-items: center;
-  width: 400px;
+  width: 450px;
   margin-top: 10px;
   padding: 25px;
-  height: 350px;
-  border: white solid 1px;
+  height: auto;
+  border: white solid 2px;
+  border-radius: 3px;
 }
