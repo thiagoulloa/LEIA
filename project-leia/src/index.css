@@ -21,10 +21,11 @@ html {
   margin: 0;
   width: 100%;
   height: 100%;
+  overflow:hidden;
 }
 
 .loginPage, .registerPage, .homePage {
-  background-color: midnightblue;
+  background-color: rgb(6, 6, 15);
 }
 
 .glow {
