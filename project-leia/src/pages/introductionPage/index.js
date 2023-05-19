@@ -8,10 +8,16 @@ function IntroductionPage() {
 
   return (
     <div className="IntroductionPage">
+     
       <div className="topBar">
         <div className="alignLeft">
+        
           <img className="logo homebar" src={LogoLeia}></img>
+          
         </div>
+        
+
+
         <div className="alignRight">
           <p id="loginBtn" onClick={() => navigate("/login-page")}>
             Sign In
@@ -20,11 +26,24 @@ function IntroductionPage() {
           <button id="registerBtn" onClick={() => navigate("/register-page")}>
             Sign Up
           </button>
-        </div>
-      </div>
 
-      <div className="information-text">
-        <h3>LEIA </h3>
+          
+        </div>
+        <div className="QuadradoBranco">
+          <div className="TextoIntroduction">
+<p className="IntroductionTexto">
+OLa seja bem vindo ao projetio LEIA
+
+</p>
+
+          </div>
+      </div>
+      
+      
+    </div>
+    
+    <div className="information-text">
+        
         <p className="welcome-text">
           "Caro usuário, sua privacidade e segurança são extremamente
           importantes para nós. Queremos garantir que nosso site de documentação
@@ -43,8 +62,10 @@ function IntroductionPage() {
           serviços de documentação de texto e estamos sempre prontos para ajudar
           em qualquer dúvida ou problema. Confie em nós!"
         </p>
-      </div>
+      
     </div>
+    </div>
+    
   );
 }
 
