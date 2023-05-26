@@ -2,12 +2,33 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import LogoLeia from "../../images/logoleia.png";
 import "./style.css";
+import WebFont from 'webfontloader';
+
+import {
+  MDBFooter,
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBIcon,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 function IntroductionPage() {
   let navigate = useNavigate();
 
+
+  
+    WebFont.load({
+      google: {
+        families: ['Noto Sans:400']
+      }
+    });
+   
+   
   return (
+
     <div className="IntroductionPage">
+     
      
       <div className="topBar">
         <div className="alignLeft">
@@ -30,43 +51,112 @@ function IntroductionPage() {
           
         </div>
         <div className="QuadradoBranco">
-          <div className="TextoIntroduction">
-<p className="IntroductionTexto">
-OLa seja bem vindo ao projetio LEIA
 
-</p>
+
+          <div style={{fontFamily: 'Noto Sans'}}>
+<p className ="IntroductionTexto"> Seja bem vindo ao Projeto Léia? <br></br>
+Aqui você encontrará uma solução rápida e prática para sua documentação de códigos, com nossa inteligência artificial eleve a qualidade de seus projetos e economize seu tempo! </p>
 
           </div>
       </div>
       
       
     </div>
+
+<div className="footer">
+    <MDBFooter className='text-center text-white' style={{ backgroundColor: '#f1f1f1' }}>
+      <MDBContainer className='pt-4'>
+        <section className='mb-4'>
+          <MDBBtn
+            rippleColor="dark"
+            color='link'
+            floating
+            size="lg"
+            className='text-dark m-1'
+            href='#!'
+            role='button'
+          >
+            <MDBIcon fab className='fab fa-facebook-f' />
+          </MDBBtn>
+
+          <MDBBtn
+            rippleColor="dark"
+            color='link'
+            floating
+            size="lg"
+            className='text-dark m-1'
+            href='#!'
+            role='button'
+          >
+            <MDBIcon fab className='fa-twitter' />
+          </MDBBtn>
+
+          <MDBBtn
+            rippleColor="dark"
+            color='link'
+            floating
+            size="lg"
+            className='text-dark m-1'
+            href='#!'
+            role='button'
+          >
+            <MDBIcon fab className='fa-google' />
+          </MDBBtn>
+
+          <MDBBtn
+            rippleColor="dark"
+            color='link'
+            floating
+            size="lg"
+            className='text-dark m-1'
+            href='#!'
+            role='button'
+          >
+            <MDBIcon fab className='fa-instagram' />
+          </MDBBtn>
+
+          <MDBBtn
+            rippleColor="dark"
+            color='link'
+            floating
+            size="lg"
+            className='text-dark m-1'
+            href='#!'
+            role='button'
+          >
+            <MDBIcon fab className='fa-linkedin' />
+          </MDBBtn>
+
+          <MDBBtn
+            rippleColor="dark"
+            color='link'
+            floating
+            size="lg"
+            className='text-dark m-1'
+            href='#!'
+            role='button'
+          >
+            <MDBIcon fab className='fa-github' />
+          </MDBBtn>
+        </section>
+      </MDBContainer>
+
+      <div className='text-center text-dark p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+        © 2020 Copyright:
+        <a className='text-dark' href='https://mdbootstrap.com/'>
+          MDBootstrap.com
+        </a>
+      </div>
+    </MDBFooter>
+    </div>
+
+
+
+
+
+    </div>
     
-    <div className="information-text">
-        
-        <p className="welcome-text">
-          "Caro usuário, sua privacidade e segurança são extremamente
-          importantes para nós. Queremos garantir que nosso site de documentação
-          de texto não colete informações confidenciais de nossos usuários e que
-          você possa usar nossos serviços com tranquilidade. Ao usar nosso site,
-          você pode garantir que todas as informações inseridas em nossos
-          formulários sejam armazenadas com segurança em nossos servidores e
-          acessíveis apenas por você ou por pessoas autorizadas. Não
-          compartilhamos, vendemos ou divulgamos suas informações a terceiros
-          sem o seu consentimento. Além disso, usamos as últimas tecnologia de
-          segurança de dados, como criptografia SSL, para garantir que suas
-          informações sejam transmitidas com segurança entre seu navegador e
-          nossos servidores às vezes. Assim, você pode ficar tranquilo ao usar
-          nosso site para documentar seu texto, sabendo que seus dados pessoais
-          e documentos estão seguros conosco. Obrigado pela confiança em nossos
-          serviços de documentação de texto e estamos sempre prontos para ajudar
-          em qualquer dúvida ou problema. Confie em nós!"
-        </p>
-      
-    </div>
-    </div>
     
   );
 }
-
 export default IntroductionPage;
