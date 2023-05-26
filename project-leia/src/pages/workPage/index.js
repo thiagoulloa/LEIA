@@ -1,52 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import Axios from "axios";
+import JoditEditor from "jodit-react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./style.css";
 
 function WorkPage() {
   let navigate = useNavigate();
 
+  const editor = useRef(null);
   const [mensagem, setMensagem] = useState("");
-  const [mensagensEnviadas, setMensagensEnviadas] = useState([]);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
-  function handleChange(event) {
-    setMensagem(event.target.value);
-  }
+  const { state } = useLocation();
+  const { userId } = state;
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    enviarMensagem(mensagem);
-    setMensagem("");
-  }
+  React.useEffect(() => {
+    console.log(state);
+  }, []);
 
-  function enviarMensagem(mensagem) {
-    setMensagensEnviadas([...mensagensEnviadas, mensagem]);
+  async function SaveDoc() {
+    Axios.post("http://localhost:3001/projetos", {
+      titulo: title,
+      content: content,
+      id_usuario: state,
+    }).then((response) => {
+      console.log(response);
+    });
   }
 
   return (
     <div className="workPage">
+      <input
+        className="project-title"
+        placeholder="Título do Arquivo"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      ></input>
       <div className="containers-div">
         <div className="container-text code">
           <textarea
             type="text"
             className="input-code"
             value={mensagem}
-            onChange={handleChange}
+            onChange={setMensagem}
           />
+          <button type="submit" className="glow">
+            Enviar
+          </button>
         </div>
-        <div className="container-text doc">
-          {mensagensEnviadas.map((mensagem, index) => (
-            <div key={index} className="mensagem">
-              {mensagem}
-            </div>
-          ))}
+        <div className="container-editor">
+          <div className="Editor">
+            <JoditEditor
+              ref={editor}
+              value={content}
+              tabIndex={1} // tabIndex of textarea
+              onChange={(newContent) => setContent(newContent)}
+            />
+          </div>
+          <button className="glow" onClick={SaveDoc}>
+            Salvar
+          </button>
         </div>
       </div>
-
-      <form onSubmit={handleSubmit}>
-        <button type="submit" className="glow">
-          Enviar
-        </button>
-      </form>
     </div>
   );
 }

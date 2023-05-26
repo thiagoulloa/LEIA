@@ -46,7 +46,7 @@ html {
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: rgb(255, 255, 255);
-  box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgb(6, 79, 139),
+  box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgba(6, 79, 139, 0.212),
     0 0 50px rgb(6, 79, 139), 0 0 100px rgb(6, 79, 139);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 17px;

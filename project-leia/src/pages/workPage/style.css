@@ -15,21 +15,32 @@
 
 .containers-div {
   display: flex;
-  margin-top: 5vh;
+  margin-top: 2vh;
   justify-content: space-evenly;
   width: 100%;
   height: 80%;
 }
 
 .container-text {
-  display: flex;
-  flex-direction: column;
-  background-color: #0ab6eb;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
   height: 100%;
   width: 40%;
+}
+
+.container-editor {
+  width: 40%;
+  height: 100%;
+}
+
+.container-text.code {
+  background-color: #043d4e42;
+}
+
+.Editor {
+  background-color: #0ab6eb;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: rgba(25, 175, 217, 0.25);
@@ -37,10 +48,6 @@
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.container-text.code {
-  background-color: #043d4e42;
 }
 
 .input-code {
@@ -51,6 +58,12 @@
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: large;
+  background: rgba(25, 175, 217, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
 }
 
 .mensagem {
@@ -60,4 +73,32 @@
   background-color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: medium;
+}
+
+.project-title {
+  height: 4%;
+  width: 50%;
+  margin-top: 3vh;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.project-title::placeholder {
+  color: rgba(255, 255, 255, 0.514);
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.jodit-react-container,
+.jodit-container.jodit.jodit_theme_default.jodit-wysiwyg_mode {
+  width: 100%;
+  height: 100% !important;
+}
+
+.jodit-workplace {
+  height: 80% !important;
 }

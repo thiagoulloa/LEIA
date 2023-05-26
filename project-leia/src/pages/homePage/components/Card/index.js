@@ -6,7 +6,7 @@ export default function BasicCard() {
   let navigate = useNavigate();
 
   return (
-    <div className="card" onClick={() => navigate("/work-page")}>
+    <div className="card">
       <div className="title">
         <h2 className="card-title">Componente -------</h2>
       </div>

@@ -15,7 +15,7 @@ function LoginPage() {
     }).then((response) => {
       console.log(response);
       if (response.status === 200) {
-        navigate("/home-page");
+        navigate("/home-page", { state: 1 });
       }
     });
   };
