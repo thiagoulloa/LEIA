@@ -5,19 +5,23 @@ import BasicCard from "./components/Card";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useLocation } from "react-router-dom";
-/*import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import myFunction from "./fontaw/fontaw";*/
 
 export default function HomePage() {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
 
-  const { state } = useLocation();
-  const { userId } = state;
+  const { state } = 1; //useLocation()
+  const { userId } = 1; //state
 
   function openNav() {
     setBtnState((btnState) => !btnState);
+    document.querySelector('.user',)
+        .classList.toggle('open');
+    
+    document.querySelector('.user-container',)
+        .classList.toggle('open');
   }
 
   React.useEffect(() => {
@@ -38,12 +42,12 @@ export default function HomePage() {
                 alt="menubutton"
                 onClick={() => {
                   openNav();
-                  //myFunction();
                 }}
               />
             </div>
             <div className="bottom-align">
-              <div className="App">
+              <div className="user-container">
+                <FontAwesomeIcon className="ft" icon={faUser} />
                 <p className="user">User</p>
               </div>
             </div>

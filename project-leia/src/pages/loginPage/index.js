@@ -5,6 +5,8 @@ import "./style.css";
 import LogoLeia from "../../images/logoleia.png";
 import * as yup from "yup";
 import Axios from "axios";
+import BlobFunction from "../../MouseMove/MouseMove";
+
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -19,6 +21,10 @@ function LoginPage() {
       }
     });
   };
+
+  React.useEffect(() => {
+    BlobFunction();
+  }, []);
 
   const validationSchema = yup.object().shape({
     email: yup

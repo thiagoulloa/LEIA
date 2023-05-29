@@ -5,6 +5,7 @@ import "./style.css";
 import LogoLeia from "../../images/logoleia.png";
 import * as yup from "yup";
 import Axios from "axios";
+import BlobFunction from "../../MouseMove/MouseMove";
 
 function RegisterPage() {
   let navigate = useNavigate();
@@ -38,6 +39,10 @@ function RegisterPage() {
       .string()
       .oneOf([yup.ref("password"), null], "os campos não são iguais"),
   });
+
+  React.useEffect(() => {
+    BlobFunction();
+  }, []);
 
   return (
     <div className="registerPage">
@@ -121,6 +126,8 @@ function RegisterPage() {
           </Formik>
         </div>
       </div>
+      <div id="blob"></div>
+      <div id="blur"></div>
     </div>
   );
 }

@@ -6,6 +6,7 @@
   margin: 0;
   height: 100vh;
   width: 100%;
+  overflow-y: hidden;
 }
 
 .containerLogin {
@@ -17,11 +18,11 @@
   background-color: #151a21;
   border-radius: 13px;
 
-  background: rgba(25, 175, 217, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.37);
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.829);
   z-index: 999;
 }
 
@@ -35,7 +36,7 @@
   width: 100%;
   height: 100px;
 
-  background: rgba(9, 79, 99, 0.25);
+  background: rgba(255, 255, 255, 0.13);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
@@ -76,14 +77,13 @@
   backdrop-filter: blur(7px);
   background: transparent;
 
-  background: rgba(9, 79, 99, 0.25);
+  background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
-  box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgb(6, 79, 139),
-    0 0 50px rgb(6, 79, 139), 0 0 100px rgb(6, 79, 139);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 17px;
   transition: 0.3s;
@@ -91,7 +91,8 @@
 
 .login-button:hover {
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
+  box-shadow: 0 0 5px rgb(255, 255, 255), 0 0 25px rgb(110, 110, 110),
+  0 0 50px rgb(206, 206, 206), 0 0 100px rgb(131, 131, 131);
   height: 40px;
   width: 75%;
   font-size: 20px;
@@ -113,25 +114,41 @@
   width: 100%;
 }
 
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  
+  50% {
+    scale: 1 1.5;
+  }
+  
+  to {
+    rotate: 360deg;
+  }
+}
+
 #blob {
   background-color: white;
-  height: 15vmax;
+  height: 25vmax;
   aspect-ratio: 1;
   position: absolute;
   left: 50%;
   top: 50%;
   translate: -50% -50%;
   border-radius: 50%;
-  background: linear-gradient(to right, rgb(0, 255, 170), rgb(85, 0, 255));
+  background: linear-gradient(to right, aquamarine, mediumpurple);
   animation: rotate 20s infinite;
   opacity: 0.8;
   z-index: 1;
+
 }
+
 
 #blur {
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: 2;
-  backdrop-filter: blur(9vmax);
+  backdrop-filter: blur(12vmax);
 }

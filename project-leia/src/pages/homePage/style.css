@@ -62,3 +62,30 @@
   font-family: monospace;
   display: none;
 }
+
+
+.ft{
+  color: rgb(255, 246, 235);
+  font-family: monospace;
+  font-size: 2rem;
+  display: flex;
+
+}
+.user.open{
+  display: block;
+  color: rgb(255, 246, 235);
+  font-family: monospace;
+}
+
+.user-container{
+  margin-top: 1rem;
+  transition: 0.5s;
+}
+
+.user-container.open{
+  display: flex;
+  align-items: center;
+  gap: 9rem;
+  margin-top: 1rem;
+  transition: 0.5s;
+}
