@@ -14,6 +14,7 @@ function WorkPage() {
   const [content, setContent] = useState("");
 
   const { state } = useLocation();
+
   const { userId } = state;
 
   React.useEffect(() => {
@@ -21,7 +22,7 @@ function WorkPage() {
   }, []);
 
   async function SaveDoc() {
-    Axios.post("http://localhost:3001/projetos", {
+    Axios.post("http://localhost:3001/savedocs", {
       titulo: title,
       content: content,
       id_usuario: state,
