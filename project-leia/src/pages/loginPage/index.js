@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
@@ -7,19 +7,46 @@ import * as yup from "yup";
 import Axios from "axios";
 import BlobFunction from "../../MouseMove/MouseMove";
 
+const MAX_LOGIN_ATTEMPTS = 3;
+const LOCKOUT_DURATION = 10 * 60 * 100;
 
 function LoginPage() {
   let navigate = useNavigate();
+  const [loginAttempts, setLoginAttempts] = useState(0);
+  const [isLockedOut, setIsLockedOut] = useState(false);
+
   const handleClickLogin = (values) => {
+    if (isLockedOut) {
+      alert("Sua conta está bloqueada. Por favor, tente novamente mais tarde.");
+      return;
+    }
+
     Axios.post("http://localhost:3001/Login", {
       email: values.email,
       password: values.password,
-    }).then((response) => {
-      console.log(response);
-      if (response.status === 200) {
-        navigate("/home-page", { state: 1 });
-      }
-    });
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          navigate("/home-page", { state: response.data.userId });
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          handleFailedLogin();
+        }
+      });
+  };
+
+  const handleFailedLogin = () => {
+    setLoginAttempts((prevAttempts) => prevAttempts + 1);
+
+    if (loginAttempts + 1 === MAX_LOGIN_ATTEMPTS) {
+      setIsLockedOut(true);
+      setTimeout(() => {
+        setIsLockedOut(false);
+        setLoginAttempts(0);
+      }, LOCKOUT_DURATION);
+    }
   };
 
   React.useEffect(() => {
