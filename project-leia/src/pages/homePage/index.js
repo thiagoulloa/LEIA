@@ -12,16 +12,20 @@ export default function HomePage() {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
 
-  const { state } = 1; //useLocation()
-  const { userId } = 1; //state
+  const { state } = useLocation();
+  const { userId } = state;
 
+  /*
+    function GetProjects() {
+    Axios.post("http://localhost:3001/getprojects", {
+      id_usuario: state,
+    }).then((response) => {
+      console.log(response);
+    });
+  }
+*/
   function openNav() {
     setBtnState((btnState) => !btnState);
-    document.querySelector('.user',)
-        .classList.toggle('open');
-    
-    document.querySelector('.user-container',)
-        .classList.toggle('open');
   }
 
   React.useEffect(() => {
