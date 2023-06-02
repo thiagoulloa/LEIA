@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import LogoLeia from "../../images/logoleia.png";
 import Instagram from "./images/Instagram.png";
+import linkedin from "./images/linkedin.png";
 import "./style.css";
 import WebFont from 'webfontloader';
 
@@ -68,6 +69,9 @@ Aqui você encontrará uma solução rápida e prática para sua documentação 
   </div>
   </div>
   <div className="alignRight">
+  <a href="https://heylink.me/projetoleia/">
+  <img className="logo linkedin" src={linkedin}></img>
+  </a>
   <img className="logo instagram" src={Instagram}></img>
   </div>
 </div>
