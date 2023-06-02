@@ -6,7 +6,7 @@
   margin: 0;
   height: 100vh;
   width: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .containerLogin {
@@ -24,6 +24,7 @@
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.829);
   z-index: 999;
+  overflow: hidden;
 }
 
 .logoDivLogin {
