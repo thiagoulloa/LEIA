@@ -7,30 +7,36 @@ import "./style.css";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import Axios from "axios";
 
 export default function HomePage() {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
-
   const { state } = useLocation();
   const { userId } = state;
+  const [projects, setProjects] = React.useState([]);
 
-  /*
-    function GetProjects() {
-    Axios.post("http://localhost:3001/getprojects", {
-      id_usuario: state,
-    }).then((response) => {
-      console.log(response);
-    });
-  }
-*/
   function openNav() {
     setBtnState((btnState) => !btnState);
   }
 
   React.useEffect(() => {
     console.log(state);
+    getProjects();
   }, []);
+
+  function getProjects() {
+    Axios.post("http://localhost:3001/getprojects", {
+      id_usuario: userId,
+    })
+      .then((response) => {
+        console.log(response);
+        setProjects(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   let toggleClassCheck = btnState ? "-open" : "";
 
