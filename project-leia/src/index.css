@@ -86,3 +86,10 @@ html {
   height: 100% !important;
   width: 250px !important;
 }
+
+.align-top {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}

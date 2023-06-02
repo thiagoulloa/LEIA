@@ -39,7 +39,12 @@
 
 .cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
+  margin-left: 85px;
+  margin-bottom: 10px;
+  justify-content: center;
+  overflow-y: auto;
 }
 
 .logo.lateral {
@@ -57,35 +62,73 @@
 .bottom-align {
   padding-bottom: 20px;
 }
-.user{
+.user {
   color: rgb(255, 246, 235);
   font-family: monospace;
   display: none;
 }
 
-
-.ft{
+.ft {
   color: rgb(255, 246, 235);
   font-family: monospace;
   font-size: 2rem;
   display: flex;
-
 }
-.user.open{
+.user.open {
   display: block;
   color: rgb(255, 246, 235);
   font-family: monospace;
 }
 
-.user-container{
+.user-container {
   margin-top: 1rem;
   transition: 0.5s;
 }
 
-.user-container.open{
+.user-container.open {
   display: flex;
   align-items: center;
   gap: 9rem;
   margin-top: 1rem;
   transition: 0.5s;
+}
+
+#new-doc-button {
+  height: 100%;
+  width: 20%;
+  padding: 5px;
+  border-radius: 7px;
+  border-width: 1.7px;
+  border-color: rgba(255, 255, 255, 0.678);
+  border-style: ridge;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.align-top.homepage {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.search-docs {
+  padding: 10px;
+  width: 40%;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: rgba(255, 255, 255, 0.11);
+  color: white;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+.align-right.homepage {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 25px;
+  width: 50%;
+  height: 100%;
 }

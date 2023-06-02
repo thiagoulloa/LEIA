@@ -25,6 +25,7 @@ function WorkPage() {
     Axios.post("http://localhost:3001/savedocs", {
       titulo: title,
       content: content,
+      preview: content,
       id_usuario: state,
     }).then((response) => {
       console.log(response);

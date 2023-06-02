@@ -12,9 +12,11 @@ import Axios from "axios";
 export default function HomePage() {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
+  const [projects, setProjects] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState("");
+
   const { state } = useLocation();
   const { userId } = state;
-  const [projects, setProjects] = React.useState([]);
 
   function openNav() {
     setBtnState((btnState) => !btnState);
@@ -25,17 +27,18 @@ export default function HomePage() {
     getProjects();
   }, []);
 
+  /* React.useEffect(() => {
+    getProjects();
+  }, [searchValue]); */
+
   function getProjects() {
     Axios.post("http://localhost:3001/getprojects", {
-      id_usuario: userId,
+      id_usuario: state,
     })
       .then((response) => {
-        console.log(response);
         setProjects(response.data);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error));
   }
 
   let toggleClassCheck = btnState ? "-open" : "";
@@ -72,17 +75,32 @@ export default function HomePage() {
         </div>
       </div>
       <div className="content homePage">
-        <h1 id="title-home">Seus Arquivos:</h1>
+        <div className="align-top homepage">
+          <h1 id="title-home">Seus Arquivos:</h1>
+          <div className="align-right homepage">
+            <input
+              className="search-docs"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            ></input>
+            <button
+              id="new-doc-button"
+              onClick={() => navigate("/work-page", { state: state })}
+            >
+              Novo Arquivo
+            </button>
+          </div>
+        </div>
+
         <div className="cards">
-          <div onClick={() => navigate("/work-page", { state: state })}>
-            <BasicCard />
-          </div>
-          <div onClick={() => navigate("/work-page", { state: state })}>
-            <BasicCard />
-          </div>
-          <div onClick={() => navigate("/work-page", { state: state })}>
-            <BasicCard />
-          </div>
+          {projects.length > 0 &&
+            projects.map((project) => (
+              <BasicCard
+                titulo={project.titulo}
+                preview={project.preview}
+                userId={state}
+              />
+            ))}
         </div>
       </div>
     </div>

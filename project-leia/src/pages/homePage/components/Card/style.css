@@ -4,10 +4,14 @@
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.555);
   border-radius: 10px;
-  width: 250px;
+  min-width: 250px;
+  max-width: 280px;
   height: 230px;
   cursor: pointer;
   gap: 20px;
+  flex-basis: 33%;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 .card:hover {
