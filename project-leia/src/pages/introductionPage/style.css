@@ -10,9 +10,9 @@
 .QuadradoBranco {
   position: absolute;
 width: 620px;
-height: 40%;
+height: 35%;
 left: 73px;
-top: 280px;
+top: 300px;
 align-items: center;
 display: flex;
 background: #FFFFFF;
@@ -40,6 +40,7 @@ border-radius: 20px;
   justify-content: right;
   align-items: center;
   margin-right: 20px;
+  gap: 10px;
 }
 
 .alignLeft {
@@ -101,7 +102,7 @@ font-size: 20px;
 
 .footer {
   position: relative;
-  top: 500px;
+  top: 87.1vh;
   align-items: center;
 }
 
@@ -126,3 +127,13 @@ font-size: 20px;
   height: auto;
   left: -200;
  }
+
+ .logo.linkedin {
+  display: flex;
+  width: 20px;
+  height: auto;
+  left: -180px;
+ }
+
+
+
