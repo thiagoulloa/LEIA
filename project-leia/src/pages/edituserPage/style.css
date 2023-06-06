@@ -1,0 +1,116 @@
+.edituserPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #151a21;
+}
+
+.fundoBranco {
+  position: absolute;
+  flex-direction: column;
+  width: 60vh;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.emailInput {
+  width: 40vh;
+  height: 7vh;
+  background-color: #05060f0a;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+}
+
+.emailLBL {
+  left: 10vh;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #05060f99;
+}
+
+.senhaAT {
+  margin: 0px;
+}
+
+.senha {
+  margin: 0px;
+}
+.senhas {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.senhaATInput {
+  width: 40vh;
+  height: 7vh;
+  background-color: #05060f0a;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+}
+
+.senhaATLBL {
+  left: 10vh;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #05060f99;
+}
+
+.senhaInput {
+  width: 40vh;
+  height: 7vh;
+  background-color: #05060f0a;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+}
+
+.senhaLBL {
+  left: 10vh;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #05060f99;
+}
+
+.FnAlt {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 60vh;
+  height: 0.5vh;
+  background-color: #1d1e22;
+  padding: 2px;
+}
+
+.Alt {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #151a21;
+}
+
+.alignLeft {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  align-items: center;
+  margin-left: 10px;
+}
