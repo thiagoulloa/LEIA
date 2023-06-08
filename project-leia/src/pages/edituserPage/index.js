@@ -10,13 +10,21 @@ function EdituserPage() {
   return (
     <div className="edituserPage">
       <div className="fundoBranco">
-        <div className="email">
-          <div className="alignLeft">
-            <label class="emailLBL">Seu email:</label>
+        <div className="cima">
+          <div className="usuario">
+            <div className="alignLeft">
+              <label class="usuarioLBL">Seu nome de usuario:</label>
+            </div>
+            <input type="text" className="usuarioInput"></input>
           </div>
-          <input type="text" className="emailInput"></input>
-        </div>
 
+          <div className="email">
+            <div className="alignLeft">
+              <label class="emailLBL">Seu email:</label>
+            </div>
+            <input type="text" className="emailInput"></input>
+          </div>
+        </div>
         <div className="FnAlt">
           <label style={whiteBackgroundStyles} className="Alt">
             Alterar sua senha
@@ -25,16 +33,20 @@ function EdituserPage() {
         <div className="senhas">
           <div className="senhaAT">
             <div className="alignLeft">
-              <label class="senhaATLBL">Digite sua senha atual:</label>
+              <label class="senhaATLBL">Confirme sua senha atual:</label>
             </div>
             <input type="text" className="senhaATInput"></input>
           </div>
           <div className="senha">
             <div className="alignLeft">
-              <label class="senhaLBL">Altere sua senha:</label>
+              <label class="senhaLBL">Digite sua nova senha:</label>
             </div>
             <input type="text" className="senhaInput"></input>
           </div>
+
+          <button className="BTNalteracao" type="submit">
+            <span className="BTNlbl">Confirmar Alterações</span>
+          </button>
         </div>
       </div>
     </div>
