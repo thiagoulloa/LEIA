@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 const whiteBackgroundStyles = {
-  backgroundColor: "white",
   padding: "10px 15px",
 };
 
@@ -45,7 +44,7 @@ function EdituserPage() {
           </div>
 
           <button className="BTNalteracao" type="submit">
-            <span className="BTNlbl">Confirmar Alterações</span>
+            Confirmar Alterações
           </button>
         </div>
       </div>
