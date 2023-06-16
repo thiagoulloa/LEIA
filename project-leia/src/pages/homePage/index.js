@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 
-
 export default function HomePage() {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
@@ -24,30 +23,24 @@ export default function HomePage() {
   }
 
   React.useEffect(() => {
-    console.log(state);
     getProjects();
   }, []);
 
-
-
   function searchProjects() {
-    if(searchValue.length >= 1){
-    Axios.post("http://localhost:3001/search", {
-      id_usuario: state,
-      titulo: searchValue,
-    })
-      .then((response) => {
-        setProjects(response.data)
-        console.log(response)
+    if (searchValue.length >= 1) {
+      Axios.post("http://localhost:3001/search", {
+        id_usuario: state,
+        titulo: searchValue,
       })
-      .catch((error) => console.log(error));
+        .then((response) => {
+          setProjects(response.data);
+          console.log(response);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      getProjects();
+    }
   }
-  else{
-    getProjects();
-  }
-}
-  
-
 
   function getProjects() {
     Axios.post("http://localhost:3001/getprojects", {
@@ -78,7 +71,11 @@ export default function HomePage() {
             </div>
             <div className="bottom-align">
               <div className="user-container">
-                <FontAwesomeIcon className="ft" icon={faUser} />
+                <FontAwesomeIcon
+                  className="ft"
+                  icon={faUser}
+                  onClick={() => navigate("/edituserPage")}
+                />
                 <p className="user">User</p>
               </div>
             </div>
@@ -97,14 +94,17 @@ export default function HomePage() {
           <h1 id="title-home">Seus Arquivos:</h1>
           <div className="align-right homepage">
             <div className="search-div">
-            <input
-              className="search-docs"
-              id="search-input"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)
-              }
-            ></input>
-            <FontAwesomeIcon className="ft" icon={faSearch} onClick={searchProjects}/>
+              <input
+                className="search-docs"
+                id="search-input"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+              ></input>
+              <FontAwesomeIcon
+                className="ft"
+                icon={faSearch}
+                onClick={searchProjects}
+              />
             </div>
             <button
               id="new-doc-button"
@@ -121,7 +121,8 @@ export default function HomePage() {
               <BasicCard
                 titulo={project.titulo}
                 preview={project.preview}
-                userId={state}
+                projectId={project.id}
+                userId={project.id_usuario}
               />
             ))}
         </div>

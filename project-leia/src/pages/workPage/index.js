@@ -15,8 +15,6 @@ function WorkPage() {
 
   const { state } = useLocation();
 
-  const { userId } = state;
-
   React.useEffect(() => {
     console.log(state);
   }, []);
@@ -26,7 +24,7 @@ function WorkPage() {
       titulo: title,
       content: content,
       preview: content,
-      id_usuario: state,
+      id_usuario: state[0].user,
     }).then((response) => {
       console.log(response);
     });
@@ -54,12 +52,11 @@ function WorkPage() {
         </div>
         <div className="container-editor">
           <div className="Editor">
-            <JoditEditor
-              ref={editor}
+            <textarea
+              id="document"
               value={content}
-              tabIndex={1} // tabIndex of textarea
-              onChange={(newContent) => setContent(newContent)}
-            />
+              onChange={(e) => setContent(e.target.value)}
+            ></textarea>
           </div>
           <button className="glow" onClick={SaveDoc}>
             Salvar
