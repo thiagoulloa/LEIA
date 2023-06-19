@@ -10,7 +10,7 @@ import BlobFunction from "../../MouseMove/MouseMove";
 const MAX_LOGIN_ATTEMPTS = 3;
 const LOCKOUT_DURATION = 10 * 60 * 100;
 
-function LoginPage() {
+function FgtPasswordPage() {
   let navigate = useNavigate();
   const [loginAttempts, setLoginAttempts] = useState(0);
   const [isLockedOut, setIsLockedOut] = useState(false);
@@ -83,9 +83,9 @@ function LoginPage() {
           >
             <Form className="login-form">
               <Field
-                type="text"
-                name="email"
-                placeholder="Digite seu email"
+                type="password"
+                name="password"
+                placeholder="Insira sua nova senha"
                 className="input form"
               />
               <ErrorMessage
@@ -97,7 +97,7 @@ function LoginPage() {
               <Field
                 type="password"
                 name="password"
-                placeholder="Digite sua senha"
+                placeholder="Confirme a senha"
                 className="input form"
               />
               <ErrorMessage
@@ -107,7 +107,7 @@ function LoginPage() {
               />
 
               <button className="login-button" type="submit">
-                Login
+                Confirmar
               </button>
 
               <div className="txtBtnDivLogin">
@@ -116,15 +116,7 @@ function LoginPage() {
                   id="createAccBtn"
                   onClick={() => navigate("/register-page")}
                 >
-                  Crie sua conta
-                </p>
-
-                <p
-                  className="textButton"
-                  id="createAccBtn"
-                  onClick={() => navigate("/FgtPasswordPage")}
-                >
-                  Esqueci minha senha
+                  Login
                 </p>
 
               </div>
@@ -138,4 +130,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default FgtPasswordPage;

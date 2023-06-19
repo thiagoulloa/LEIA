@@ -9,6 +9,9 @@
   overflow: hidden;
 }
 
+html{
+  overflow: hidden;
+}
 .containerLogin {
   display: flex;
   flex-direction: column;
@@ -101,9 +104,8 @@
 
 .txtBtnDivLogin {
   display: flex;
-  margin: 20px;
-  width: 70%;
   justify-content: center;
+  gap: 3rem;
 }
 
 #createAccBtn:hover,
@@ -115,31 +117,17 @@
   width: 100%;
 }
 
-@keyframes rotate {
-  from {
-    rotate: 0deg;
-  }
-  
-  50% {
-    scale: 1 1.5;
-  }
-  
-  to {
-    rotate: 360deg;
-  }
-}
 
 #blob {
   background-color: white;
-  height: 25vmax;
+  height: 5vmax;
   aspect-ratio: 1;
   position: absolute;
   left: 50%;
   top: 50%;
-  translate: -50% -50%;
+  translate: 0% 0%;
   border-radius: 50%;
   background: linear-gradient(to right, aquamarine, mediumpurple);
-  animation: rotate 20s infinite;
   opacity: 0.8;
   z-index: 1;
 

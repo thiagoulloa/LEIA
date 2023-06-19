@@ -11,6 +11,10 @@
   overflow: hidden;
 }
 
+html{
+  overflow: hidden;
+}
+
 .containerRegister {
   display: flex;
   flex-direction: column;
@@ -100,10 +104,8 @@
 }
 
 .txtBtnDivRegister {
-  margin: 20px;
   display: flex;
-  width: 70%;
-  justify-content: center;
+ justify-content: center;
   align-items: center;
 }
 
@@ -119,31 +121,17 @@
   width: 100%;
 }
 
-@keyframes rotate {
-  from {
-    rotate: 0deg;
-  }
-
-  50% {
-    scale: 1 1.5;
-  }
-
-  to {
-    rotate: 360deg;
-  }
-}
 
 #blob {
   background-color: white;
-  height: 25vmax;
+  height: 5vmax;
   aspect-ratio: 1;
   position: absolute;
   border-radius: 50%;
   background: linear-gradient(to right, aquamarine, mediumpurple);
-  animation: rotate 20s infinite;
   opacity: 0.8;
   z-index: 1;
-  transform: translate(-50% -50%);
+  translate: 0% 0%;
 }
 
 #blur {
