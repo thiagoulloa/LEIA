@@ -5,12 +5,14 @@ import Instagram from "./images/Instagram.png";
 import linkedin from "./images/linkedin.png";
 import "./style.css";
 import WebFont from 'webfontloader';
-
+import BlobFunction from "../../MouseMove/MouseMove";
 
 function IntroductionPage() {
   let navigate = useNavigate();
 
-
+  React.useEffect(() => {
+    BlobFunction();
+  }, []);
   
     WebFont.load({
       google: {
@@ -22,6 +24,9 @@ function IntroductionPage() {
   return (
 
     <div className="IntroductionPage">
+     
+     <div className="align-top">
+
      
      
       <div className="topBar">
@@ -43,8 +48,12 @@ function IntroductionPage() {
           </button>
 
           
+          </div>
         </div>
-        <div className="QuadradoBranco">
+    </div>
+
+        <div className="align-center">
+          <div className="QuadradoBranco">
 
 
           <div style={{fontFamily: 'Space Grotesk'}}>
@@ -52,10 +61,12 @@ function IntroductionPage() {
 Aqui você encontrará uma solução rápida e prática para sua documentação de códigos, com nossa inteligência artificial eleve a qualidade de seus projetos e economize seu tempo! </p>
 
           </div>
+        </div>
       </div>
+
       
       
-    </div>
+   <div className="align-bottom">
 
 <div className="footer">
     
@@ -77,12 +88,11 @@ Aqui você encontrará uma solução rápida e prática para sua documentação 
 </div>
 
 
-    </div>
+        </div>
 
-
-
-
-
+      </div>' '
+      <div id="blob"></div>
+      <div id="blur"></div>
     </div>
     
     
