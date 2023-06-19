@@ -7,6 +7,7 @@ import RegisterPage from "./pages/registerPage";
 import WorkPage from "./pages/workPage";
 import EdituserPage from "./pages/edituserPage";
 import "./App.css";
+import FgtPasswordPage from "./pages/FgtPasswordPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register-page" element={<RegisterPage />} />
         <Route path="/work-page" element={<WorkPage />} />
         <Route path="/edituserPage" element={<EdituserPage />} />
+        <Route path="/FgtPasswordPage" element={<FgtPasswordPage />} />
       </Routes>
     </div>
   );

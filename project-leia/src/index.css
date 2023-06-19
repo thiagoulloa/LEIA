@@ -23,6 +23,10 @@ html {
   height: 100%;
 }
 
+.error-message{
+  color: aliceblue;
+}
+
 .loginPage,
 .registerPage,
 .homePage,
