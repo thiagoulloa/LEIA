@@ -18,6 +18,12 @@ export default function HomePage() {
   const { state } = useLocation();
   const { userId } = state;
 
+  const [info] = React.useState([
+    {
+      user: state,
+    },
+  ]);
+
   function openNav() {
     setBtnState((btnState) => !btnState);
   }
@@ -108,7 +114,7 @@ export default function HomePage() {
             </div>
             <button
               id="new-doc-button"
-              onClick={() => navigate("/work-page", { state: state })}
+              onClick={() => navigate("/work-page", { state: info })}
             >
               Novo Arquivo
             </button>
