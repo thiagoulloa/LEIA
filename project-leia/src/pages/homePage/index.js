@@ -54,17 +54,28 @@ export default function HomePage() {
     })
       .then((response) => {
         setProjects(response.data);
+        console.log(response);
       })
       .catch((error) => console.log(error));
   }
 
   let toggleClassCheck = btnState ? "-open" : "";
 
+  function toggleText() {
+    var profiletext = document.getElementById("profile-text");
+
+    if (profiletext.style.display === "flex") {
+      profiletext.style.display = "none";
+    } else {
+      profiletext.style.display = "flex";
+    }
+  }
+
   return (
     <div className="homePage">
       <div className={`sideMenu${toggleClassCheck}`}>
         <div className="menu-separate">
-          <div className="top-align">
+          <div className="align-top sidemenu">
             <div className="menubutton">
               <img
                 src={MenuButton}
@@ -72,6 +83,7 @@ export default function HomePage() {
                 alt="menubutton"
                 onClick={() => {
                   openNav();
+                  toggleText();
                 }}
               />
             </div>
@@ -82,7 +94,9 @@ export default function HomePage() {
                   icon={faUser}
                   onClick={() => navigate("/edituserPage")}
                 />
-                <p className="user">User</p>
+                <p className="user" id="profile-text">
+                  User
+                </p>
               </div>
             </div>
           </div>

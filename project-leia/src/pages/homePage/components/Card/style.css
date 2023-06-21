@@ -1,6 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.555);
   border-radius: 10px;
@@ -8,17 +9,35 @@
   max-width: 280px;
   height: 230px;
   cursor: pointer;
-  gap: 20px;
   flex-basis: 33%;
   overflow: hidden;
   word-wrap: break-word;
+  transition: 0.3s;
 }
 
 .card:hover {
   border-color: #257afd;
+
+  height: 280px;
 }
 
 .card-title,
 .card-text {
   color: white;
+}
+
+.card-text {
+  width: 100%;
+}
+
+.card-title-container {
+  height: 10%;
+  margin-top: 5px;
+}
+
+.card-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

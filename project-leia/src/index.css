@@ -23,7 +23,7 @@ html {
   height: 100%;
 }
 
-.error-message{
+.error-message {
   color: aliceblue;
 }
 
@@ -96,4 +96,26 @@ html {
   width: 100%;
   justify-content: space-around;
   align-items: center;
+}
+
+#blob {
+  background-color: white;
+  height: 22vmax;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: 0% 0%;
+  border-radius: 50%;
+  background: linear-gradient(to right, aquamarine, mediumpurple);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+#blur {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  backdrop-filter: blur(12vmax);
 }

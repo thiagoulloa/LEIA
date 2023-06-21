@@ -49,13 +49,13 @@ function WorkPage() {
   }
 
   function sendRequest() {
-    const prompt = `Documente este código separando e explicando suas funções: \n\n"${mensagem}`;
+    const prompt = `Documente este código explicando suas funções: \n\n"${mensagem}`;
 
     const params = {
       model: "text-davinci-003",
       prompt: prompt,
       max_tokens: 1000,
-      temperature: 0.7,
+      temperature: 0.3,
     };
 
     client

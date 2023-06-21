@@ -57,6 +57,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: 100%;
 }
 
 .bottom-align {
@@ -82,6 +83,10 @@
 }
 
 .user-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
   margin-top: 1rem;
   transition: 0.5s;
 }
@@ -112,7 +117,7 @@
   margin-top: 10px;
 }
 
-.search-docs{
+.search-docs {
   width: 80%;
   color: white;
   font-weight: 200;
@@ -120,9 +125,8 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background-color: transparent;
   border: none;
-  
 }
-.search-docs:focus{
+.search-docs:focus {
   outline: none;
 }
 
@@ -135,7 +139,7 @@
   height: 100%;
 }
 
-.search-div{
+.search-div {
   display: flex;
   gap: 3rem;
   padding: 10px;
@@ -146,3 +150,13 @@
   background-color: rgba(255, 255, 255, 0.11);
 }
 
+#profile-text {
+  display: none;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.align-top.sidemenu {
+  display: flex;
+  flex-direction: column;
+}

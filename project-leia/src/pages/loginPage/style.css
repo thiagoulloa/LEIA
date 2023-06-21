@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-html{
+html {
   overflow: hidden;
 }
 .containerLogin {
@@ -96,7 +96,7 @@ html{
 .login-button:hover {
   cursor: pointer;
   box-shadow: 0 0 5px rgb(255, 255, 255), 0 0 25px rgb(110, 110, 110),
-  0 0 50px rgb(206, 206, 206), 0 0 100px rgb(131, 131, 131);
+    0 0 50px rgb(206, 206, 206), 0 0 100px rgb(131, 131, 131);
   height: 40px;
   width: 75%;
   font-size: 20px;
@@ -115,29 +115,4 @@ html{
 
 .login-form {
   width: 100%;
-}
-
-
-#blob {
-  background-color: white;
-  height: 5vmax;
-  aspect-ratio: 1;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: 0% 0%;
-  border-radius: 50%;
-  background: linear-gradient(to right, aquamarine, mediumpurple);
-  opacity: 0.8;
-  z-index: 1;
-
-}
-
-
-#blur {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 2;
-  backdrop-filter: blur(12vmax);
 }
