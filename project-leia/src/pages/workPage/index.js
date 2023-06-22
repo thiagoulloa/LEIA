@@ -7,7 +7,6 @@ import "./style.css";
 function WorkPage() {
   let navigate = useNavigate();
 
-  const editor = useRef(null);
   const [mensagem, setMensagem] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -22,12 +21,11 @@ function WorkPage() {
   });
 
   React.useEffect(() => {
-    console.log(state);
     getProject();
   }, []);
 
   async function SaveDoc() {
-    Axios.post("http://localhost:3001/savedocs", {
+    Axios.post("http://26.167.233.145:3001/savedocs", {
       titulo: title,
       content: content,
       preview: content,
@@ -38,7 +36,7 @@ function WorkPage() {
   }
 
   function getProject() {
-    Axios.post("http://localhost:3001/getprojectbyid", {
+    Axios.post("http://26.167.233.145:3001/getprojectbyid", {
       projectId: state[0].project,
     })
       .then((response) => {
@@ -49,13 +47,13 @@ function WorkPage() {
   }
 
   function sendRequest() {
-    const prompt = `Documente este código explicando suas funções: \n\n"${mensagem}`;
+    const prompt = `Documente este código, separando suas funções, variáveis, e explicando cada uma delas: \n\n"${mensagem}`;
 
     const params = {
       model: "text-davinci-003",
       prompt: prompt,
       max_tokens: 1000,
-      temperature: 0.3,
+      temperature: 0.5,
     };
 
     client
@@ -92,6 +90,7 @@ function WorkPage() {
               onChange={(e) => setContent(e.target.value)}
             ></textarea>
           </div>
+
           <button className="glow" onClick={SaveDoc}>
             Salvar
           </button>

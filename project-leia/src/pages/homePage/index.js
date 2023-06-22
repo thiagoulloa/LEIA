@@ -34,7 +34,7 @@ export default function HomePage() {
 
   function searchProjects() {
     if (searchValue.length >= 1) {
-      Axios.post("http://localhost:3001/search", {
+      Axios.post("http://26.167.233.145:3001/search", {
         id_usuario: state,
         titulo: searchValue,
       })
@@ -49,12 +49,11 @@ export default function HomePage() {
   }
 
   function getProjects() {
-    Axios.post("http://localhost:3001/getprojects", {
+    Axios.post("http://26.167.233.145:3001/getprojects", {
       id_usuario: state,
     })
       .then((response) => {
         setProjects(response.data);
-        console.log(response);
       })
       .catch((error) => console.log(error));
   }
@@ -135,16 +134,18 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="cards">
-          {projects.length > 0 &&
-            projects.map((project) => (
-              <BasicCard
-                titulo={project.titulo}
-                preview={project.preview}
-                projectId={project.id}
-                userId={project.id_usuario}
-              />
-            ))}
+        <div className="align-center homepage">
+          <div className="cards">
+            {projects.length > 0 &&
+              projects.map((project) => (
+                <BasicCard
+                  titulo={project.titulo}
+                  preview={project.preview}
+                  projectId={project.id}
+                  userId={project.id_usuario}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </div>

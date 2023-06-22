@@ -21,7 +21,7 @@ function LoginPage() {
       return;
     }
 
-    Axios.post("http://localhost:3001/Login", {
+    Axios.post("http://26.167.233.145:3001/Login", {
       email: values.email,
       password: values.password,
     })
@@ -56,7 +56,7 @@ function LoginPage() {
   const validationSchema = yup.object().shape({
     email: yup
       .string()
-      .email("Não é um email válido" )
+      .email("Não é um email válido")
       .required("Este campo é obrigatório"),
     password: yup
       .string()
@@ -126,7 +126,6 @@ function LoginPage() {
                 >
                   Esqueci minha senha
                 </p>
-
               </div>
             </Form>
           </Formik>
