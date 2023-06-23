@@ -111,8 +111,9 @@
   border-style: hidden;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 3px;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
   overflow-x: hidden;
   transition: 0.5s;
   right: 0;
@@ -152,7 +153,7 @@
   width: 80%;
 }
 
-#temperature-text {
+.config-text {
   color: white;
 }
 

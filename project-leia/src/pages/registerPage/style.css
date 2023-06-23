@@ -75,3 +75,7 @@ html {
 .register-form {
   width: 100%;
 }
+
+#createAccBtn {
+  padding-bottom: 20px;
+}

@@ -5,6 +5,9 @@ import { useLocation } from "react-router-dom";
 import ConfigImage from "./images/config.png";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { Switch } from "@mui/material";
+import { FormControlLabel } from "@mui/material";
+import { FormGroup } from "@mui/material";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,6 +26,9 @@ function WorkPage() {
   const [content, setContent] = useState("");
   const [answer, setAnswer] = useState("");
   const [temperature, setTemperature] = useState(0.3);
+  const [funcoesChecked, setFuncoesChecked] = useState("");
+  const [variaveisChecked, setVariaveisChecked] = useState("");
+  const [parametrosChecked, setParametrosChecked] = useState("");
 
   const { state } = useLocation();
 
@@ -34,6 +40,7 @@ function WorkPage() {
 
   function openNav() {
     setBtnState((btnState) => !btnState);
+    console.log(funcoesChecked, parametrosChecked, variaveisChecked);
   }
 
   React.useEffect(() => {
@@ -63,7 +70,7 @@ function WorkPage() {
   }
 
   function sendRequest() {
-    const prompt = `Documente este código, separando suas funções, variáveis, e explicando cada uma delas: \n\n"${mensagem}`;
+    const prompt = `Documente este código, separando ${funcoesChecked} ${variaveisChecked} ${parametrosChecked} e explicando: \n\n"${mensagem}`;
     const temp = temperature;
 
     const params = {
@@ -86,12 +93,61 @@ function WorkPage() {
     return `${value}`;
   }
 
+  // Funções Filtros
+  const handleFuncoesChange = (event) => {
+    if (funcoesChecked == "") {
+      setFuncoesChecked(event.target.value);
+    } else {
+      setFuncoesChecked("");
+    }
+  };
+
+  const handleVariaveisChange = (event) => {
+    if (variaveisChecked == "") {
+      setVariaveisChecked(event.target.value);
+    } else {
+      setVariaveisChecked("");
+    }
+  };
+
+  const handleParametrosChange = (event) => {
+    if (parametrosChecked == "") {
+      setParametrosChecked(event.target.value);
+    } else {
+      setParametrosChecked("");
+    }
+  };
+
   return (
     <div className="workPage">
       <div className="align-left menu">
         <div className={`configMenu${toggleClassCheck}`}>
+          <div className="filtros-div">
+            <h3 className="config-text">Filtros</h3>
+            <FormGroup>
+              <FormControlLabel
+                control={<Switch value="Funções," />}
+                label="Funções"
+                className="config-text"
+                value={"funções"}
+                onChange={handleFuncoesChange}
+              />
+              <FormControlLabel
+                control={<Switch value="Variáveis," />}
+                label="Variáveis"
+                className="config-text"
+                onChange={handleVariaveisChange}
+              />
+              <FormControlLabel
+                control={<Switch value="Parâmetros," />}
+                label="Parâmetros"
+                className="config-text"
+                onChange={handleParametrosChange}
+              />
+            </FormGroup>
+          </div>
           <div className="slider">
-            <h3 id="temperature-text">Temperature</h3>
+            <h3 className="config-text">Temperature</h3>
             <Box sx={{}}>
               <Slider
                 aria-label="Temperature"
