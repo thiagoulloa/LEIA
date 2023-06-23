@@ -4,7 +4,7 @@
   justify-content: center;
   height: 100vh;
   width: 100%;
-  background-color: #0d1014;
+  background-color: #021121;
 }
 
 .containerFormm {
@@ -15,13 +15,14 @@
   align-items: center;
   gap: 40px;
   display: flex;
-  border-radius: 20px;
+  border-radius: 13px;
   overflow: hidden;
+  background-color: #151a21;
   background: rgba(255, 255, 255, 0.055);
   box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.37);
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
-  border: 1px solid rgba(255, 255, 255, 0.829);
+  border: 1px solid #3c8bc3;
   z-index: 999;
 }
 
@@ -37,40 +38,30 @@
   color: white;
 }
 
-.emailInput {
-  width: 370px;
-  height: 35px;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  padding: 0 1rem;
-  border: 2px solid transparent;
-  font-size: 1rem;
-}
-
-.emailLBL {
+.labels {
   left: 10vh;
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   color: #ffffff;
+  font-style: italic;
 }
 
-.usuarioInput {
-  width: 370px;
-  height: 35px;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  padding: 0 1rem;
-  border: 2px solid transparent;
-  font-size: 1rem;
-}
-
-.usuarioLBL {
-  left: 10vh;
+.alterarLBL {
+  font-weight: bold;
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  color: #ffffff;
+  color: #3c8bc3a8;
+  font-style: italic;
+}
+
+.inputs {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .usuarioEmail {
@@ -81,48 +72,15 @@
   flex-direction: column;
 }
 
-.useredir-form {
-  gap: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.senhaAT {
-  margin: 0px;
-}
-
-.senha {
-  margin: 0px;
-}
 .senhas {
-  gap: 30px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.senhaATInput {
-  width: 370px;
-  height: 35px;
-  gap: 20px;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  padding: 0 1rem;
-  border: 2px solid transparent;
-  font-size: 1rem;
 }
 
-.senhaATLBL {
-  left: 10vh;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-  color: #ffffff;
-}
-
-.senhaInput {
+.InputsED {
   width: 370px;
   height: 35px;
   background-color: #ffffff;
@@ -131,36 +89,6 @@
   border: 2px solid transparent;
   font-size: 1rem;
   gap: 20px;
-}
-
-.senhaLBL {
-  left: 10vh;
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-  color: #ffffff;
-}
-
-.cima {
-  flex-direction: column;
-  display: flex;
-  gap: 15px;
-}
-
-.FnAlt {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  width: 55vh;
-  height: 0.1px;
-  background-color: #ffffff00;
-  padding: 2px;
-}
-
-.Alt {
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-  color: #ffffff;
 }
 
 .alignLeft {
@@ -174,33 +102,26 @@
 .BTNalteracao {
   width: 42vh;
   height: 6vh;
-  margin: 20px;
+  margin: 25px;
   border-radius: 10px;
   border: none;
   font-weight: bold;
   backdrop-filter: blur(7px);
   background: transparent;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: #3c8bc375;
+  box-shadow: 0 8px 32px 0 #051133;
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
   font-size: 15px;
   transition: 0.3s;
 }
 
 .BTNalteracao:hover {
   cursor: pointer;
-  box-shadow: 0 0 3px rgb(255, 255, 255), 0 0 22px rgb(110, 110, 110),
-    0 0 47px rgb(206, 206, 206), 0 0 100px rgb(131, 131, 131);
+  box-shadow: 0 8px 32px 0 #3c8bc3;
   height: 7vh;
   width: 44vh;
   font-size: 17px;
-}
-
-.BTNlbl {
-  font-size: medium;
-  color: 151a21d7;
 }

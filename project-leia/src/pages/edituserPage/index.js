@@ -18,26 +18,62 @@ function EditUserPage() {
       <SideMenu state={state} />
       <div className="containerFormm">
         <div className="userEditContainer">
-          <FontAwesomeIcon className="ft" icon={faUser} />
           <h1 id="user-edit-title">Edição de usuário</h1>
         </div>
 
         <div className="align-center">
           <Formik initialValues={{}}>
             <Form className="useredit-form">
-              <div className="usuarioEmail">
-                <Field type="text" name="username" className="usuarioInput" />
+              <div className="inputs">
+                <div className="usuarioEmail">
+                  <div className="conjunto">
+                    <div className="alignLeft">
+                      <label className="labels">Seu usuario atual: </label>
+                    </div>
+                    <Field type="text" name="username" className="InputsED" />
+                  </div>
+                  <div className="conjunto">
+                    <div className="alignLeft">
+                      <label className="labels">Seu email atual: </label>
+                    </div>
+                    <Field type="text" name="email" className="InputsED" />
+                  </div>
+                </div>
 
-                <Field type="text" name="email" className="emailInput" />
+                <label className="alterarLBL">Alterar Senha</label>
+
+                <div className="senhas">
+                  <div className="conjunto">
+                    <div className="alignLeft">
+                      <label className="labels">
+                        Confirme sua senha atual:{" "}
+                      </label>
+                    </div>
+
+                    <Field
+                      type="password"
+                      name="senhaAT"
+                      className="InputsED"
+                    />
+                  </div>
+
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error-message"
+                  />
+                  <div className="conjunto">
+                    <div className="alignLeft">
+                      <label className="labels">Digite sua nova senha: </label>
+                    </div>
+                    <Field
+                      type="password"
+                      name="novaSenha"
+                      className="InputsED"
+                    />
+                  </div>
+                </div>
               </div>
-              <Field type="password" name="senhaAT" className="senhaATInput" />
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="error-message"
-              />
-
-              <Field type="password" name="novaSenha" className="senhaInput" />
               <ErrorMessage
                 name="confirmedpassword"
                 component="div"
