@@ -28,7 +28,6 @@
 .Editor {
   background-color: #0ab6eb;
   border-radius: 5px;
-  margin-bottom: 10px;
   height: 100%;
   width: 100%;
   overflow-y: auto;
@@ -119,7 +118,6 @@
   right: 0;
   top: 0;
   background: #04041a;
-  background-color: white !important;
   box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgba(6, 79, 139, 0.212),
     0 0 50px rgb(6, 79, 139), 0 0 20px rgb(6, 79, 139);
 }
@@ -148,4 +146,12 @@
 .content-workPage {
   width: 100%;
   height: 100vh;
+}
+
+.slider {
+  width: 80%;
+}
+
+#temperature-text {
+  color: white;
 }

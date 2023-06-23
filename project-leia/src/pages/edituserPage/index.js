@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useLocation } from "react-router-dom";
@@ -10,8 +10,11 @@ import Axios from "axios";
 
 function EditUserPage() {
   let navigate = useNavigate();
-
   const { state } = useLocation();
+
+  function openNav() {}
+
+  console.log(state);
 
   return (
     <div className="edituserPage">

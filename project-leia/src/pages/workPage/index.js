@@ -3,7 +3,8 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ConfigImage from "./images/config.png";
-import TemperatureSlider from "./components/TemperatureSlider/slider";
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -78,11 +79,31 @@ function WorkPage() {
 
   let toggleClassCheck = btnState ? "-open" : "";
 
+  // retornar o valor do slider
+  function valuetext(value) {
+    return `${value}`;
+  }
+
   return (
     <div className="workPage">
       <div className="align-left menu">
         <div className={`configMenu${toggleClassCheck}`}>
-          <TemperatureSlider />
+          <div className="slider">
+            <h3 id="temperature-text">Temperature</h3>
+            <Box sx={{}}>
+              <Slider
+                aria-label="Temperature"
+                defaultValue={0.3}
+                getAriaValueText={valuetext}
+                onChange={(valuetext) => console.log(valuetext.target.value)}
+                valueLabelDisplay="auto"
+                step={0.1}
+                marks
+                min={0.1}
+                max={1}
+              />
+            </Box>
+          </div>
         </div>
       </div>
       <div className="workPage-center">
@@ -123,9 +144,11 @@ function WorkPage() {
               ></textarea>
             </div>
 
-            <button className="glow" onClick={SaveDoc}>
-              Salvar
-            </button>
+            <div className="gpt-gap">
+              <button className="glow" onClick={SaveDoc}>
+                Salvar
+              </button>
+            </div>
           </div>
         </div>
       </div>
