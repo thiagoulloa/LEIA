@@ -8,10 +8,10 @@ import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
+import SideMenu from "../../components/SideMenu/sidemenu";
 
 export default function HomePage() {
   let navigate = useNavigate();
-  const [btnState, setBtnState] = React.useState(false);
   const [projects, setProjects] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -24,17 +24,13 @@ export default function HomePage() {
     },
   ]);
 
-  function openNav() {
-    setBtnState((btnState) => !btnState);
-  }
-
   React.useEffect(() => {
     getProjects();
   }, []);
 
   function searchProjects() {
     if (searchValue.length >= 1) {
-      Axios.post("http://26.167.233.145:3001/search", {
+      Axios.post("http://thiagoulloa.ddns.net:3001/search", {
         id_usuario: state,
         titulo: searchValue,
       })
@@ -49,7 +45,7 @@ export default function HomePage() {
   }
 
   function getProjects() {
-    Axios.post("http://26.167.233.145:3001/getprojects", {
+    Axios.post("http://thiagoulloa.ddns.net:3001/getprojects", {
       id_usuario: state,
     })
       .then((response) => {
@@ -58,56 +54,9 @@ export default function HomePage() {
       .catch((error) => console.log(error));
   }
 
-  let toggleClassCheck = btnState ? "-open" : "";
-
-  function toggleText() {
-    var profiletext = document.getElementById("profile-text");
-
-    if (profiletext.style.display === "flex") {
-      profiletext.style.display = "none";
-    } else {
-      profiletext.style.display = "flex";
-    }
-  }
-
   return (
     <div className="homePage">
-      <div className={`sideMenu${toggleClassCheck}`}>
-        <div className="menu-separate">
-          <div className="align-top sidemenu">
-            <div className="menubutton">
-              <img
-                src={MenuButton}
-                id="menubutton"
-                alt="menubutton"
-                onClick={() => {
-                  openNav();
-                  toggleText();
-                }}
-              />
-            </div>
-            <div className="bottom-align">
-              <div className="user-container">
-                <FontAwesomeIcon
-                  className="ft"
-                  icon={faUser}
-                  onClick={() => navigate("/edituserPage")}
-                />
-                <p className="user" id="profile-text">
-                  User
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="bottom-align">
-            <img
-              src={LogoLeia}
-              className="logo lateral"
-              onClick={() => navigate("/")}
-            ></img>
-          </div>
-        </div>
-      </div>
+      <SideMenu state={state} />
       <div className="content homePage">
         <div className="align-top homepage">
           <h1 id="title-home">Seus Arquivos:</h1>

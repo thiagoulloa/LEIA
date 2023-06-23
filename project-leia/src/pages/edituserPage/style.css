@@ -7,8 +7,7 @@
   background-color: #0d1014;
 }
 
-.fundoBranco {
-  position: absolute;
+.containerFormm {
   flex-direction: column;
   width: 65vh;
   height: 85vh;
@@ -26,9 +25,21 @@
   z-index: 999;
 }
 
+.userEditContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+#user-edit-title {
+  color: white;
+}
+
 .emailInput {
-  width: 45vh;
-  height: 6vh;
+  width: 370px;
+  height: 35px;
   background-color: #ffffff;
   border-radius: 0.5rem;
   padding: 0 1rem;
@@ -41,13 +52,12 @@
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  font-weight: bold;
   color: #ffffff;
 }
 
 .usuarioInput {
-  width: 45vh;
-  height: 6vh;
+  width: 370px;
+  height: 35px;
   background-color: #ffffff;
   border-radius: 0.5rem;
   padding: 0 1rem;
@@ -60,8 +70,23 @@
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  font-weight: bold;
   color: #ffffff;
+}
+
+.usuarioEmail {
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.useredir-form {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .senhaAT {
@@ -75,10 +100,13 @@
   gap: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .senhaATInput {
-  width: 45vh;
-  height: 6vh;
+  width: 370px;
+  height: 35px;
+  gap: 20px;
   background-color: #ffffff;
   border-radius: 0.5rem;
   padding: 0 1rem;
@@ -91,18 +119,18 @@
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  font-weight: bold;
   color: #ffffff;
 }
 
 .senhaInput {
-  width: 45vh;
-  height: 6vh;
+  width: 370px;
+  height: 35px;
   background-color: #ffffff;
   border-radius: 0.5rem;
   padding: 0 1rem;
   border: 2px solid transparent;
   font-size: 1rem;
+  gap: 20px;
 }
 
 .senhaLBL {
@@ -110,7 +138,6 @@
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  font-weight: bold;
   color: #ffffff;
 }
 
@@ -133,7 +160,6 @@
 .Alt {
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  font-weight: bold;
   color: #ffffff;
 }
 
@@ -175,7 +201,6 @@
 }
 
 .BTNlbl {
-  font-weight: bold;
   font-size: medium;
   color: 151a21d7;
 }

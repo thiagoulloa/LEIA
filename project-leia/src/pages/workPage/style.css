@@ -1,16 +1,6 @@
 .workPage {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-position: 0;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
   height: 100vh;
-  width: 100%;
 }
 
 .containers-div {
@@ -53,15 +43,11 @@
 .input-code {
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.068);
+  background-color: #04041a;
   border: none;
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: large;
-  background: rgba(25, 175, 217, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 5px;
 }
@@ -107,4 +93,59 @@
   width: 100%;
   height: 100%;
   border-radius: 5px;
+}
+
+.align-right.menu {
+  width: fit-content;
+}
+
+.workPage-center {
+  width: 100%;
+}
+
+.configMenu,
+.configMenu-open {
+  display: flex;
+
+  height: 100%;
+  width: 0;
+  border-style: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3px;
+  overflow-x: hidden;
+  transition: 0.5s;
+  right: 0;
+  top: 0;
+  background: #04041a;
+  background-color: white !important;
+  box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgba(6, 79, 139, 0.212),
+    0 0 50px rgb(6, 79, 139), 0 0 20px rgb(6, 79, 139);
+}
+
+.configMenu-open {
+  position: relative;
+  height: 100% !important;
+  width: 240px;
+}
+
+.gpt-gap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  width: 100%;
+}
+
+#config-button {
+  cursor: pointer;
+  width: auto;
+  height: 28px;
+}
+
+.content-workPage {
+  width: 100%;
+  height: 100vh;
 }

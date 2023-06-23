@@ -21,7 +21,7 @@ function LoginPage() {
       return;
     }
 
-    Axios.post("http://26.167.233.145:3001/Login", {
+    Axios.post("http://thiagoulloa.ddns.net:3001/Login", {
       email: values.email,
       password: values.password,
     })
@@ -66,8 +66,8 @@ function LoginPage() {
 
   return (
     <div className="loginPage">
-      <div className="containerLogin">
-        <div className="logoDivLogin">
+      <div className="containerForm">
+        <div className="logoDivContainer">
           <img
             id="logo"
             src={LogoLeia}

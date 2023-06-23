@@ -141,6 +141,10 @@
   height: 100%;
 }
 
+.align-center.homepage {
+  max-height: 90%;
+}
+
 .search-div {
   display: flex;
   gap: 3rem;

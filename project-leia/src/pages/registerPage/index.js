@@ -10,7 +10,7 @@ import BlobFunction from "../../MouseMove/MouseMove";
 function RegisterPage() {
   let navigate = useNavigate();
   const handleClickRegister = (values) => {
-    Axios.post("http://26.167.233.145:3001/register", {
+    Axios.post("http://thiagoulloa.ddns.net:3001/register", {
       username: values.username,
       email: values.email,
       password: values.password,
@@ -46,8 +46,8 @@ function RegisterPage() {
 
   return (
     <div className="registerPage">
-      <div className="containerRegister">
-        <div className="logoDivRegister">
+      <div className="containerForm">
+        <div className="logoDivContainer">
           <img
             id="logo"
             src={LogoLeia}

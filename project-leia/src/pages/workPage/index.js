@@ -2,10 +2,20 @@ import React, { useState, useRef } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import ConfigImage from "./images/config.png";
+import TemperatureSlider from "./components/TemperatureSlider/slider";
 import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faSearch,
+  faFile,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 function WorkPage() {
   let navigate = useNavigate();
+  const [btnState, setBtnState] = React.useState(false);
 
   const [mensagem, setMensagem] = useState("");
   const [title, setTitle] = useState("");
@@ -20,12 +30,16 @@ function WorkPage() {
     },
   });
 
+  function openNav() {
+    setBtnState((btnState) => !btnState);
+  }
+
   React.useEffect(() => {
     getProject();
   }, []);
 
   async function SaveDoc() {
-    Axios.post("http://26.167.233.145:3001/savedocs", {
+    Axios.post("http://thiagoulloa.ddns.net:3001/savedocs", {
       titulo: title,
       content: content,
       preview: content,
@@ -36,7 +50,7 @@ function WorkPage() {
   }
 
   function getProject() {
-    Axios.post("http://26.167.233.145:3001/getprojectbyid", {
+    Axios.post("http://thiagoulloa.ddns.net:3001/getprojectbyid", {
       projectId: state[0].project,
     })
       .then((response) => {
@@ -62,38 +76,57 @@ function WorkPage() {
       .catch((err) => console.log(err));
   }
 
+  let toggleClassCheck = btnState ? "-open" : "";
+
   return (
     <div className="workPage">
-      <input
-        className="project-title"
-        placeholder="Título do Arquivo"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      ></input>
-      <div className="containers-div">
-        <div className="container-text code">
-          <textarea
-            type="text"
-            className="input-code"
-            value={mensagem}
-            onChange={(e) => setMensagem(e.target.value)}
-          />
-          <button className="glow" onClick={sendRequest}>
-            Enviar
-          </button>
+      <div className="align-left menu">
+        <div className={`configMenu${toggleClassCheck}`}>
+          <TemperatureSlider />
         </div>
-        <div className="container-editor">
-          <div className="Editor">
+      </div>
+      <div className="workPage-center">
+        <div className="align-top">
+          <FontAwesomeIcon
+            className="ft"
+            icon={faArrowLeft}
+            onClick={() => navigate("/home-page", { state: state })}
+          />
+          <input
+            className="project-title"
+            placeholder="Título do Arquivo"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          ></input>
+        </div>
+        <div className="containers-div">
+          <div className="container-text code">
             <textarea
-              id="document"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            ></textarea>
+              type="text"
+              className="input-code"
+              value={mensagem}
+              onChange={(e) => setMensagem(e.target.value)}
+            />
+            <div className="gpt-gap">
+              <button className="glow" onClick={sendRequest}>
+                Enviar
+              </button>
+              <img id="config-button" src={ConfigImage} onClick={openNav}></img>
+            </div>
           </div>
+          <div className="container-editor">
+            <div className="Editor">
+              <textarea
+                id="document"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              ></textarea>
+            </div>
 
-          <button className="glow" onClick={SaveDoc}>
-            Salvar
-          </button>
+            <button className="glow" onClick={SaveDoc}>
+              Salvar
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -7,53 +7,44 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  background-color: #021121;
 }
 
 html {
   overflow: hidden;
 }
-.containerLogin {
+
+.containerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 500px;
   height: 475px;
   background-color: #151a21;
   border-radius: 13px;
-
   background: rgba(255, 255, 255, 0.055);
   box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.37);
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
-  border: 1px solid rgba(255, 255, 255, 0.829);
+  border: 1px solid #3c8bc3;
   z-index: 999;
   overflow: hidden;
 }
 
-.logoDivLogin {
+.logoDivContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   border-top-right-radius: 13px;
   border-top-left-radius: 13px;
-  background-color: #222830;
   width: 100%;
   height: 100px;
-
-  background: rgba(255, 255, 255, 0.13);
+  background: #3c8bc375;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.align-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  border: 1px solid #051133;
 }
 
 #logo {
@@ -67,7 +58,7 @@ html {
   padding: 10px;
   width: 70%;
   height: 35px;
-  border-radius: 10px;
+  border-radius: 14px;
   border: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -76,18 +67,18 @@ html {
   margin: 20px;
   width: 70%;
   height: 35px;
-  border-radius: 10px;
+  border-radius: 14px;
   border: none;
   backdrop-filter: blur(7px);
   background: transparent;
 
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: #3c8bc375;
+  box-shadow: 0 8px 32px 0 #051133;
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
+  box-shadow: 0 8px 32px 0 #051133;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 17px;
   transition: 0.3s;
@@ -95,8 +86,7 @@ html {
 
 .login-button:hover {
   cursor: pointer;
-  box-shadow: 0 0 5px rgb(255, 255, 255), 0 0 25px rgb(110, 110, 110),
-    0 0 50px rgb(206, 206, 206), 0 0 100px rgb(131, 131, 131);
+  box-shadow: 0 8px 32px 0 #3c8bc3;
   height: 40px;
   width: 75%;
   font-size: 20px;

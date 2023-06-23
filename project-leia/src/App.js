@@ -8,7 +8,6 @@ import WorkPage from "./pages/workPage";
 import EdituserPage from "./pages/edituserPage";
 import "./App.css";
 import FgtPasswordPage from "./pages/FgtPasswordPage";
-import TextEditor from "./pages/workPage/components/Editor/editor";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Route path="/work-page" element={<WorkPage />} />
         <Route path="/edituserPage" element={<EdituserPage />} />
         <Route path="/FgtPasswordPage" element={<FgtPasswordPage />} />
-        <Route path="/editortest" element={<TextEditor />} />
       </Routes>
     </div>
   );

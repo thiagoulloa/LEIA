@@ -21,7 +21,7 @@ function FgtPasswordPage() {
       return;
     }
 
-    Axios.post("http://localhost:3001/Login", {
+    Axios.post("http://thiagoulloa.ddns.net:3001/Login", {
       email: values.email,
       password: values.password,
     })
@@ -56,7 +56,7 @@ function FgtPasswordPage() {
   const validationSchema = yup.object().shape({
     email: yup
       .string()
-      .email("Não é um email válido" )
+      .email("Não é um email válido")
       .required("Este campo é obrigatório"),
     password: yup
       .string()
@@ -66,8 +66,8 @@ function FgtPasswordPage() {
 
   return (
     <div className="loginPage">
-      <div className="containerLogin">
-        <div className="logoDivLogin">
+      <div className="containerForm">
+        <div className="logoDivContainer">
           <img
             id="logo"
             src={LogoLeia}
@@ -118,7 +118,6 @@ function FgtPasswordPage() {
                 >
                   Login
                 </p>
-
               </div>
             </Form>
           </Formik>

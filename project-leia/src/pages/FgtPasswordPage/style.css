@@ -12,40 +12,6 @@
 html {
   overflow: hidden;
 }
-.containerLogin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 500px;
-  height: 475px;
-  background-color: #151a21;
-  border-radius: 13px;
-
-  background: rgba(255, 255, 255, 0.055);
-  box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.37);
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
-  border: 1px solid rgba(255, 255, 255, 0.829);
-  z-index: 999;
-  overflow: hidden;
-}
-
-.logoDivLogin {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-right-radius: 13px;
-  border-top-left-radius: 13px;
-  background-color: #222830;
-  width: 100%;
-  height: 100px;
-
-  background: rgba(255, 255, 255, 0.13);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
 
 .align-center {
   display: flex;
@@ -67,12 +33,12 @@ html {
   padding: 10px;
   width: 70%;
   height: 35px;
-  border-radius: 10px;
+  border-radius: 14px;
   border: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.login-button {
+.login-buttonFGT {
   margin: 20px;
   width: 70%;
   height: 35px;
@@ -93,7 +59,7 @@ html {
   transition: 0.3s;
 }
 
-.login-button:hover {
+.login-buttonFGT:hover {
   cursor: pointer;
   box-shadow: 0 0 5px rgb(255, 255, 255), 0 0 25px rgb(110, 110, 110),
     0 0 50px rgb(206, 206, 206), 0 0 100px rgb(131, 131, 131);

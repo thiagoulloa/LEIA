@@ -31,11 +31,11 @@ html {
 .registerPage,
 .homePage,
 .workPage {
-  background-color: rgb(6, 6, 15);
+  background-color: #021121;
+  /*background-color: rgb(6, 6, 15);*/
 }
 
 .glow {
-  margin: 20px;
   width: 70%;
   height: 35px;
   border-radius: 10px;
@@ -44,13 +44,11 @@ html {
   background: transparent;
 
   background: rgba(9, 79, 99, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 #051133;
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: rgb(255, 255, 255);
-  box-shadow: 0 0 5px rgb(6, 79, 139), 0 0 25px rgba(6, 79, 139, 0.212),
-    0 0 50px rgb(6, 79, 139), 0 0 100px rgb(6, 79, 139);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 17px;
   transition: 0.3s;
@@ -58,7 +56,7 @@ html {
 
 .glow:hover {
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.493);
+  box-shadow: 0 8px 32px 0 #3c8bc3;
   height: 40px;
   width: 75%;
   font-size: 20px;
@@ -100,14 +98,14 @@ html {
 
 #blob {
   background-color: white;
-  height: 22vmax;
+  height: 26vmax;
   aspect-ratio: 1;
   position: absolute;
   left: 50%;
   top: 50%;
   translate: 0% 0%;
   border-radius: 50%;
-  background: linear-gradient(to right, aquamarine, mediumpurple);
+  background: linear-gradient(to right, #3c8bc3, #051133);
   opacity: 0.8;
   z-index: 1;
 }
@@ -117,5 +115,19 @@ html {
   width: 100%;
   position: absolute;
   z-index: 2;
-  backdrop-filter: blur(12vmax);
+  backdrop-filter: blur(9vmax);
+}
+
+.align-right {
+  width: 100%;
+  height: 100%;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100% !important;
 }
