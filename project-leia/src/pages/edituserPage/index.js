@@ -11,13 +11,6 @@ import Axios from "axios";
 
 function EditUserPage() {
   let navigate = useNavigate();
-<<<<<<< Updated upstream
-  const { state } = useLocation();
-
-  function openNav() {}
-
-  console.log(state);
-=======
 
   const [userData, setUserData] = React.useState([]);
 
@@ -69,7 +62,6 @@ function EditUserPage() {
         }
       });
   }
->>>>>>> Stashed changes
 
   return (
     <div className="edituserPage">
