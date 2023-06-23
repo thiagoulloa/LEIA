@@ -15,7 +15,10 @@ export default function BasicCard({ titulo, preview, userId, projectId }) {
 
   return (
     <div className="content">
-      <div className="card" onClick={OpenPopUp(titulo)}>
+      <div
+        className="card"
+        onClick={() => navigate("/work-page", { state: info })}
+      >
         <div className="card-title-container">
           <h2 className="card-title">{titulo}</h2>
         </div>

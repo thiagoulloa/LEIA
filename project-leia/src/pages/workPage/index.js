@@ -22,6 +22,7 @@ function WorkPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [answer, setAnswer] = useState("");
+  const [temperature, setTemperature] = useState(0.3);
 
   const { state } = useLocation();
 
@@ -63,12 +64,13 @@ function WorkPage() {
 
   function sendRequest() {
     const prompt = `Documente este código, separando suas funções, variáveis, e explicando cada uma delas: \n\n"${mensagem}`;
+    const temp = temperature;
 
     const params = {
       model: "text-davinci-003",
       prompt: prompt,
       max_tokens: 1000,
-      temperature: 0.5,
+      temperature: temp,
     };
 
     client
@@ -95,7 +97,7 @@ function WorkPage() {
                 aria-label="Temperature"
                 defaultValue={0.3}
                 getAriaValueText={valuetext}
-                onChange={(valuetext) => console.log(valuetext.target.value)}
+                onChange={(valuetext) => setTemperature(valuetext.target.value)}
                 valueLabelDisplay="auto"
                 step={0.1}
                 marks
@@ -107,27 +109,22 @@ function WorkPage() {
         </div>
       </div>
       <div className="workPage-center">
-        <div className="align-top">
-          <FontAwesomeIcon
-            className="ft"
-            icon={faArrowLeft}
-            onClick={() => navigate("/home-page", { state: state })}
-          />
-          <input
-            className="project-title"
-            placeholder="Título do Arquivo"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          ></input>
-        </div>
         <div className="containers-div">
-          <div className="container-text code">
-            <textarea
-              type="text"
-              className="input-code"
-              value={mensagem}
-              onChange={(e) => setMensagem(e.target.value)}
+          <div className="align-left workpage">
+            <FontAwesomeIcon
+              className="ft"
+              id="return-button"
+              icon={faArrowLeft}
+              onClick={() => navigate("/home-page", { state: state[0].user })}
             />
+            <div className="container-text code">
+              <textarea
+                type="text"
+                className="input-code"
+                value={mensagem}
+                onChange={(e) => setMensagem(e.target.value)}
+              />
+            </div>
             <div className="gpt-gap">
               <button className="glow" onClick={sendRequest}>
                 Enviar
@@ -135,15 +132,22 @@ function WorkPage() {
               <img id="config-button" src={ConfigImage} onClick={openNav}></img>
             </div>
           </div>
-          <div className="container-editor">
-            <div className="Editor">
-              <textarea
-                id="document"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              ></textarea>
+          <div className="align-right workpage">
+            <input
+              className="project-title"
+              placeholder="Título do Arquivo"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            ></input>
+            <div className="container-editor">
+              <div className="Editor">
+                <textarea
+                  id="document"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                ></textarea>
+              </div>
             </div>
-
             <div className="gpt-gap">
               <button className="glow" onClick={SaveDoc}>
                 Salvar
