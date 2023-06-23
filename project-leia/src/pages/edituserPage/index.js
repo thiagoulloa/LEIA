@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import * as yup from "yup";
 import { useLocation } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,11 +11,65 @@ import Axios from "axios";
 
 function EditUserPage() {
   let navigate = useNavigate();
+<<<<<<< Updated upstream
   const { state } = useLocation();
 
   function openNav() {}
 
   console.log(state);
+=======
+
+  const [userData, setUserData] = React.useState([]);
+
+  const { state } = useLocation();
+
+  React.useEffect(() => {
+    getUser();
+  }, []);
+
+  const validationSchema = yup.object().shape({
+    password: yup
+      .string()
+      .min(8, "A senha deve ter pelo menos 8 caracteres")
+      .required("Este campo é obrigatório"),
+
+    oldpassword: yup.string().required("Este campo é obrigatório"),
+  });
+
+  const handleClickEdit = (values) => {
+    Axios.post("http://thiagoulloa.ddns.net:3001/alter", {
+      oldpassword: values.oldpassword,
+      id_usuario: state,
+      newpassword: values.password,
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log(response);
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          //handleFailedEdit();
+        }
+      });
+  };
+
+  function getUser() {
+    Axios.post("http://thiagoulloa.ddns.net:3001/getuser", {
+      id_usuario: state,
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          setUserData(response.data[0]);
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          console.log(error);
+        }
+      });
+  }
+>>>>>>> Stashed changes
 
   return (
     <div className="edituserPage">
@@ -25,7 +80,11 @@ function EditUserPage() {
         </div>
 
         <div className="align-center">
-          <Formik initialValues={{}}>
+          <Formik
+            initialValues={{}}
+            validationSchema={validationSchema}
+            onSubmit={handleClickEdit}
+          >
             <Form className="useredit-form">
               <div className="inputs">
                 <div className="usuarioEmail">
@@ -33,13 +92,25 @@ function EditUserPage() {
                     <div className="alignLeft">
                       <label className="labels">Seu usuario atual: </label>
                     </div>
-                    <Field type="text" name="username" className="InputsED" />
+                    <Field
+                      type="text"
+                      name="username"
+                      className="InputsEDBlock"
+                      value={userData.username}
+                      disabled
+                    />
                   </div>
                   <div className="conjunto">
                     <div className="alignLeft">
                       <label className="labels">Seu email atual: </label>
                     </div>
-                    <Field type="text" name="email" className="InputsED" />
+                    <Field
+                      type="text"
+                      name="email"
+                      className="InputsEDBlock"
+                      value={userData.email}
+                      disabled
+                    />
                   </div>
                 </div>
 
@@ -55,33 +126,35 @@ function EditUserPage() {
 
                     <Field
                       type="password"
-                      name="senhaAT"
+                      name="oldpassword"
                       className="InputsED"
+                    />
+
+                    <ErrorMessage
+                      name="oldpassword"
+                      component="div"
+                      className="error-message"
                     />
                   </div>
 
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="error-message"
-                  />
                   <div className="conjunto">
                     <div className="alignLeft">
                       <label className="labels">Digite sua nova senha: </label>
                     </div>
                     <Field
                       type="password"
-                      name="novaSenha"
+                      name="password"
                       className="InputsED"
+                    />
+
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="error-message"
                     />
                   </div>
                 </div>
               </div>
-              <ErrorMessage
-                name="confirmedpassword"
-                component="div"
-                className="error-message"
-              />
 
               <button className="BTNalteracao" type="submit">
                 Confirmar

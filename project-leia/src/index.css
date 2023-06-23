@@ -69,7 +69,7 @@ html {
 .sideMenu,
 .sideMenu-open {
   display: flex;
-  background-color: #151a21;
+  background-color: #171e31;
   height: 100%;
   width: 80px;
   position: fixed;

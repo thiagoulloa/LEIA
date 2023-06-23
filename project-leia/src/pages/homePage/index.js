@@ -16,7 +16,6 @@ export default function HomePage() {
   const [searchValue, setSearchValue] = React.useState("");
 
   const { state } = useLocation();
-  const { userId } = state;
 
   const [info] = React.useState([
     {
