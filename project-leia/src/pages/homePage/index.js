@@ -29,7 +29,7 @@ export default function HomePage() {
 
   function searchProjects() {
     if (searchValue.length >= 1) {
-      Axios.post("http://thiagoulloa.ddns.net:3001/search", {
+      Axios.post("http://projetoleia.ddns.net:3001/search", {
         id_usuario: state,
         titulo: searchValue,
       })
@@ -44,7 +44,7 @@ export default function HomePage() {
   }
 
   function getProjects() {
-    Axios.post("http://thiagoulloa.ddns.net:3001/getprojects", {
+    Axios.post("http://projetoleia.ddns.net:3001/getprojects", {
       id_usuario: state,
     })
       .then((response) => {
