@@ -30,9 +30,14 @@ html {
 .loginPage,
 .registerPage,
 .homePage,
-.workPage {
+.workPage,
+.projConfigPage {
   background-color: #021121;
   /*background-color: rgb(6, 6, 15);*/
+}
+
+#title {
+  color: white;
 }
 
 .glow {
@@ -56,7 +61,7 @@ html {
 
 .glow:hover {
   cursor: pointer;
-  box-shadow: 0 8px 32px 0 #3c8bc3;
+  box-shadow: 0px 0px 22px 0px #3c8bc3;
   height: 40px;
   width: 75%;
   font-size: 20px;
@@ -82,11 +87,13 @@ html {
   transition: 0.5s;
   left: 0;
   top: 0;
+  z-index: 999;
 }
 
 .sideMenu-open {
   height: 100% !important;
   width: 250px !important;
+  z-index: 999;
 }
 
 .align-top {
@@ -130,4 +137,44 @@ html {
   flex-direction: column;
   width: 100%;
   height: 100% !important;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.inputsForm {
+  width: 370px;
+  height: 35px;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding-left: 10px;
+  border: 2px solid transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  gap: 20px;
+}
+
+.busca {
+  color: rgb(255, 255, 255);
+  font-family: monospace;
+  font-size: 1.5rem;
+  display: flex;
+  cursor: pointer;
+  align-items: flex-start;
+}
+
+.new-button {
+  height: 100%;
+  width: 20%;
+  padding: 5px;
+  border-radius: 7px;
+  border-width: 1.7px;
+  border-color: rgba(255, 255, 255, 0.678);
+  border-style: ridge;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
 }

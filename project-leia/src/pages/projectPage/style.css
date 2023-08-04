@@ -1,0 +1,122 @@
+.homePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #021121;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+#title-home {
+  color: rgb(255, 255, 255);
+}
+
+.content.homePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cards.docs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-left: 85px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.logo.lateral {
+  width: 35px;
+  cursor: pointer;
+}
+
+.menu-separate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.bottom-align {
+  padding-bottom: 20px;
+}
+.user {
+  color: rgb(255, 255, 255);
+  font-family: monospace;
+  display: none;
+}
+
+.userico {
+  color: rgb(255, 255, 255);
+  font-family: monospace;
+  font-size: 2rem;
+  display: flex;
+  cursor: pointer;
+}
+.user-open {
+  display: block;
+  color: rgb(255, 246, 235);
+  font-family: monospace;
+}
+
+.user-container.open {
+  display: flex;
+  align-items: center;
+  gap: 9rem;
+  margin-top: 1rem;
+  transition: 0.5s;
+}
+
+.align-top.homepage {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 85px;
+}
+
+.search-docs {
+  width: 80%;
+  color: white;
+  font-weight: 200;
+  font-size: 15px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: transparent;
+  border: none;
+}
+.search-docs:focus {
+  outline: none;
+}
+
+.align-right.homepage {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 25px;
+  width: 50%;
+  height: 100%;
+}
+
+.align-center.homepage {
+  max-height: 90%;
+}
+
+.search-div {
+  display: flex;
+  gap: 3rem;
+  padding: 10px;
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.11);
+}

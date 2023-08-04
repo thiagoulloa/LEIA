@@ -10,12 +10,7 @@ import { FormControlLabel } from "@mui/material";
 import { FormGroup } from "@mui/material";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faSearch,
-  faFile,
-  faArrowLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function WorkPage() {
   let navigate = useNavigate();
@@ -32,6 +27,13 @@ function WorkPage() {
 
   const { state } = useLocation();
 
+  const [info] = React.useState([
+    {
+      user: state[0].user,
+      projectId: state[0].projectId,
+    },
+  ]);
+
   const client = Axios.create({
     headers: {
       Authorization: `Bearer ${process.env.REACT_APP_CHATGPT_KEY}`,
@@ -44,7 +46,8 @@ function WorkPage() {
   }
 
   React.useEffect(() => {
-    getProject();
+    getDocument();
+    console.log(state);
   }, []);
 
   async function SaveDoc() {
@@ -52,15 +55,15 @@ function WorkPage() {
       titulo: title,
       content: content,
       preview: content,
-      id_usuario: state[0].user,
+      id_project: state[0].projectId,
     }).then((response) => {
       console.log(response);
     });
   }
 
-  function getProject() {
-    Axios.post("http://projetoleia.ddns.net:3001/getprojectbyid", {
-      projectId: state[0].project,
+  function getDocument() {
+    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyid", {
+      documentId: state[0].documentId,
     })
       .then((response) => {
         setContent(response.data[0].content);
@@ -84,6 +87,24 @@ function WorkPage() {
       .post("https://api.openai.com/v1/completions", params)
       .then((result) => setContent(result.data.choices[0].text))
       .catch((err) => console.log(err));
+  }
+
+  function deleteDoc() {
+    Axios.post("http://projetoleia.ddns.net:3001/deletecard", {
+      id_project: state[0].projectId,
+      id_card: state[0].documentId,
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          navigate("/project-page", { state: state });
+          console.log(response);
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          console.log(error);
+        }
+      });
   }
 
   let toggleClassCheck = btnState ? "-open" : "";
@@ -171,7 +192,7 @@ function WorkPage() {
               className="ft"
               id="return-button"
               icon={faArrowLeft}
-              onClick={() => navigate("/home-page", { state: state[0].user })}
+              onClick={() => navigate("/project-page", { state: info })}
             />
             <div className="container-text code">
               <textarea
@@ -208,6 +229,11 @@ function WorkPage() {
               <button className="glow" onClick={SaveDoc}>
                 Salvar
               </button>
+              <FontAwesomeIcon
+                icon={faTrash}
+                className="ico"
+                onClick={deleteDoc}
+              />
             </div>
           </div>
         </div>

@@ -1,0 +1,55 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.555);
+  border-radius: 10px;
+  min-width: 250px;
+  max-width: 250px;
+  height: 230px;
+  cursor: pointer;
+  gap: 10px;
+  flex-basis: 33%;
+  overflow: hidden;
+  word-wrap: break-word;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #3c8bc3;
+  z-index: 10;
+
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+}
+
+.card-title,
+.card-text {
+  color: white;
+}
+
+.card-text {
+  width: 100%;
+  height: 100%;
+}
+
+.card-title-container {
+  height: fit-content;
+  margin-top: 5px;
+}
+
+.card-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  height: 90%;
+}
+
+.PopUp {
+  display: flex;
+  background-color: aliceblue;
+}

@@ -177,6 +177,8 @@
 
 #return-button {
   align-self: flex-start;
+  color: white;
+  cursor: pointer;
   margin-left: 10%;
   height: 4%;
   width: auto;

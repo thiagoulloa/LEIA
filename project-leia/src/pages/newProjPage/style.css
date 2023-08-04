@@ -1,0 +1,56 @@
+.projConfigPage {
+  height: 100vh;
+  width: 100%;
+}
+
+.projConfig-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-left: 10%;
+  gap: 3%;
+  width: 100%;
+  height: 100%;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: 100%;
+}
+
+.inputsForm.desc {
+  width: 80%;
+  padding-top: 5px;
+  height: 10vh;
+}
+
+.collab-div {
+  display: flex;
+  align-items: center;
+  width: 370px;
+  height: 35px;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+}
+
+.collab-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  padding-left: 10px;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+#arrow-collab {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+}
