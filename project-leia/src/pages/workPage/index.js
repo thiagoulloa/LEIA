@@ -62,7 +62,7 @@ function WorkPage() {
   }
 
   function getDocument() {
-    Axios.post("projetoleia.ddns.net:3001/getdocumentbyid", {
+    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyid", {
       documentId: state[0].documentId,
     })
       .then((response) => {
