@@ -51,7 +51,7 @@ function WorkPage() {
   }, []);
 
   async function SaveDoc() {
-    Axios.post("http://projetoleia.ddns.net:3001/savedocs", {
+    Axios.post("projetoleia.ddns.net:3001/savedocs", {
       titulo: title,
       content: content,
       preview: content,
@@ -62,7 +62,7 @@ function WorkPage() {
   }
 
   function getDocument() {
-    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyid", {
+    Axios.post("projetoleia.ddns.net:3001/getdocumentbyid", {
       documentId: state[0].documentId,
     })
       .then((response) => {
