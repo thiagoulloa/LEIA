@@ -8,7 +8,7 @@
 }
 
 .QuadradoBranco {
-  width: 620px;
+  width: 50%;
   height: 35%;
   align-items: center;
   display: flex;
@@ -48,13 +48,13 @@
   align-self: flex-end;
 }
 
-.alignRight {
+.alignRight.introduction {
   display: flex;
   width: 100%;
   justify-content: right;
   align-items: center;
   margin-right: 20px;
-  gap: 10px;
+  gap: 0.5rem;
 }
 
 .alignLeft {
@@ -73,16 +73,39 @@
   margin-left: 20px;
 }
 
+.align-center.introduction-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+
 .logo.homebar {
-  width: 15%;
-  max-width: 120px;
+  width: 6rem;
   height: auto;
   max-height: 55%;
+  cursor: pointer;
+}
+
+/*TELA DE CELULAR*/
+@media (max-width: 800px) {
+  .logo.homebar {
+    width: 7rem;
+    height: auto;
+  }
+
+  #registerBtn {
+    width: 50% !important;
+    min-width: fit-content;
+  }
+
+  .QuadradoBranco {
+    width: 90%;
+  }
 }
 
 #registerBtn {
   height: 60%;
-  width: 12%;
+  width: 20%;
   border-radius: 7px;
   border-width: 1.7px;
   border-color: white;

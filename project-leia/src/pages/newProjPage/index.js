@@ -33,7 +33,7 @@ export default function NewProjPage() {
         }
       })
       .catch((error) => {
-        if (error.response.status === 401) {
+        if (error.response.status === 401 || error.response.satus === 500) {
           console.log(error);
         }
       });
@@ -41,7 +41,7 @@ export default function NewProjPage() {
 
   return (
     <div className="projConfigPage">
-      <SideMenu />
+      <SideMenu state={state} />
 
       <div className="align-top">
         <h1 id="title">Configure seu projeto</h1>

@@ -12,13 +12,13 @@ export default function TopBar() {
         <img className="logo homebar" src={LogoLeia}></img>
       </div>
 
-      <div className="alignRight">
+      <div className="alignRight introduction">
         <p id="loginBtn" onClick={() => navigate("/login-page")}>
-          Sign In
+          Fazer Login
         </p>
 
         <button id="registerBtn" onClick={() => navigate("/register-page")}>
-          Sign Up
+          Cadastre-se
         </button>
       </div>
     </div>

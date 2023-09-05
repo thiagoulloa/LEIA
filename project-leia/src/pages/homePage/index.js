@@ -15,8 +15,11 @@ export default function HomePage() {
 
   const [projects, setProjects] = React.useState("");
 
+  const [searchValue, setSearchValue] = React.useState("");
+
   React.useEffect(() => {
     getProjects();
+    console.log(state);
   }, []);
 
   function getProjects() {
@@ -29,14 +32,38 @@ export default function HomePage() {
       .catch((error) => console.log(error));
   }
 
+  function SearchProject() {
+    if (searchValue.length >= 1) {
+      Axios.post("http://projetoleia.ddns.net:3001/searchproject", {
+        titulo: searchValue,
+        user_id: state,
+      })
+        .then((response) => {
+          setProjects(response.data);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      getProjects();
+    }
+  }
+
   return (
     <div className="PrehomePage">
       <SideMenu state={state} />
       <div className="Inputs">
         <div className="home-top">
           <div className="search-div projects">
-            <input className="search-docs" id="search-input"></input>
-            <FontAwesomeIcon className="busca" icon={faSearch} />
+            <input
+              className="search-docs"
+              id="search-input"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            ></input>
+            <FontAwesomeIcon
+              className="busca"
+              icon={faSearch}
+              onClick={() => SearchProject()}
+            />
           </div>
           <button
             className="new-button"
@@ -53,7 +80,8 @@ export default function HomePage() {
                 titulo={project.titulo}
                 preview={project.descricao}
                 projectId={project.id}
-                userId={project.id_usuario}
+                userId={state}
+                projectOwner={project.id_usuario}
               />
             ))}
         </div>

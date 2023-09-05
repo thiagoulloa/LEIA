@@ -55,9 +55,11 @@ function WorkPage() {
       titulo: title,
       content: content,
       preview: content,
+      docsId: state[0].documentId,
       id_project: state[0].projectId,
     }).then((response) => {
       console.log(response);
+      window.location.reload();
     });
   }
 
@@ -101,7 +103,7 @@ function WorkPage() {
         }
       })
       .catch((error) => {
-        if (error.response.status === 401) {
+        if (error.response.status === 401 || error.response.status === 500) {
           console.log(error);
         }
       });

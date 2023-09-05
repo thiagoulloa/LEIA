@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="alignRight">
+        <div className="align-center introduction-footer">
           <a href="https://heylink.me/projetoleia/">
             <img className="logo linkedin" src={linkedin}></img>
           </a>

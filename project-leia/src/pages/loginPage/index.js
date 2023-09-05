@@ -107,7 +107,7 @@ function LoginPage() {
               />
 
               <button className="login-button" type="submit">
-                Login
+                <span>Login</span>
               </button>
 
               <div className="txtBtnDivLogin">

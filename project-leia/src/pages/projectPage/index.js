@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons";
+import Popup from "reactjs-popup";
+
 import Axios from "axios";
 import SideMenu from "../../components/SideMenu/sidemenu";
 
@@ -14,6 +16,7 @@ export default function ProjectPage() {
   let navigate = useNavigate();
   const [documents, setDocuments] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
+  const [folderTitle, setFolderTitle] = React.useState("");
 
   const { state } = useLocation();
 
@@ -54,6 +57,18 @@ export default function ProjectPage() {
       .catch((error) => console.log(error));
   }
 
+  function createFolder() {
+    Axios.post("http://projetoleia.ddns.net:3001/createfolder", {
+      id_project: state[0].projectId,
+      id_usuario: state[0].user,
+      titulo: folderTitle,
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
     <div className="homePage">
       <SideMenu state={state[0].user} />
@@ -80,6 +95,22 @@ export default function ProjectPage() {
             >
               Novo Arquivo
             </button>
+            <Popup trigger={<button className="new-button">Nova Pasta</button>}>
+              <div className="popup-folder">
+                <div className="new-folder-div">
+                  <input
+                    className="folder-title-input"
+                    value={folderTitle}
+                    onChange={(e) => setFolderTitle(e.target.value)}
+                  ></input>
+                  <FontAwesomeIcon
+                    className="add-title-icon"
+                    icon={faPlus}
+                    onClick={createFolder}
+                  />
+                </div>
+              </div>
+            </Popup>
           </div>
         </div>
 
