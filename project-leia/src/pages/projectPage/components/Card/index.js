@@ -9,6 +9,7 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MiniFolder from "./minifolder";
 import Popup from "reactjs-popup";
 import Axios from "axios";
 
@@ -18,6 +19,7 @@ export default function BasicCard({
   projectId,
   documentId,
   userId,
+  folders,
 }) {
   let navigate = useNavigate();
 
@@ -37,7 +39,6 @@ export default function BasicCard({
       .then((response) => {
         if (response.status === 200) {
           window.location.reload();
-          console.log(response);
         }
       })
       .catch((error) => {
@@ -49,6 +50,21 @@ export default function BasicCard({
 
   return (
     <div className="content">
+      <Popup trigger={<button>Adicionar a pasta</button>}>
+        <div className="popup-addtofolder">
+          <div className="addtofolder-div">
+            {folders.length > 0 &&
+              folders.map((folder) => (
+                <MiniFolder
+                  key={folder.id}
+                  titulo={folder.titulo}
+                  folderId={folder.id}
+                  documentId={documentId}
+                />
+              ))}
+          </div>
+        </div>
+      </Popup>
       <div
         className="card"
         onClick={() => navigate("/work-page", { state: info })}
@@ -90,6 +106,7 @@ export default function BasicCard({
             onClick={() => navigate("/new-project", { state: info })}
           />
         </div>
+        <div className="card-blur"></div>
       </div>
     </div>
   );

@@ -111,7 +111,7 @@ function RegisterPage() {
               />
 
               <button className="register-button" type="submit">
-                Cadastre-se
+                <span>Cadastre-se</span>
               </button>
               <div className="txtBtnDivRegister">
                 <p

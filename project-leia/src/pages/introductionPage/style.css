@@ -1,50 +1,15 @@
-.topBar {
-  display: flex;
-  justify-content: center;
-  background-color: #04041a;
+.align-center.introduction {
   width: 100%;
-  height: 60px;
-  box-shadow: 0px 2px 50px rgb(11, 11, 14);
-}
-
-.QuadradoBranco {
-  width: 50%;
-  height: 35%;
-  align-items: center;
-  display: flex;
-  border-radius: 20px;
-  background: #3a415a70;
-  box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.37);
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
-  border: solid 2px #cbdad5;
-  z-index: 999;
-  overflow: hidden;
-}
-
-.IntroductionPage {
-  background-image: url("./images/FotoHome.jpg");
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.align-center {
-  width: 100%;
-}
-
-.align-top {
-  width: 100%;
+  height: 90% !important;
+  align-self: flex-end;
+  overflow-y: auto;
+  margin-top: 10%;
 }
 
 .align-bottom {
   z-index: 999;
   width: 100%;
+  height: 10%;
   align-self: flex-end;
 }
 
@@ -97,10 +62,6 @@
     width: 50% !important;
     min-width: fit-content;
   }
-
-  .QuadradoBranco {
-    width: 90%;
-  }
 }
 
 #registerBtn {
@@ -129,33 +90,7 @@
 
 html {
   background-color: white;
-}
-
-.IntroductionTexto {
-  font-family: "Space Grotesk";
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.footer {
-  position: relative;
-  align-items: center;
-  justify-self: flex-end;
-}
-
-.cardF {
-  display: flex;
-  width: 100%;
-  height: 6.5vh;
-  background: #04041a;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 2px 15px rgb(11, 11, 14);
-}
-
-.TextoFT {
-  color: #ffffff;
-  font-size: small;
+  height: auto;
 }
 
 .logo.instagram {
@@ -169,16 +104,4 @@ html {
   width: 20px;
   height: auto;
   left: -180px;
-}
-
-.topBar {
-  z-index: 999;
-}
-
-#blur-introduction-page {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 2;
-  backdrop-filter: blur(8vmax);
 }

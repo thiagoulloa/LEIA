@@ -20,18 +20,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 25px;
-}
-
-.cards.docs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-left: 85px;
-  margin-bottom: 10px;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
+  gap: 3%;
 }
 
 .logo.lateral {
@@ -80,8 +69,8 @@
 
 .align-top.homepage {
   width: 100%;
-  margin-top: 10px;
-  margin-left: 85px;
+  margin-top: 3%;
+  margin-left: 4%;
 }
 
 .search-docs,
@@ -154,4 +143,19 @@
   width: 1rem;
   cursor: pointer;
   color: white;
+}
+
+.folders-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-left: 3%;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.new-button.new-folder {
+  border-color: #ffcc40;
 }

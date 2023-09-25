@@ -27,6 +27,7 @@ export default function SideMenu({ state }) {
 
   React.useEffect(() => {
     getUser();
+    console.log(state);
   }, []);
 
   function getUser() {

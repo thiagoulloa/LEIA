@@ -1,0 +1,98 @@
+.folder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 250px;
+  max-width: 250px;
+  height: 230px;
+  flex-basis: 33%;
+  overflow: hidden;
+  word-wrap: break-word;
+  transition: 0.3s;
+}
+
+.folder-title {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: bold;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.folder-title.add-to {
+  font-size: large !important;
+  color: #ffcc40d8;
+}
+
+.folder-top {
+  display: flex;
+  height: 16%;
+}
+
+.folder-tab {
+  cursor: pointer;
+  padding-left: 4%;
+  text-align: left;
+  width: 75%;
+  border-style: solid;
+  border-color: #ffcc40d8;
+  background-color: #ffcc40;
+  border-radius: 10px;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: 1s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.folder-tab:hover {
+  width: 95% !important;
+  padding-left: 1%;
+  transition: 1s;
+}
+
+.folder-tab:hover + .folder-right {
+  width: 0;
+  transition: 1s;
+}
+
+.folder-right {
+  width: 25%;
+  transition: 1s;
+}
+
+.folder-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: #ffcc40;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  gap: 5%;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.folder-doc-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 90%;
+  height: 3rem;
+  border: solid;
+  border-radius: 10px;
+  border-color: #0197c99d;
+  cursor: pointer;
+}
+
+.folder-doc-card:hover {
+  border-color: #0197c9;
+}
+
+.folder-doc-card-title {
+  color: rgba(255, 255, 255, 0.404);
+}

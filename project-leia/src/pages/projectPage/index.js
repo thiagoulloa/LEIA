@@ -2,6 +2,7 @@ import React from "react";
 import MenuButton from "./images/menubar.png";
 import LogoLeia from "../../images/logoleia_arquivo.png";
 import BasicCard from "./components/Card";
+import Folder from "./components/Folder";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useLocation } from "react-router-dom";
@@ -17,6 +18,7 @@ export default function ProjectPage() {
   const [documents, setDocuments] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
   const [folderTitle, setFolderTitle] = React.useState("");
+  const [folders, setFolders] = React.useState("");
 
   const { state } = useLocation();
 
@@ -29,7 +31,7 @@ export default function ProjectPage() {
 
   React.useEffect(() => {
     getDocuments();
-    console.log(state);
+    getFolders();
   }, []);
 
   function searchDocuments() {
@@ -57,6 +59,16 @@ export default function ProjectPage() {
       .catch((error) => console.log(error));
   }
 
+  function getFolders() {
+    Axios.post("http://projetoleia.ddns.net:3001/getfolders", {
+      id_project: state[0].projectId,
+    })
+      .then((response) => {
+        setFolders(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
   function createFolder() {
     Axios.post("http://projetoleia.ddns.net:3001/createfolder", {
       id_project: state[0].projectId,
@@ -65,6 +77,7 @@ export default function ProjectPage() {
     })
       .then((response) => {
         console.log(response);
+        window.location.reload();
       })
       .catch((error) => console.log(error));
   }
@@ -95,7 +108,11 @@ export default function ProjectPage() {
             >
               Novo Arquivo
             </button>
-            <Popup trigger={<button className="new-button">Nova Pasta</button>}>
+            <Popup
+              trigger={
+                <button className="new-button new-folder">Nova Pasta</button>
+              }
+            >
               <div className="popup-folder">
                 <div className="new-folder-div">
                   <input
@@ -115,7 +132,17 @@ export default function ProjectPage() {
         </div>
 
         <div className="align-center homepage">
-          <div className="cards docs">
+          <div className="folders-cards">
+            {folders.length > 0 &&
+              folders.map((folder) => (
+                <Folder
+                  key={folder.id}
+                  titulo={folder.titulo}
+                  id={folder.id}
+                  projectId={state[0].projectId}
+                  userId={state[0].user}
+                />
+              ))}
             {documents.length > 0 &&
               documents.map((document) => (
                 <BasicCard
@@ -124,6 +151,7 @@ export default function ProjectPage() {
                   documentId={document.id}
                   projectId={state[0].projectId}
                   userId={state[0].user}
+                  folders={folders}
                 />
               ))}
           </div>

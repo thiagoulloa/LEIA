@@ -1,0 +1,41 @@
+.register-button {
+  margin: 20px;
+  align-items: center;
+  background-image: linear-gradient(100deg, #45c4b1c7, #2e80bad4);
+  border: 0;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Phantomsans, sans-serif;
+  font-size: 18px;
+  justify-content: center;
+  width: 70%;
+  height: 35px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.register-button:active,
+.register-button:hover {
+  outline: 0;
+}
+
+.button span {
+  display: flex;
+  background-color: rgb(20, 54, 80);
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover span {
+  background: none;
+  color: rgb(20, 54, 80);
+}

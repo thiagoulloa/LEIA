@@ -1,0 +1,19 @@
+.IntroductionPage {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #021121;
+}
+
+.top-introduction {
+  width: 100%;
+  height: 8%;
+}
+
+.top-bar-introduction {
+  display: flex;
+  height: 100%;
+  background-color: #3c8bc375;
+}

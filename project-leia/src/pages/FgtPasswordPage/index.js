@@ -106,8 +106,8 @@ function FgtPasswordPage() {
                 className="error-message"
               />
 
-              <button className="login-button" type="submit">
-                Confirmar
+              <button className="login-buttonFGT" type="submit">
+                <span>Confirmar</span>
               </button>
 
               <div className="txtBtnDivLogin">

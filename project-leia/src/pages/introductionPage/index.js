@@ -5,13 +5,10 @@ import WebFont from "webfontloader";
 import BlobFunction from "../../MouseMove/MouseMove";
 import TopBar from "./components/topBar";
 import Footer from "./components/footer";
+import "../../css/PagesDesign/introductionPage.css";
 
 function IntroductionPage() {
   let navigate = useNavigate();
-
-  React.useEffect(() => {
-    BlobFunction();
-  }, []);
 
   WebFont.load({
     google: {
@@ -21,24 +18,10 @@ function IntroductionPage() {
 
   return (
     <div className="IntroductionPage">
-      <div className="align-top">
+      <div className="top-introduction">
         <TopBar />
       </div>
-      <div className="align-center">
-        <div className="QuadradoBranco">
-          <div style={{ fontFamily: "Space Grotesk" }}>
-            <p className="IntroductionTexto">
-              {" "}
-              Seja bem vindo ao Projeto Léia! <br></br>
-              Aqui você encontrará uma solução rápida e prática para sua
-              documentação de códigos, com nossa inteligência artificial eleve a
-              qualidade de seus projetos e economize seu tempo!{" "}
-            </p>
-          </div>
-        </div>
-        <div id="blob"></div>
-        <div id="blur-introduction-page"></div>
-      </div>
+
       <div className="align-bottom">
         <Footer />
       </div>

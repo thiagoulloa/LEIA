@@ -25,41 +25,51 @@ html {
   padding: 10px;
   width: 70%;
   height: 35px;
-  border-radius: 50px;
+  border-radius: 14px;
   border: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
-.input.form {
-  border: none;
 }
 
 .register-button {
   margin: 20px;
+  align-items: center;
+  background-image: linear-gradient(100deg, #45c4b1c7, #2e80bad4);
+  border: 0;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Phantomsans, sans-serif;
+  font-size: 18px;
+  justify-content: center;
   width: 70%;
   height: 35px;
-  border-radius: 14px;
-  border: none;
-  backdrop-filter: blur(7px);
-  background: transparent;
-  background: #3c8bc375;
-  box-shadow: 0 8px 32px 0 #051133;
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: white;
-  box-shadow: 0 8px 32px 0 #051133;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 17px;
-  transition: 0.3s;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
+.register-button:active,
 .register-button:hover {
-  cursor: pointer;
-  box-shadow: 0 8px 32px 0 #3c8bc3;
-  height: 40px;
-  width: 75%;
-  font-size: 20px;
+  outline: 0;
+}
+
+.register-button span {
+  display: flex;
+  background-color: rgb(20, 54, 80);
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-button:hover span {
+  background: none;
+  color: rgb(20, 54, 80);
 }
 
 .txtBtnDivRegister {
