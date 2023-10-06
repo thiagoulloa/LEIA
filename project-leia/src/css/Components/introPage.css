@@ -105,8 +105,8 @@
 
 .container-gif {
   background-color: #0462c057;
-  height: 80%;
-  width: 80%;
+  height: fit-content;
+  width: fit-content;
   border-radius: 1vh;
   padding: 1%;
 }
@@ -114,6 +114,11 @@
 .logoarquivo {
   width: auto;
   height: 100%;
+}
+
+.videogif {
+  height: 50vh;
+  width: auto;
 }
 
 .titulos-introduction {

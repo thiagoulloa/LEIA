@@ -30,7 +30,7 @@ function EditUserPage() {
   });
 
   const handleClickEdit = (values) => {
-    Axios.post("http://projetoleia.ddns.net:3001/alter", {
+    Axios.post("http://localhost:3001/alter", {
       oldpassword: values.oldpassword,
       id_usuario: state,
       newpassword: values.password,
@@ -48,7 +48,7 @@ function EditUserPage() {
   };
 
   function getUser() {
-    Axios.post("http://projetoleia.ddns.net:3001/getuser", {
+    Axios.post("http://localhost:3001/getuser", {
       id_usuario: state,
     })
       .then((response) => {

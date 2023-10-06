@@ -21,7 +21,7 @@ export default function NewProjPage() {
   }, []);
 
   function sendProject() {
-    Axios.post("http://projetoleia.ddns.net:3001/sendproject", {
+    Axios.post("http://localhost:3001/sendproject", {
       id_usuario: state,
       titulo: projectName,
       descricao: projDesc,

@@ -2,7 +2,7 @@ import Axios from "axios";
 
 export default function MiniFolder({ titulo, folderId, documentId }) {
   function AddToFolder() {
-    Axios.post("http://projetoleia.ddns.net:3001/addtofolder", {
+    Axios.post("http://localhost:3001/addtofolder", {
       folderId: folderId,
       documentId: documentId,
     })

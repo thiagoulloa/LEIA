@@ -27,7 +27,7 @@ export default function HomePage() {
   }, []);
 
   function getProjects() {
-    Axios.post("http://projetoleia.ddns.net:3001/getprojects", {
+    Axios.post("http://localhost:3001/getprojects", {
       id_usuario: state,
     })
       .then((response) => {
@@ -38,7 +38,7 @@ export default function HomePage() {
 
   function SearchProject() {
     if (searchValue.length >= 1) {
-      Axios.post("http://projetoleia.ddns.net:3001/searchproject", {
+      Axios.post("http://localhost:3001/searchproject", {
         titulo: searchValue,
         user_id: state,
       })

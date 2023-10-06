@@ -17,7 +17,7 @@ export default function TeamsPage() {
   }, []);
 
   function SendTeam() {
-    Axios.post("http://projetoleia.ddns.net:3001/saveteams", {
+    Axios.post("http://localhost:3001/saveteams", {
       id_usuario: state,
       titulo: teamName,
     })

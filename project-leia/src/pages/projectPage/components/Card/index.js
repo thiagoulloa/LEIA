@@ -34,7 +34,7 @@ export default function BasicCard({
   ]);
 
   function deleteDoc() {
-    Axios.post("http://projetoleia.ddns.net:3001/deletecard", {
+    Axios.post("http://localhost:3001/deletecard", {
       id_project: projectId,
       id_card: documentId,
     })

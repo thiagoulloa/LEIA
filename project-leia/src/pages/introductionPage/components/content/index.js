@@ -70,7 +70,7 @@ export default function IntroductionContent() {
           </p>
         </div>
         <div className="container-gif">
-          <img className="logoarquivo" src={DocGif}></img>
+          <img className="videogif" src={DocGif}></img>
         </div>
       </div>
     </div>
