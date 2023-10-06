@@ -7,11 +7,14 @@ import "../../../../css/Components/introPage.css";
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="TextoFT" style={{ fontFamily: "Space Grotesk" }}>
-        <p>© 2023 Todos os direitos reservados, Projeto Léia®</p>
+      <div className="footer-left"></div>
+      <div className="footer-center">
+        <div className="TextoFT" style={{ fontFamily: "Space Grotesk" }}>
+          <p>Projeto Léia, 2023</p>
+        </div>
       </div>
 
-      <div className="AlignRight_footer">
+      <div className="footer-right">
         <a href="https://heylink.me/projetoleia/">
           <img className="logo linkedin" src={linkedin}></img>
         </a>

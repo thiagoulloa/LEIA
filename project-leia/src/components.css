@@ -1,34 +1,34 @@
 html {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .glow {
-    margin: 20px;
-    width: 70%;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-    backdrop-filter: blur(7px);
-    background: transparent;
-  
-    background: rgba(9, 79, 99, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: rgb(255, 255, 255);
-    box-shadow: 32px -9px 32px -9px rgba(0, 0, 0, 0.37);
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 17px;
-    transition: 0.3s;
-  }
-  
-  .glow:hover {
-    cursor: pointer;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.295);
-    height: 36px;
-    width: 75%;
-    font-size: 20px;
-  }
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glow {
+  margin: 20px;
+  width: 70%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  backdrop-filter: blur(7px);
+  background: transparent;
+
+  background: rgba(9, 79, 99, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgb(255, 255, 255);
+  box-shadow: 32px -9px 32px -9px rgba(0, 0, 0, 0.37);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.glow:hover {
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.295);
+  height: 36px;
+  width: 75%;
+  font-size: 20px;
+}

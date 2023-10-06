@@ -3,8 +3,8 @@
   width: 100%;
   height: 100vh;
   flex-direction: column;
-  justify-content: space-between;
   background-color: #021121;
+  overflow-y: auto;
 }
 
 .top-introduction {
@@ -15,5 +15,5 @@
 .top-bar-introduction {
   display: flex;
   height: 100%;
-  background-color: #3c8bc375;
+  background: linear-gradient(180deg, #000203ab, #021121);
 }

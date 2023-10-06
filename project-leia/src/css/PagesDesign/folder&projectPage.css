@@ -1,4 +1,5 @@
-.homePage {
+.homePage,
+.folderPage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,16 +12,28 @@
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
-#title-home {
+#title {
   color: rgb(255, 255, 255);
+  white-space: pre;
 }
 
-.content.homePage {
+#title-folder {
+  color: #ffcc40;
+}
+
+.title-container-folderpage {
+  display: flex;
+}
+
+.content.homePage,
+.content.folderPage {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 3%;
+  height: 100%;
+  width: 100%;
 }
 
 .logo.lateral {
@@ -67,10 +80,19 @@
   transition: 0.5s;
 }
 
-.align-top.homepage {
+.align-top-projectpage,
+.align-top-folderpage {
+  display: flex;
+  justify-content: space-around;
   width: 100%;
   margin-top: 3%;
   margin-left: 4%;
+}
+
+.align-left-folderpage {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
 }
 
 .search-docs,
@@ -88,16 +110,16 @@
   outline: none;
 }
 
-.align-right.homepage {
+.align-right {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   gap: 25px;
   width: 50%;
   height: 100%;
 }
 
-.align-center.homepage {
+.align-center {
   max-height: 90%;
 }
 
@@ -149,11 +171,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  margin-left: 3%;
+  margin-left: 4%;
   margin-bottom: 10px;
   justify-content: center;
   align-items: center;
   overflow-y: auto;
+  height: fit-content;
+  width: 100%;
 }
 
 .new-button.new-folder {

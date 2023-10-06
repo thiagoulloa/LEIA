@@ -53,6 +53,14 @@
   transition: 0.8s;
 }
 
+.remove-doc {
+  display: flex;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  transition: 0.8s;
+}
+
 #edit-icon-card {
   width: 100%;
   height: 100%;
@@ -118,12 +126,4 @@
   border-color: #ffcc40d8;
   border-width: 1px;
   background-color: rgba(255, 255, 255, 0.11);
-}
-
-#titpop {
-  color: aliceblue;
-  align-self: center;
-  align-items: center;
-  font-size: large;
-  font-weight: bold;
 }

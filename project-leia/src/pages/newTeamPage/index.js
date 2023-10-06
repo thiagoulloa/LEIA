@@ -1,39 +1,60 @@
-import "./style.css";
+import "../../css/PagesDesign/teamsPage.css";
 import SideMenu from "../../components/SideMenu/sidemenu";
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useLocation } from "react-router-dom";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Axios from "axios";
 
-export default function NewTeamPage() {
+export default function TeamsPage() {
+  const [teamName, setTeamName] = React.useState("");
+  const [colabEmail, setColabEmail] = React.useState("");
+
+  const { state } = useLocation();
+
+  React.useEffect(() => {
+    console.log(state);
+  }, []);
+
+  function SendTeam() {
+    Axios.post("http://projetoleia.ddns.net:3001/saveteams", {
+      id_usuario: state,
+      titulo: teamName,
+    })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
-    <div className="newTeamPage">
-      <SideMenu />
+    <div className="teams-page">
+      <SideMenu state={state} />
 
-      <div className="align-top">
-        <h1 id="title">Crie uma equipe</h1>
+      <div className="teams-page-top">
+        <h1 id="title">Sua Equipe:</h1>
       </div>
-      <div className="align-center">
-        <Formik initialValues={{}}>
-          <Form className="projConfig-form">
-            <div className="input-form">
-              <label className="label">Nome da Equipe: </label>
-              <Field type="textarea" name="projName" className="InputsED" />
-            </div>
-            <div className="input-form">
-              <label className="label">Descrição do projeto: </label>
-              <Field
-                type="text"
-                name="projDesc"
-                className="InputsED desc"
-                component="textarea"
-                id="desc"
-              />
-            </div>
-            <button className="glow" type="submit">
-              Confirmar
-            </button>
-          </Form>
-        </Formik>
+      <div className="teams-page-center">
+        <input
+          className="input"
+          placeholder="Digite o nome de sua equipe"
+          value={teamName}
+          onChange={(e) => setTeamName(e.target.value)}
+        ></input>
       </div>
+      <div className="teams-page-bottom">
+        <h2 className="title">Adicionar Colaboradores:</h2>
+        <div className="add-colab-container">
+          <input
+            className="input-colab"
+            placeholder="E-mail do colaborador"
+            value={colabEmail}
+            onChange={(e) => setColabEmail(e.target.value)}
+          ></input>
+          <FontAwesomeIcon className="add-colab-icon" icon={faPlus} />
+        </div>
+      </div>
+      <button onClick={() => SendTeam()}>Enviar Time</button>
     </div>
   );
 }

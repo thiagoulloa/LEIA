@@ -1,22 +1,19 @@
 import React from "react";
-import BasicCard from "./components/Card";
-import Folder from "./components/Folder";
+import BasicCardFolder from "./Components";
 import { useNavigate } from "react-router-dom";
 import "../../css/PagesDesign/folder&projectPage.css";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons";
-import Popup from "reactjs-popup";
+import { faSearch, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Axios from "axios";
 import SideMenu from "../../components/SideMenu/sidemenu";
 
-export default function ProjectPage() {
+export default function FolderPage() {
   let navigate = useNavigate();
   const [documents, setDocuments] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
-  const [folderTitle, setFolderTitle] = React.useState("");
-  const [folders, setFolders] = React.useState("");
+  const [titulo, setTitulo] = React.useState("");
 
   const { state } = useLocation();
 
@@ -24,20 +21,32 @@ export default function ProjectPage() {
     {
       user: state[0].user,
       projectId: state[0].projectId,
+      folderId: state[0].folderId,
     },
   ]);
 
   React.useEffect(() => {
     getDocuments();
-    getFolders();
+    getFolderById();
     console.log(state);
   }, []);
+
+  function getFolderById() {
+    Axios.post("http://projetoleia.ddns.net:3001/getfolderbyid", {
+      folderId: state[0].folderId,
+    })
+      .then((response) => {
+        setTitulo(response.data[0].titulo);
+      })
+      .catch((error) => console.log(error));
+  }
 
   function searchDocuments() {
     if (searchValue.length >= 1) {
       Axios.post("http://projetoleia.ddns.net:3001/searchdocs", {
         id_project: state[0].projectId,
         titulo: searchValue,
+        folderId: state[0].folderId,
       })
         .then((response) => {
           setDocuments(response.data);
@@ -49,8 +58,8 @@ export default function ProjectPage() {
   }
 
   function getDocuments() {
-    Axios.post("http://projetoleia.ddns.net:3001/getdocs", {
-      id_project: state[0].projectId,
+    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyfolderid", {
+      folderId: state[0].folderId,
     })
       .then((response) => {
         setDocuments(response.data);
@@ -58,35 +67,23 @@ export default function ProjectPage() {
       .catch((error) => console.log(error));
   }
 
-  function getFolders() {
-    Axios.post("http://projetoleia.ddns.net:3001/getfolders", {
-      id_project: state[0].projectId,
-    })
-      .then((response) => {
-        setFolders(response.data);
-      })
-      .catch((error) => console.log(error));
-  }
-
-  function createFolder() {
-    Axios.post("http://projetoleia.ddns.net:3001/createfolder", {
-      id_project: state[0].projectId,
-      id_usuario: state[0].user,
-      titulo: folderTitle,
-    })
-      .then((response) => {
-        console.log(response);
-        window.location.reload();
-      })
-      .catch((error) => console.log(error));
-  }
-
   return (
-    <div className="homePage">
+    <div className="folderPage">
       <SideMenu state={state[0].user} />
-      <div className="content homePage">
-        <div className="align-top-projectpage">
-          <h1 id="title">Seus Arquivos:</h1>
+      <div className="content folderPage">
+        <div className="align-top-folderpage">
+          <div className="align-left-folderpage">
+            <FontAwesomeIcon
+              className="busca"
+              icon={faArrowLeft}
+              onClick={() => navigate("/project-page", { state: info })}
+            />
+            <div className="title-container-folderpage">
+              <h1 id="title">Arquivos de </h1>
+              <h1 id="title-folder">{titulo}:</h1>
+            </div>
+          </div>
+
           <div className="align-right">
             <div className="search-div">
               <input
@@ -107,50 +104,19 @@ export default function ProjectPage() {
             >
               Novo Arquivo
             </button>
-            <Popup
-              trigger={
-                <button className="new-button new-folder">Nova Pasta</button>
-              }
-            >
-              <div className="popup-folder">
-                <div className="new-folder-div">
-                  <input
-                    className="folder-title-input"
-                    value={folderTitle}
-                    onChange={(e) => setFolderTitle(e.target.value)}
-                  ></input>
-                  <FontAwesomeIcon
-                    className="add-title-icon"
-                    icon={faPlus}
-                    onClick={createFolder}
-                  />
-                </div>
-              </div>
-            </Popup>
           </div>
         </div>
 
-        <div className="align-center">
+        <div className="align-center homepage">
           <div className="folders-cards">
-            {folders.length > 0 &&
-              folders.map((folder) => (
-                <Folder
-                  key={folder.id}
-                  titulo={folder.titulo}
-                  id={folder.id}
-                  projectId={state[0].projectId}
-                  userId={state[0].user}
-                />
-              ))}
             {documents.length > 0 &&
               documents.map((document) => (
-                <BasicCard
+                <BasicCardFolder
                   titulo={document.titulo}
                   preview={document.preview}
                   documentId={document.id}
                   projectId={state[0].projectId}
                   userId={state[0].user}
-                  folders={folders}
                   key={document.id}
                 />
               ))}

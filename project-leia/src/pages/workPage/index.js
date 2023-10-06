@@ -11,26 +11,32 @@ import { FormGroup } from "@mui/material";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function WorkPage() {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
 
   const [mensagem, setMensagem] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [airesponse, setAiResponse] = useState("");
   const [answer, setAnswer] = useState("");
+  const [content, setContent] = React.useState("");
   const [temperature, setTemperature] = useState(0.3);
   const [funcoesChecked, setFuncoesChecked] = useState("");
   const [variaveisChecked, setVariaveisChecked] = useState("");
   const [parametrosChecked, setParametrosChecked] = useState("");
+  const [title, setTitle] = React.useState("");
 
   const { state } = useLocation();
+
+  const notify = () => toast("Wow so easy!");
 
   const [info] = React.useState([
     {
       user: state[0].user,
       projectId: state[0].projectId,
+      folderId: state[0].folderId,
     },
   ]);
 
@@ -47,7 +53,6 @@ function WorkPage() {
 
   React.useEffect(() => {
     getDocument();
-    console.log(state);
   }, []);
 
   async function SaveDoc() {
@@ -57,10 +62,29 @@ function WorkPage() {
       preview: content,
       docsId: state[0].documentId,
       id_project: state[0].projectId,
+      folderId: state[0].folderId,
     }).then((response) => {
       console.log(response);
       window.location.reload();
     });
+  }
+
+  function deleteDoc() {
+    Axios.post("http://projetoleia.ddns.net:3001/deletecard", {
+      id_project: state[0].projectId,
+      id_card: state[0].documentId,
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          navigate("/project-page", { state: state });
+          console.log(response);
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401 || error.response.status === 500) {
+          console.log(error);
+        }
+      });
   }
 
   function getDocument() {
@@ -89,24 +113,6 @@ function WorkPage() {
       .post("https://api.openai.com/v1/completions", params)
       .then((result) => setContent(result.data.choices[0].text))
       .catch((err) => console.log(err));
-  }
-
-  function deleteDoc() {
-    Axios.post("http://projetoleia.ddns.net:3001/deletecard", {
-      id_project: state[0].projectId,
-      id_card: state[0].documentId,
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          navigate("/project-page", { state: state });
-          console.log(response);
-        }
-      })
-      .catch((error) => {
-        if (error.response.status === 401 || error.response.status === 500) {
-          console.log(error);
-        }
-      });
   }
 
   let toggleClassCheck = btnState ? "-open" : "";
@@ -141,6 +147,14 @@ function WorkPage() {
     }
   };
 
+  function Return() {
+    if (state[0].folderId) {
+      navigate("/folder-page", { state: info });
+    } else {
+      navigate("/project-page", { state: info });
+    }
+  }
+
   return (
     <div className="workPage">
       <div className="align-left menu">
@@ -170,7 +184,7 @@ function WorkPage() {
             </FormGroup>
           </div>
           <div className="slider">
-            <h3 className="config-text">Temperature</h3>
+            <h3 className="config-text">Criatividade da IA</h3>
             <Box sx={{}}>
               <Slider
                 aria-label="Temperature"
@@ -194,7 +208,7 @@ function WorkPage() {
               className="ft"
               id="return-button"
               icon={faArrowLeft}
-              onClick={() => navigate("/project-page", { state: info })}
+              onClick={Return}
             />
             <div className="container-text code">
               <textarea
@@ -211,6 +225,7 @@ function WorkPage() {
               <img id="config-button" src={ConfigImage} onClick={openNav}></img>
             </div>
           </div>
+
           <div className="align-right workpage">
             <input
               className="project-title"
@@ -240,6 +255,7 @@ function WorkPage() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

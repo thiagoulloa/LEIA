@@ -31,7 +31,8 @@ html {
 .registerPage,
 .homePage,
 .workPage,
-.projConfigPage {
+.projConfigPage,
+.newProjPage {
   background-color: #021121;
   /*background-color: rgb(6, 6, 15);*/
 }
@@ -76,12 +77,12 @@ html {
   display: flex;
   background-color: #171e31;
   height: 100%;
-  width: 80px;
+  width: 6vw;
   position: fixed;
   border-style: hidden;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   padding-top: 3px;
   overflow-x: hidden;
   transition: 0.5s;
@@ -92,7 +93,7 @@ html {
 
 .sideMenu-open {
   height: 100% !important;
-  width: 250px !important;
+  width: 20vw !important;
   z-index: 999;
 }
 

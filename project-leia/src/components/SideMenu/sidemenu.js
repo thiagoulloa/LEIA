@@ -27,7 +27,6 @@ export default function SideMenu({ state }) {
 
   React.useEffect(() => {
     getUser();
-    console.log(state);
   }, []);
 
   function getUser() {
@@ -134,7 +133,7 @@ export default function SideMenu({ state }) {
                   <FontAwesomeIcon
                     className="ico"
                     icon={faUsers}
-                    onClick={() => navigate("/Home-Page", { state: state })}
+                    onClick={() => navigate("/teams-page", { state: state })}
                   />
                 </div>
                 <p className="icons-text" id="equipe-text">

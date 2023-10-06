@@ -20,6 +20,10 @@ export default function HomePage() {
   React.useEffect(() => {
     getProjects();
     console.log(state);
+
+    if (!state) {
+      navigate("/");
+    }
   }, []);
 
   function getProjects() {

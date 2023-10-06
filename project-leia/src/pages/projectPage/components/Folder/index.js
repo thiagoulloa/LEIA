@@ -12,6 +12,8 @@ export default function Folder({ titulo, id, projectId, userId }) {
   const [info] = React.useState([
     {
       projectId: projectId,
+      user: userId,
+      folderId: id,
     },
   ]);
 
@@ -20,7 +22,7 @@ export default function Folder({ titulo, id, projectId, userId }) {
   }, []);
 
   function getDocsByFolder() {
-    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyfolderid", {
+    Axios.post("http://projetoleia.ddns.net:3001/getcompare_time", {
       folderId: id,
     })
       .then((response) => {
@@ -33,7 +35,10 @@ export default function Folder({ titulo, id, projectId, userId }) {
     <div className="content">
       <div className="folder">
         <div className="folder-top">
-          <div className="folder-tab">
+          <div
+            className="folder-tab"
+            onClick={() => navigate("/folder-page", { state: info })}
+          >
             <p className="folder-title">{titulo}</p>
           </div>
           <div className="folder-right"></div>

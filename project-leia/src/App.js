@@ -10,8 +10,9 @@ import "./App.css";
 import FgtPasswordPage from "./pages/FgtPasswordPage";
 import ProjConfigPage from "./pages/projConfigPage";
 import NewProjPage from "./pages/newProjPage";
-import NewTeamPage from "./pages/newTeamPage";
+import TeamsPage from "./pages/newTeamPage";
 import HomePage from "./pages/homePage";
+import FolderPage from "./pages/FolderPage";
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
         <Route path="/FgtPasswordPage" element={<FgtPasswordPage />} />
         <Route path="/projConfig" element={<ProjConfigPage />} />
         <Route path="/new-project" element={<NewProjPage />} />
-        <Route path="/new-team" element={<NewTeamPage />} />
+        <Route path="/teams-page" element={<TeamsPage />} />
         <Route path="/home-page" element={<HomePage />} />
+        <Route path="/folder-page" element={<FolderPage />} />
       </Routes>
     </div>
   );

@@ -1,27 +1,24 @@
 import * as React from "react";
 import "./style.css";
-import "../../../../css/PagesDesign/folder&projectPage.css";
+import "../../../css/PagesDesign/folder&projectPage.css";
 import { useNavigate } from "react-router-dom";
-import OpenPopUp from "../PopUp/popup";
 import {
   faUser,
   faPencilSquare,
   faTrash,
   faSearch,
-  faPlus,
+  faMinus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MiniFolder from "./minifolder";
-import Popup from "reactjs-popup";
+
 import Axios from "axios";
 
-export default function BasicCard({
+export default function BasicCardFolder({
   titulo,
   preview,
   projectId,
   documentId,
   userId,
-  folders,
 }) {
   let navigate = useNavigate();
 
@@ -37,6 +34,22 @@ export default function BasicCard({
     Axios.post("http://projetoleia.ddns.net:3001/deletecard", {
       id_project: projectId,
       id_card: documentId,
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          window.location.reload();
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401 || error.response.status === 500) {
+          console.log(error);
+        }
+      });
+  }
+
+  function removeFromFold() {
+    Axios.post("http://projetoleia.ddns.net:3001/removefromfolder", {
+      documentId: documentId,
     })
       .then((response) => {
         if (response.status === 200) {
@@ -71,33 +84,14 @@ export default function BasicCard({
                 onClick={() => deleteDoc()}
               />
             </div>
-
-            <Popup
-              trigger={
-                <div className="add-to-icon-card">
-                  <FontAwesomeIcon
-                    className="ico"
-                    id="delete-icon-card"
-                    icon={faPlus}
-                  />
-                </div>
-              }
-            >
-              <div className="popup-addtofolder">
-                <div className="addtofolder-div">
-                  <p id="titpop">Adicionar a pasta:</p>
-                  {folders.length > 0 &&
-                    folders.map((folder) => (
-                      <MiniFolder
-                        key={folder.id}
-                        titulo={folder.titulo}
-                        folderId={folder.id}
-                        documentId={documentId}
-                      />
-                    ))}
-                </div>
-              </div>
-            </Popup>
+            <div className="remove-doc">
+              <FontAwesomeIcon
+                className="ico"
+                id="delete-icon-card"
+                icon={faMinus}
+                onClick={() => removeFromFold()}
+              />
+            </div>
           </div>
         </div>
         <div className="card-title-container">

@@ -1,4 +1,4 @@
-import "./style.css";
+import "../../css/PagesDesign/newProjPage.css";
 import SideMenu from "../../components/SideMenu/sidemenu";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -40,10 +40,10 @@ export default function NewProjPage() {
   }
 
   return (
-    <div className="projConfigPage">
+    <div className="newProjPage">
       <SideMenu state={state} />
 
-      <div className="align-top">
+      <div className="align-top-new-project-page">
         <h1 id="title">Configure seu projeto</h1>
       </div>
       <div className="align-center">

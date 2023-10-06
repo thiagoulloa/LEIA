@@ -1,24 +1,159 @@
-.topBar.introduction {
+.footer-right {
   display: flex;
-  width: 100%;
-  background-color: #3c8bc375;
-}
-
-.AlignRight_footer {
-  display: flex;
-  gap: 1%;
+  gap: 1rem;
   margin-right: 1%;
   justify-self: flex-end;
+  order: 2;
 }
 
 .footer {
-  display: grid;
-  height: 100%;
+  display: flex;
+  min-height: 8vh;
+  justify-content: space-between;
   align-items: center;
-  background-color: #3c8bc375;
+  background: linear-gradient(0deg, #010a13, #021121);
+  width: 100%;
 }
 
 .TextoFT {
   display: flex;
   justify-self: center;
+  color: white;
+}
+
+.logo.homebar {
+  width: auto;
+  height: 35%;
+  max-height: 55%;
+  cursor: pointer;
+}
+
+.alignRight.introduction {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  align-items: center;
+  margin-right: 20px;
+  gap: 0.5rem;
+}
+
+#loginBtn {
+  font-style: normal;
+  font-size: 1em;
+}
+
+#registerBtn {
+  font-style: normal;
+  font-size: 1em;
+}
+
+.txt-introduction {
+  font-family: "Space Grotesk";
+  color: white;
+  font-size: 4em;
+}
+
+.txt-content {
+  font-family: "Gabarito";
+  color: white;
+  font-size: 2em;
+  justify-content: left;
+  text-align: left;
+}
+
+.content-introduction {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignLeft-homeb {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  align-items: center;
+  margin-left: 20px;
+  gap: 6%;
+}
+
+.section-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  padding: 1%;
+}
+
+.sections-int {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  gap: 2vh;
+  padding: 2%;
+}
+
+.container-image {
+  background-color: #0462c057;
+  height: 80%;
+  width: 80%;
+  border-radius: 1vh;
+  padding: 5%;
+}
+
+.container-gif {
+  background-color: #0462c057;
+  height: 80%;
+  width: 80%;
+  border-radius: 1vh;
+  padding: 1%;
+}
+
+.logoarquivo {
+  width: auto;
+  height: 100%;
+}
+
+.titulos-introduction {
+  color: #9fe1a8;
+}
+
+.color-int {
+  color: #9fe1a8;
+  font-family: "Space Grotesk";
+  font-size: 1em;
+}
+
+.IntroductionPage::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  background-color: #021121;
+}
+
+.IntroductionPage::-webkit-scrollbar {
+  width: 6px;
+  background-color: #021121;
+}
+
+.IntroductionPage::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+}
+.top-directs {
+  color: #ffffff;
+}
+
+.top-directs:hover {
+  cursor: pointer;
+  color: #9fe1a8;
+}
+
+.directs-introduction {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10%;
 }

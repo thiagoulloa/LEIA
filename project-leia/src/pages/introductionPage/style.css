@@ -2,7 +2,6 @@
   width: 100%;
   height: 90% !important;
   align-self: flex-end;
-  overflow-y: auto;
   margin-top: 10%;
 }
 
@@ -11,15 +10,6 @@
   width: 100%;
   height: 10%;
   align-self: flex-end;
-}
-
-.alignRight.introduction {
-  display: flex;
-  width: 100%;
-  justify-content: right;
-  align-items: center;
-  margin-right: 20px;
-  gap: 0.5rem;
 }
 
 .alignLeft {
@@ -42,13 +32,6 @@
   display: flex;
   flex-direction: row;
   gap: 5%;
-}
-
-.logo.homebar {
-  width: 6rem;
-  height: auto;
-  max-height: 55%;
-  cursor: pointer;
 }
 
 /*TELA DE CELULAR*/
@@ -80,12 +63,6 @@
   color: white;
   margin: 4%;
   cursor: pointer;
-}
-
-#registerBtn,
-#loginBtn {
-  font-style: normal;
-  font-weight: normal;
 }
 
 html {

@@ -52,7 +52,7 @@ function LoginPage() {
   React.useEffect(() => {
     BlobFunction();
   }, []);
-
+  //FELPST QUE FEZ
   const validationSchema = yup.object().shape({
     email: yup
       .string()

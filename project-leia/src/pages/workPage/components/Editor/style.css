@@ -1,0 +1,27 @@
+.quill {
+  background-color: white;
+  overflow-y: none;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+#quill-editor-container {
+  height: 100%;
+  width: 100%;
+}
+
+.ql-container.ql-snow {
+  height: 100%;
+  width: 100%;
+  max-width: 100% !important;
+  border: none;
+}
+.ql-toolbar.ql-snow {
+  border: none;
+}
+.ql-editor {
+  height: 100%;
+  width: 100%;
+  overflow-y: none;
+}
