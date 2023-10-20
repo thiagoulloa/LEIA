@@ -32,7 +32,7 @@ export default function FolderPage() {
   }, []);
 
   function getFolderById() {
-    Axios.post("http://localhost:3001/getfolderbyid", {
+    Axios.post("http://projetoleia.ddns.net:3001/getfolderbyid", {
       folderId: state[0].folderId,
     })
       .then((response) => {
@@ -43,7 +43,7 @@ export default function FolderPage() {
 
   function searchDocuments() {
     if (searchValue.length >= 1) {
-      Axios.post("http://localhost:3001/searchdocs", {
+      Axios.post("http://projetoleia.ddns.net:3001/searchdocs", {
         id_project: state[0].projectId,
         titulo: searchValue,
         folderId: state[0].folderId,
@@ -58,7 +58,7 @@ export default function FolderPage() {
   }
 
   function getDocuments() {
-    Axios.post("http://localhost:3001/getdocumentbyfolderid", {
+    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyfolderid", {
       folderId: state[0].folderId,
     })
       .then((response) => {

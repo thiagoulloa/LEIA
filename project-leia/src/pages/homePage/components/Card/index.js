@@ -34,7 +34,7 @@ export default function ProjectCard({
 
   function DeleteProjects() {
     if (userId === projectOwner) {
-      Axios.post("http://localhost:3001/deleteProjects", {
+      Axios.post("http://projetoleia.ddns.net:3001/deleteProjects", {
         id_usuario: projectOwner,
         id_projects: projectId,
       })

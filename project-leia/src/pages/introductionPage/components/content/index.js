@@ -5,6 +5,8 @@ import "../../../../css/Components/introPage.css";
 import WebFont from "webfontloader";
 import logoArquivo from "../../../images/logoarquivo.png";
 import DocGif from "../../images/documento.gif";
+import Fobjetivo from "../../images/objetivos.png";
+import Fsolucao from "../../images/solucao.jpg";
 
 export default function IntroductionContent() {
   let navigate = useNavigate();
@@ -35,13 +37,13 @@ export default function IntroductionContent() {
           </p>
         </div>
         <div className="container-image">
-          <img className="logoarquivo" src={logoArquivo}></img>
+          <img className="logoarquivo" src={Fobjetivo}></img>
         </div>
       </div>
 
       <div className="sections-int">
         <div className="container-image">
-          <img className="logoarquivo" src={logoArquivo}></img>
+          <img className="logoarquivo" src={Fsolucao}></img>
         </div>
         <div className="txt-content">
           <h1 className="titulos-introduction">Solução</h1>

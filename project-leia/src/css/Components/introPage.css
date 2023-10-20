@@ -101,6 +101,9 @@
   width: 80%;
   border-radius: 1vh;
   padding: 5%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .container-gif {
@@ -113,7 +116,7 @@
 
 .logoarquivo {
   width: auto;
-  height: 100%;
+  height: 55vh;
 }
 
 .videogif {

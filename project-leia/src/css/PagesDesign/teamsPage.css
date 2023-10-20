@@ -2,33 +2,33 @@
   display: flex;
   width: 100%;
   height: 100vh;
-  flex-direction: column;
+  gap: 5%;
   background-color: #021121;
-  gap: 5vh;
 }
 
 .teams-page-top {
   display: flex;
-  justify-content: left;
-  margin-left: 10vw;
+  gap: 2%;
+  align-items: center;
   margin-top: 2vh;
-
+  height: 5vh;
   width: 100%;
 }
 
 .teams-page-center {
   display: flex;
   flex-direction: column;
-  margin-left: 10vw;
-  height: 60%;
-  width: 40%;
+  height: fit-content;
+  gap: 5vh;
+  width: 100%;
+  padding-right: 20%;
+  margin-bottom: 5vh;
 }
 
 .teams-page-bottom {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  margin-left: 10vw;
   width: 40%;
   height: 20%;
   gap: 5vh;
@@ -61,21 +61,118 @@
   background-color: white;
 }
 
-.input-colab {
-  width: 95%;
-  height: 100%;
-  padding: 10px;
-  border: none;
-}
-
-.input-colab:focus {
-  outline: none;
-}
-
 .add-colab-icon {
   color: black;
   height: 80%;
   margin: 1%;
   width: auto;
   cursor: pointer;
+}
+
+.teams-page-teams {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100vh;
+  gap: 5vh;
+}
+
+.create-team-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  margin-left: 10vw;
+}
+
+.new-button.full {
+  width: 100%;
+  height: 4.5vh;
+}
+
+.team-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 5vw;
+  padding-left: 2%;
+  gap: 3%;
+  width: 100%;
+  height: 3rem;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.555);
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.teamcard-text {
+  color: white;
+  font-size: large;
+}
+
+.teams-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+  gap: 2.5vw;
+  overflow-y: auto;
+  height: 90%;
+}
+
+.teams-cards::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  background-color: #021121;
+}
+
+.teams-cards::-webkit-scrollbar {
+  width: 6px;
+  background-color: #021121;
+}
+
+.teams-cards::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+}
+
+.invites-icon {
+  color: white;
+  height: 85%;
+  cursor: pointer;
+}
+
+.invite-card {
+  display: flex;
+  align-items: center;
+  padding: 5%;
+  height: 3.2rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+  gap: 5%;
+}
+
+.invite-text {
+  color: white;
+  font-size: small;
+}
+
+.accept-icon {
+  color: greenyellow;
+  height: 90%;
+  cursor: pointer;
+}
+.deny-icon {
+  color: red;
+  height: 90%;
+  cursor: pointer;
+}
+
+.invites-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

@@ -35,7 +35,7 @@ export default function ProjectPage() {
 
   function searchDocuments() {
     if (searchValue.length >= 1) {
-      Axios.post("http://localhost:3001/searchdocs", {
+      Axios.post("http://projetoleia.ddns.net:3001/searchdocs", {
         id_project: state[0].projectId,
         titulo: searchValue,
       })
@@ -49,7 +49,7 @@ export default function ProjectPage() {
   }
 
   function getDocuments() {
-    Axios.post("http://localhost:3001/getdocs", {
+    Axios.post("http://projetoleia.ddns.net:3001/getdocs", {
       id_project: state[0].projectId,
     })
       .then((response) => {
@@ -59,7 +59,7 @@ export default function ProjectPage() {
   }
 
   function getFolders() {
-    Axios.post("http://localhost:3001/getfolders", {
+    Axios.post("http://projetoleia.ddns.net:3001/getfolders", {
       id_project: state[0].projectId,
     })
       .then((response) => {
@@ -69,7 +69,7 @@ export default function ProjectPage() {
   }
 
   function createFolder() {
-    Axios.post("http://localhost:3001/createfolder", {
+    Axios.post("http://projetoleia.ddns.net:3001/createfolder", {
       id_project: state[0].projectId,
       id_usuario: state[0].user,
       titulo: folderTitle,

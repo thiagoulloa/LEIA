@@ -1,0 +1,33 @@
+.team-page {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  gap: 5%;
+  background-color: #021121;
+}
+
+.input-colab {
+  width: 95%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+}
+
+.input-colab:focus {
+  outline: none;
+}
+
+.title {
+  color: white;
+  width: fit-content;
+}
+
+.team-page-team {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  height: 100vh;
+  gap: 5vh;
+  margin-left: 10vw;
+}

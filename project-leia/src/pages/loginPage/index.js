@@ -21,7 +21,7 @@ function LoginPage() {
       return;
     }
 
-    Axios.post("http://localhost:3001/Login", {
+    Axios.post("http://projetoleia.ddns.net:3001/Login", {
       email: values.email,
       password: values.password,
     })

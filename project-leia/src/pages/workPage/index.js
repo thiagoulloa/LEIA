@@ -56,7 +56,7 @@ function WorkPage() {
   }, []);
 
   async function SaveDoc() {
-    Axios.post("http://localhost:3001/savedocs", {
+    Axios.post("http://projetoleia.ddns.net:3001/savedocs", {
       titulo: title,
       content: content,
       preview: content,
@@ -70,7 +70,7 @@ function WorkPage() {
   }
 
   function deleteDoc() {
-    Axios.post("http://localhost:3001/deletecard", {
+    Axios.post("http://projetoleia.ddns.net:3001/deletecard", {
       id_project: state[0].projectId,
       id_card: state[0].documentId,
     })
@@ -88,7 +88,7 @@ function WorkPage() {
   }
 
   function getDocument() {
-    Axios.post("http://localhost:3001/getdocumentbyid", {
+    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyid", {
       documentId: state[0].documentId,
     })
       .then((response) => {

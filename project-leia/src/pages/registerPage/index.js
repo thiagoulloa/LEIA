@@ -10,7 +10,7 @@ import BlobFunction from "../../MouseMove/MouseMove";
 function RegisterPage() {
   let navigate = useNavigate();
   const handleClickRegister = (values) => {
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("http://projetoleia.ddns.net:3001/register", {
       username: values.username,
       email: values.email,
       password: values.password,
