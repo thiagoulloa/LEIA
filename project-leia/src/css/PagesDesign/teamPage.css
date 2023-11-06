@@ -22,12 +22,61 @@
   width: fit-content;
 }
 
+.title-team {
+  color: #45c4b0;
+  width: fit-content;
+  font-size: x-large;
+}
+
 .team-page-team {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
   width: 80%;
   height: 100vh;
   gap: 5vh;
   margin-left: 10vw;
+}
+
+.team-users {
+  display: flex;
+  width: 100%;
+  height: 5vh;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2svh;
+}
+
+.card-users {
+  width: 20vh;
+  height: 20vh;
+  border-radius: 1vh;
+  background-color: #051e38;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.UsersName {
+  color: white;
+  font-size: 2.5vh;
+}
+
+.s {
+  height: auto;
+  width: 7vh;
+}
+
+.teamicontm {
+  height: 4vh;
+  color: #45c4b0;
+}
+
+.container-carduser {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
 }

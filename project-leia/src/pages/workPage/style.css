@@ -16,13 +16,13 @@
   resize: none;
 }
 
-.container-editor {
+/*.container-editor {
   width: 80%;
   height: 80%;
   overflow-y: none;
   overflow-x: none;
   border-radius: 1rem;
-}
+}*/
 
 .container-text.code {
   width: 80%;

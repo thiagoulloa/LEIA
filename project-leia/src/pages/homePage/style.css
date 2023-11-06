@@ -10,7 +10,7 @@
 }
 
 .cardHome {
-  width: 110vh;
+  width: 75vw;
   height: 8vh;
   display: flex;
   border-radius: 8px;
@@ -28,7 +28,7 @@
   border-color: #3c8bc3;
   z-index: 10px;
   cursor: pointer;
-  width: 111vh;
+
   height: 8vh;
   transition: 0.2s;
   transform: translateY(-2px);

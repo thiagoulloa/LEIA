@@ -67,6 +67,12 @@
   display: flex;
   cursor: pointer;
   align-items: flex-start;
+  transition: 0.2s;
+}
+
+.ico:hover {
+  font-size: 2.3rem;
+  transition: 0.2s ease-in;
 }
 
 .equipe {

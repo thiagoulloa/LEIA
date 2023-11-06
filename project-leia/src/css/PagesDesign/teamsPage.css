@@ -13,6 +13,7 @@
   margin-top: 2vh;
   height: 5vh;
   width: 100%;
+  justify-content: center;
 }
 
 .teams-page-center {
@@ -104,6 +105,12 @@
   border-color: rgba(255, 255, 255, 0.555);
   border-radius: 0.6rem;
   cursor: pointer;
+}
+
+.team-card:hover {
+  border-color: #45c4b0;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
 .teamcard-text {

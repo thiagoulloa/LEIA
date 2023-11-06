@@ -1,12 +1,15 @@
 import "./style.css";
 import SideMenu from "../../components/SideMenu/sidemenu";
-import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function ProjConfigPage() {
+  const { state } = useLocation();
   return (
     <div className="projConfigPage">
-      <SideMenu />
+      <SideMenu state={state[0].user} />
 
       <div className="align-top">
         <h1 id="title">Configurações do Projeto</h1>

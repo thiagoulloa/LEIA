@@ -13,6 +13,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "quill/dist/quill.snow.css";
+import ReactQuill from "react-quill";
+import TextEditor from "./components/Editor/editor.js";
+import TextEnv from "./components/Editor/env.js";
 
 function WorkPage() {
   let navigate = useNavigate();
@@ -51,10 +55,6 @@ function WorkPage() {
     console.log(funcoesChecked, parametrosChecked, variaveisChecked);
   }
 
-  React.useEffect(() => {
-    getDocument();
-  }, []);
-
   async function SaveDoc() {
     Axios.post("http://projetoleia.ddns.net:3001/savedocs", {
       titulo: title,
@@ -85,17 +85,6 @@ function WorkPage() {
           console.log(error);
         }
       });
-  }
-
-  function getDocument() {
-    Axios.post("http://projetoleia.ddns.net:3001/getdocumentbyid", {
-      documentId: state[0].documentId,
-    })
-      .then((response) => {
-        setContent(response.data[0].content);
-        setTitle(response.data[0].titulo);
-      })
-      .catch((error) => console.log(error));
   }
 
   function sendRequest() {
@@ -210,14 +199,7 @@ function WorkPage() {
               icon={faArrowLeft}
               onClick={Return}
             />
-            <div className="container-text code">
-              <textarea
-                type="text"
-                className="input-code"
-                value={mensagem}
-                onChange={(e) => setMensagem(e.target.value)}
-              />
-            </div>
+            <div className="container-text code"></div>
             <div className="gpt-gap">
               <button className="glow" onClick={sendRequest}>
                 Enviar
@@ -226,33 +208,16 @@ function WorkPage() {
             </div>
           </div>
 
-          <div className="align-right workpage">
-            <input
-              className="project-title"
-              placeholder="Título do Arquivo"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            ></input>
-            <div className="container-editor">
-              <div className="Editor">
-                <textarea
-                  id="document"
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                ></textarea>
-              </div>
-            </div>
-            <div className="gpt-gap">
-              <button className="glow" onClick={SaveDoc}>
-                Salvar
-              </button>
-              <FontAwesomeIcon
-                icon={faTrash}
-                className="ico"
-                onClick={deleteDoc}
-              />
-            </div>
-          </div>
+          <React.StrictMode>
+            <TextEditor
+              className="editor-r"
+              projectId={state[0].projectId}
+              userId={state[0].user}
+              folderId={state[0].folderId}
+              docsId={state[0].documentId}
+              airesponse={state[0].airesponse}
+            />
+          </React.StrictMode>
         </div>
       </div>
       <ToastContainer />

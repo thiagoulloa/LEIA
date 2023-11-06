@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./style.css";
 
-export default function TextEditor({
+export default function Env({
   docsId,
   airesponse,
   projectId,
