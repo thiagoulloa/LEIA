@@ -8,9 +8,10 @@
 
 .input-colab {
   width: 95%;
-  height: 100%;
+  height: 95%;
   padding: 10px;
   border: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .input-colab:focus {
@@ -38,18 +39,19 @@
   margin-left: 10vw;
 }
 
-.team-users {
+.container-left-teampage {
   display: flex;
   width: 100%;
-  height: 5vh;
+  height: 85vh;
   flex-direction: column;
-  justify-content: center;
-  gap: 2svh;
+  justify-content: space-between;
+  gap: 5svh;
 }
 
-.card-users {
+.card-users,
+.card-owner {
   width: 20vh;
-  height: 20vh;
+  height: 23vh;
   border-radius: 1vh;
   background-color: #051e38;
   display: flex;
@@ -57,6 +59,48 @@
   align-items: center;
   flex-direction: column;
   gap: 2vh;
+  border-color: #051e38;
+  border-style: solid;
+  border-width: 1.5px;
+  transition: 0.3s;
+  box-shadow: 0 7px 30px 0 #040b22;
+}
+
+#team-owner {
+  color: #45c4b0;
+  font-size: 2.5vh;
+}
+
+.card-users:hover,
+.card-owner:hover {
+  border-color: #45c4b0;
+  z-index: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  transform: translateY(-2px);
+}
+
+.card-users:hover #delete-icon {
+  display: block;
+}
+
+.alignBottom-CardUser {
+  display: flex;
+  gap: 5vh;
+  height: 1.5vh;
+}
+
+#delete-icon {
+  color: white;
+  height: 15px;
+  width: 15px;
+  display: none;
+}
+
+#delete-icon:hover {
+  height: 20px;
+  width: 20px;
+  transition: 0.1s ease-in;
 }
 
 .UsersName {
@@ -77,6 +121,62 @@
 .container-carduser {
   display: flex;
   gap: 2rem;
+  align-items: flex-start;
+  padding-top: 1vh;
+  height: 70%;
+  overflow-y: auto;
+}
+
+.container-projects {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  flex-direction: column;
+  justify-content: top;
+  gap: 5vh;
+  padding-top: 1vh;
+}
+
+.users-projects {
+  display: flex;
+}
+
+.card-team-projects {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  border-radius: 8px;
+  justify-content: center;
   flex-direction: column;
   align-items: flex-start;
+  padding-left: 5%;
+  background-color: #051e38;
+  box-shadow: 0 7px 30px 0 #040b22;
+  border-style: solid;
+  border-color: #051e38;
+  border-width: 1.5px;
+  transition: 0.3s;
+
+  color: white;
+}
+
+.card-team-projects:hover {
+  border-color: #45c4b0;
+  z-index: 10px;
+  cursor: pointer;
+  height: 8vh;
+  transition: 0.4s;
+  transform: translateY(-2px);
+}
+
+#project-titulo-teampage {
+  font-weight: bold;
+  font-size: large;
+  color: rgba(255, 255, 255, 0.685);
+}
+
+#project-desc-teampage {
+  font-style: italic;
+  font-size: small;
+  color: rgba(255, 255, 255, 0.685);
 }

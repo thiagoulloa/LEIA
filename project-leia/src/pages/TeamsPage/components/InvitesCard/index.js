@@ -43,13 +43,35 @@ export default function InviteCard({
       .catch((error) => console.log(error));
   }
 
+  function SendResponse(value) {
+    Axios.post("http://projetoleia.ddns.net:3001/inviteresponse", {
+      response: value,
+      inviteId: id,
+      teamId: id_time,
+      userId: id_destinatario,
+    })
+      .then((response) => {
+        console.log(response);
+        window.location.reload();
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
     <div className="invite-card">
       <p className="invite-text">
         {remetente} te convidou para: {time}
       </p>
-      <FontAwesomeIcon className="accept-icon" icon={faCheck} />
-      <FontAwesomeIcon className="deny-icon" icon={faXmark} />
+      <FontAwesomeIcon
+        className="accept-icon"
+        icon={faCheck}
+        onClick={() => SendResponse(1)}
+      />
+      <FontAwesomeIcon
+        className="deny-icon"
+        icon={faXmark}
+        onClick={() => SendResponse(2)}
+      />
     </div>
   );
 }

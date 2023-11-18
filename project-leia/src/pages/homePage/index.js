@@ -1,10 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import "../../css/PagesDesign/homePage.css";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
 import ProjectCard from "./components/Card";
+import TeamProjectCard from "./components/TeamProjectCard";
 import Axios from "axios";
 import SideMenu from "../../components/SideMenu/sidemenu";
 
@@ -14,13 +16,13 @@ export default function HomePage() {
   const { state } = useLocation();
 
   const [projects, setProjects] = React.useState("");
+  const [teamProjects, setTeamProjects] = React.useState("");
 
   const [searchValue, setSearchValue] = React.useState("");
 
   React.useEffect(() => {
     getProjects();
-    console.log(state);
-
+    getUserTeams();
     if (!state) {
       navigate("/");
     }
@@ -32,6 +34,29 @@ export default function HomePage() {
     })
       .then((response) => {
         setProjects(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function getTeamProjects(teamId) {
+    Axios.post("http://projetoleia.ddns.net:3001/getteamprojects", {
+      teamId: teamId,
+    })
+      .then((response) => {
+        setTeamProjects(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function getUserTeams() {
+    Axios.post("http://projetoleia.ddns.net:3001/getteamuser", {
+      userId: state,
+    })
+      .then((response) => {
+        response.data.forEach((element) => {
+          getTeamProjects(element.id_time);
+        });
       })
       .catch((error) => console.log(error));
   }
@@ -70,7 +95,7 @@ export default function HomePage() {
             />
           </div>
           <button
-            className="new-button"
+            className="newProject-button"
             onClick={() => navigate("/new-project", { state: state })}
           >
             Novo Projeto
@@ -86,6 +111,19 @@ export default function HomePage() {
                 projectId={project.id}
                 userId={state}
                 projectOwner={project.id_usuario}
+                teamId={project.id_teams}
+                key={project.id}
+              />
+            ))}
+          {teamProjects.length > 0 &&
+            teamProjects.map((teamProject) => (
+              <TeamProjectCard
+                titulo={teamProject.titulo}
+                preview={teamProject.descricao}
+                projectId={teamProject.id}
+                userId={state}
+                teamId={teamProject.id_teams}
+                key={teamProject.id}
               />
             ))}
         </div>

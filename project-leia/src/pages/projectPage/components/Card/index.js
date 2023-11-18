@@ -29,12 +29,14 @@ export default function BasicCard({
     {
       projectId: projectId,
       documentId: documentId,
-      user: userId,
+      userId: userId,
     },
   ]);
 
+  React.useEffect(() => {}, []);
+
   function deleteDoc() {
-    Axios.post("http://localhost:3001/deletecard", {
+    Axios.post("http://projetoleia.ddns.net:3001/deletecard", {
       id_project: projectId,
       id_card: documentId,
     })
@@ -44,15 +46,13 @@ export default function BasicCard({
         }
       })
       .catch((error) => {
-        if (error.response.status === 401 || error.response.status === 500) {
-          console.log(error);
-        }
+        console.log(error);
       });
   }
 
   return (
     <div className="content">
-      <div className="card">
+      <div className="cardA">
         <div className="hover-func">
           <div className="hover-func-btns">
             <div className="editar-doc">

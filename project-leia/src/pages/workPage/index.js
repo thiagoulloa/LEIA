@@ -12,11 +12,13 @@ import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
+import { ClockLoader } from "react-spinners";
 import "react-toastify/dist/ReactToastify.css";
 import "quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 import TextEditor from "./components/Editor/editor.js";
 import TextEnv from "./components/Editor/env.js";
+import Editor from "monaco-editor"; // jogou mal
 
 function WorkPage() {
   let navigate = useNavigate();
@@ -38,7 +40,7 @@ function WorkPage() {
 
   const [info] = React.useState([
     {
-      user: state[0].user,
+      userId: state[0].userId,
       projectId: state[0].projectId,
       folderId: state[0].folderId,
     },
@@ -199,9 +201,10 @@ function WorkPage() {
               icon={faArrowLeft}
               onClick={Return}
             />
+
             <div className="container-text code"></div>
             <div className="gpt-gap">
-              <button className="glow" onClick={sendRequest}>
+              <button className="workPage-button" onClick={sendRequest}>
                 Enviar
               </button>
               <img id="config-button" src={ConfigImage} onClick={openNav}></img>

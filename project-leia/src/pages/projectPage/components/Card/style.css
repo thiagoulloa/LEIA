@@ -1,4 +1,4 @@
-.card {
+.cardA {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,20 +13,18 @@
   overflow: hidden;
   word-wrap: break-word;
   transition: 0.3s;
+  cursor: pointer;
 }
 
-.card:hover {
-  border-color: rgb(68, 161, 197);
-  z-index: 10;
-
-  border-radius: 1.5rem;
-  transition: 0.8s;
+.cardA:hover {
+  border-color: rgb(169, 135, 255);
+  transition: 0.4s;
 }
 
-.card:hover .hover-func-btns {
+.cardA:hover .hover-func-btns {
   display: flex;
   position: relative;
-  transition: 0.8s;
+  transition: 0.4s;
 }
 
 .hover-func-btns {

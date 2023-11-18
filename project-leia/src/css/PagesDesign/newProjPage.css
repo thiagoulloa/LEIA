@@ -30,13 +30,34 @@
 }
 
 .collab-div {
-  display: flex;
-  align-items: center;
-  width: 370px;
-  height: 35px;
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: 0.5rem;
-  border: 2px solid transparent;
+}
+
+.css-op7nof-MuiFormControl-root {
+  margin: 0 !important;
+  margin-top: 5px !important;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon,
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root,
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  color: white !important;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: white !important;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2 !important;
+  border-width: 2px;
+}
+
+.css-bpeome-MuiSvgIcon-root-MuiSelect-icon {
+  color: #1976d2 !important;
 }
 
 .collab-input {

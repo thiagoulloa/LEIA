@@ -6,11 +6,16 @@ import { useLocation } from "react-router-dom";
 import { ReactComponent as ArrowIcon } from "../../images/arrow-icon.svg";
 import Axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 export default function NewProjPage() {
   let navigate = useNavigate();
 
   const [projectName, setProjectName] = React.useState("");
+  const [teamId, setTeamId] = React.useState("");
+  const [teams, setTeams] = React.useState("");
   const [projDesc, setProjDesc] = React.useState("");
   const [collaborators, setCollaborators] = React.useState("");
 
@@ -18,19 +23,40 @@ export default function NewProjPage() {
 
   React.useEffect(() => {
     console.log(state);
+    getTeams();
   }, []);
+
+  const handleChange = (event) => {
+    setTeamId(event.target.value);
+  };
 
   function sendProject() {
     Axios.post("http://projetoleia.ddns.net:3001/sendproject", {
       id_usuario: state,
       titulo: projectName,
       descricao: projDesc,
+      teamId: teamId,
     })
       .then((response) => {
         if (response.status === 200) {
           navigate("/home-page", { state: state });
           console.log(response);
         }
+      })
+      .catch((error) => {
+        if (error.response.status === 401 || error.response.satus === 500) {
+          console.log(error);
+        }
+      });
+  }
+
+  function getTeams() {
+    Axios.post("http://projetoleia.ddns.net:3001/getusercreatedteams", {
+      userId: state,
+    })
+      .then((response) => {
+        console.log(response);
+        setTeams(response.data);
       })
       .catch((error) => {
         if (error.response.status === 401 || error.response.satus === 500) {
@@ -72,16 +98,29 @@ export default function NewProjPage() {
               />
             </div>
             <div className="input-div">
-              <label className="label">Adicionar colaboradores: </label>
               <div className="collab-div">
-                <Field
-                  type="text"
-                  name="projColab"
-                  className="collab-input"
-                  value={collaborators}
-                  onChange={(e) => setCollaborators(e.target.value)}
-                />
-                <ArrowIcon id="arrow-collab" />
+                <FormControl sx={{ m: 1, minWidth: 250 }}>
+                  <InputLabel id="demo-simple-select-autowidth-label">
+                    Equipe
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={teamId}
+                    onChange={handleChange}
+                    autoWidth
+                    label="Equipe"
+                  >
+                    <MenuItem value="">
+                      <em>Nenhuma</em>
+                    </MenuItem>
+
+                    {teams.length > 0 &&
+                      teams.map((team) => (
+                        <MenuItem value={team.id}>{team.titulo}</MenuItem>
+                      ))}
+                  </Select>
+                </FormControl>
               </div>
             </div>
             <button className="glow" type="submit">

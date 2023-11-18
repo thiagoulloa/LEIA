@@ -7,6 +7,7 @@ import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./style.css";
+import { ClockLoader } from "react-spinners";
 
 export default function TextEditor({
   docsId,
@@ -191,7 +192,7 @@ export default function TextEditor({
         </div>
       </div>
       <div className="gpt-gap">
-        <button className="glow" onClick={() => SaveDoc()}>
+        <button className="workPage-button" onClick={() => SaveDoc()}>
           Salvar
         </button>
         <FontAwesomeIcon icon={faTrash} className="ico" onClick={deleteDoc} />

@@ -22,7 +22,7 @@ export default function ProjectPage() {
 
   const [info] = React.useState([
     {
-      user: state[0].user,
+      userId: state[0].userId,
       projectId: state[0].projectId,
     },
   ]);
@@ -75,7 +75,6 @@ export default function ProjectPage() {
       titulo: folderTitle,
     })
       .then((response) => {
-        console.log(response);
         window.location.reload();
       })
       .catch((error) => console.log(error));
@@ -83,7 +82,7 @@ export default function ProjectPage() {
 
   return (
     <div className="homePage">
-      <SideMenu state={state[0].user} />
+      <SideMenu state={state[0].userId} />
       <div className="content homePage">
         <div className="align-top-projectpage">
           <h1 id="title">Seus Arquivos:</h1>
@@ -102,7 +101,7 @@ export default function ProjectPage() {
               />
             </div>
             <button
-              className="new-button"
+              className="newDocs-button"
               onClick={() => navigate("/work-page", { state: info })}
             >
               Novo Arquivo
@@ -139,7 +138,7 @@ export default function ProjectPage() {
                   titulo={folder.titulo}
                   id={folder.id}
                   projectId={state[0].projectId}
-                  userId={state[0].user}
+                  userId={state[0].userId}
                 />
               ))}
             {documents.length > 0 &&
@@ -149,7 +148,7 @@ export default function ProjectPage() {
                   preview={document.preview}
                   documentId={document.id}
                   projectId={state[0].projectId}
-                  userId={state[0].user}
+                  userId={state[0].userId}
                   folders={folders}
                   key={document.id}
                 />

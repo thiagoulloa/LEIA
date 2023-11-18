@@ -9,7 +9,7 @@ export default function FolderDocCard({ titulo, id, userId, projectId }) {
     {
       projectId: projectId,
       documentId: id,
-      user: userId,
+      userId: userId,
     },
   ]);
 

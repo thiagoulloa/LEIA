@@ -31,7 +31,6 @@ export default function TeamsPage() {
       titulo: teamName,
     })
       .then((response) => {
-        console.log(response.data);
         window.location.reload();
       })
       .catch((error) => console.log(error));
@@ -43,7 +42,6 @@ export default function TeamsPage() {
     })
       .then((response) => {
         setCreatedTeams(response.data);
-        console.log(response.data);
       })
       .catch((error) => console.log(error));
   }
@@ -54,7 +52,6 @@ export default function TeamsPage() {
     })
       .then((response) => {
         setTeams(response.data);
-        console.log(response.data);
       })
       .catch((error) => console.log(error));
   }
@@ -65,7 +62,6 @@ export default function TeamsPage() {
     })
       .then((response) => {
         setInvites(response.data);
-        console.log(response.data);
       })
       .catch((error) => console.log(error));
   }
@@ -74,22 +70,6 @@ export default function TeamsPage() {
     <div className="teams-page">
       <SideMenu state={state} />
 
-      <div className="create-team-menu">
-        <div className="teams-page-top">
-          <h1 id="title">Crie sua equipe:</h1>
-        </div>
-        <div className="teams-page-center">
-          <input
-            className="input"
-            placeholder="Digite o nome de sua equipe"
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
-          ></input>
-          <button className="new-button full" onClick={() => SendTeam()}>
-            Enviar Time
-          </button>
-        </div>
-      </div>
       <div className="teams-page-teams">
         <div className="teams-page-top">
           <Popup
@@ -119,15 +99,35 @@ export default function TeamsPage() {
               <CreatedTeamCard
                 key={cteam.id}
                 titulo={cteam.titulo}
-                id={cteam.id}
-                id_usuarios={cteam.id_usuarios}
+                teamId={cteam.id}
+                ownerId={cteam.id_usuarios}
                 userId={state}
               />
             ))}
           {teams.length > 0 &&
             teams.map((team) => (
-              <TeamCard key={team.id_time} teamId={team.id_time} />
+              <TeamCard
+                key={team.id_time}
+                teamId={team.id_time}
+                userId={state}
+              />
             ))}
+        </div>
+      </div>
+      <div className="create-team-menu">
+        <div className="teams-page-top">
+          <h1 id="title">Crie sua equipe:</h1>
+        </div>
+        <div className="teams-page-center">
+          <input
+            className="input"
+            placeholder="Digite o nome de sua equipe"
+            value={teamName}
+            onChange={(e) => setTeamName(e.target.value)}
+          ></input>
+          <button className="sendTeam-button" onClick={() => SendTeam()}>
+            Enviar Time
+          </button>
         </div>
       </div>
     </div>

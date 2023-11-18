@@ -12,7 +12,7 @@ export default function Folder({ titulo, id, projectId, userId }) {
   const [info] = React.useState([
     {
       projectId: projectId,
-      user: userId,
+      userId: userId,
       folderId: id,
     },
   ]);

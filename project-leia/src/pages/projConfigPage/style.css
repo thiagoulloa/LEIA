@@ -1,17 +1,20 @@
 .projConfigPage {
-  height: 100vh;
-  width: 100%;
-}
-
-.projConfig-form {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-top: 20px;
+  align-items: center;
   padding-left: 10%;
   width: 100%;
+  height: 100vh;
+}
+
+.align-center-projConfigPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
   height: 100%;
+  width: 100%;
+  gap: 5vh;
 }
 
 .input-form {
@@ -19,10 +22,30 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  width: 100%;
+  width: 50%;
 }
 
-.InputsED.desc {
-  width: 80%;
+.input-projConfigPage {
+  width: 100%;
+  height: 35px;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  gap: 20px;
+}
+
+.input-projConfigPage.desc {
   height: 10vh;
+}
+
+.bottom-projConfigPage {
+  margin-bottom: 5vh;
+  width: 50%;
+}
+
+.collab-projConfigPage {
+  display: flex;
+  width: 50%;
 }

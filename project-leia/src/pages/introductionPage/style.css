@@ -65,6 +65,17 @@
   cursor: pointer;
 }
 
+#loginBtn:hover {
+  cursor: pointer;
+  color: #9fe1a8;
+}
+
+#registerBtn:hover {
+  cursor: pointer;
+  color: #9fe1a8;
+  border-color: #9fe1a8;
+}
+
 html {
   background-color: white;
   height: auto;

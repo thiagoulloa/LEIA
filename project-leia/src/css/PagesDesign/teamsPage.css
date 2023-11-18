@@ -13,7 +13,7 @@
   margin-top: 2vh;
   height: 5vh;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .teams-page-center {
@@ -30,9 +30,9 @@
   display: flex;
   flex-direction: column;
   justify-content: left;
-  width: 40%;
+  width: 100%;
   height: 20%;
-  gap: 5vh;
+  gap: 4vh;
 }
 
 .input {
@@ -40,8 +40,15 @@
   width: 100%;
   height: 35px;
   border-radius: 10px;
-  border: none;
+  border: 3px;
+  border-style: solid;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  transition: 0.3s;
+}
+
+.input:hover {
+  border-color: #45c4b0;
+  transition: 0.4s;
 }
 
 .title {
@@ -53,21 +60,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: 35px;
   border-radius: 10px;
   border: none;
+  border: 3.5px;
+  border-style: solid;
   overflow: hidden;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background-color: white;
+  transition: 0.3s;
 }
 
 .add-colab-icon {
-  color: black;
+  color: #051e38;
   height: 80%;
   margin: 1%;
   width: auto;
   cursor: pointer;
+}
+
+.add-colab-container:hover {
+  border-color: #45c4b0;
+  transition: 0.4s;
 }
 
 .teams-page-teams {
@@ -76,6 +91,7 @@
   width: 50%;
   height: 100vh;
   gap: 5vh;
+  margin-left: 10vw;
 }
 
 .create-team-menu {
@@ -84,7 +100,6 @@
   align-items: center;
   justify-content: space-between;
   width: 40%;
-  margin-left: 10vw;
 }
 
 .new-button.full {
@@ -101,16 +116,19 @@
   gap: 3%;
   width: 100%;
   height: 3rem;
+  background-color: #051e38;
+  border-color: #051e38;
+  border-radius: 10px;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.555);
-  border-radius: 0.6rem;
   cursor: pointer;
+  border-width: 1.5px;
+  transition: 0.3s;
 }
 
 .team-card:hover {
-  border-color: #45c4b0;
   cursor: pointer;
   transition: 0.4s;
+  border-color: #45c4b0;
 }
 
 .teamcard-text {
@@ -182,4 +200,25 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.sendTeam-button {
+  height: 90%;
+  width: 100%;
+  padding: 5px;
+  border-radius: 7px;
+  border-width: 1.7px;
+  border-color: rgba(255, 255, 255, 0.678);
+  border-style: ridge;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sendTeam-button:hover {
+  transform: translateY(-2px);
+  transition: 0.4s;
+  border-color: #45c4b0;
+  border-style: ridge;
 }

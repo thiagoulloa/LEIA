@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import {
-  faUser,
+  faPeopleGroup,
   faPencilSquare,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -14,13 +14,16 @@ export default function ProjectCard({
   preview,
   projectId,
   userId,
+  teamId,
   projectOwner,
 }) {
   let navigate = useNavigate();
+
   const [info] = React.useState([
     {
-      user: userId,
+      userId: userId,
       projectId: projectId,
+      teamId: teamId,
     },
   ]);
 
@@ -83,6 +86,16 @@ export default function ProjectCard({
               onClick={() => DeleteProjects()}
             />
           </div>
+          {teamId !== null && (
+            <div className="equipe-icon-div">
+              <FontAwesomeIcon
+                className="ico"
+                id="team-icon"
+                icon={faPeopleGroup}
+                onClick={() => navigate("/team-page", { state: info })}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
