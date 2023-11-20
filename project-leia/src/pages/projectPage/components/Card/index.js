@@ -3,6 +3,7 @@ import "./style.css";
 import "../../../../css/PagesDesign/folder&projectPage.css";
 import { useNavigate } from "react-router-dom";
 import OpenPopUp from "../PopUp/popup";
+import parse from "html-react-parser";
 import {
   faUser,
   faPencilSquare,
@@ -109,7 +110,7 @@ export default function BasicCard({
 
         <div className="card-text-container">
           <p className="card-text" id="content-text">
-            {preview}...
+            {parse(preview)}
           </p>
         </div>
         <div className="editar">

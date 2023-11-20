@@ -9,6 +9,7 @@ import {
   faSearch,
   faMinus,
 } from "@fortawesome/free-solid-svg-icons";
+import parse from "html-react-parser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Axios from "axios";
@@ -100,7 +101,7 @@ export default function BasicCardFolder({
 
         <div className="card-text-container">
           <p className="card-text" id="content-text">
-            {preview}...
+            {parse(preview)}
           </p>
         </div>
         <div className="editar">
