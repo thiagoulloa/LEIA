@@ -8,7 +8,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../../../../css/PagesDesign/teamPage.css";
 
-export default function CardUser({ userId, teamId, ownerId, logUserId }) {
+export default function CardUser({
+  userId,
+  teamId,
+  ownerId,
+  logUserId,
+  notifyError,
+  notifySuccess,
+  GetTeamUsers,
+}) {
   const [username, setUsername] = React.useState("");
 
   React.useEffect(() => {
@@ -34,13 +42,14 @@ export default function CardUser({ userId, teamId, ownerId, logUserId }) {
       })
         .then((response) => {
           if (response.status === 200) {
-            window.location.reload();
+            notifySuccess(response.data.msg);
+            GetTeamUsers();
           }
           console.log(response);
         })
         .catch((error) => console.log(error));
     } else {
-      console.log("Você não possui permissão para remover usuários");
+      notifyError("Você não possui permissão para remover usuários");
     }
   }
 

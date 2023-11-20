@@ -11,7 +11,7 @@ import Popup from "reactjs-popup";
 import Axios from "axios";
 import SideMenu from "../../components/SideMenu/sidemenu";
 
-export default function ProjectPage() {
+export default function ProjectPage({ notifySuccess }) {
   let navigate = useNavigate();
   const [documents, setDocuments] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
@@ -70,11 +70,14 @@ export default function ProjectPage() {
   function createFolder() {
     Axios.post("http://projetoleia.ddns.net:3001/createfolder", {
       id_project: state[0].projectId,
-      id_usuario: state[0].user,
+      id_usuario: state[0].userId,
       titulo: folderTitle,
     })
       .then((response) => {
-        window.location.reload();
+        if (response.status === 200) {
+          notifySuccess(response.data.msg);
+          getFolders();
+        }
       })
       .catch((error) => console.log(error));
   }
@@ -148,6 +151,8 @@ export default function ProjectPage() {
                   documentId={document.id}
                   projectId={state[0].projectId}
                   userId={state[0].userId}
+                  notifySuccess={notifySuccess}
+                  getDocuments={getDocuments}
                   folders={folders}
                   key={document.id}
                 />

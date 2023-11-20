@@ -10,7 +10,7 @@ import CardUser from "./components/CardUser";
 import CardProjects from "./components/CardProjects";
 import CardOwner from "./components/CardOwner";
 
-export default function TeamPage({ notifySuccess }) {
+export default function TeamPage({ notifySuccess, notifyError }) {
   const [teamName, setTeamName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [projects, setProjects] = React.useState("");
@@ -107,6 +107,9 @@ export default function TeamPage({ notifySuccess }) {
                     teamId={state.teamId}
                     ownerId={state.ownerId}
                     logUserId={state.userId}
+                    notifyError={notifyError}
+                    notifySuccess={notifySuccess}
+                    GetTeamUsers={GetTeamUsers}
                   />
                 ))}
             </div>

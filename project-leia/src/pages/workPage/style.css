@@ -29,6 +29,7 @@
   height: 80%;
   background-color: #043d4e42;
   border-radius: 1rem;
+  overflow: hidden;
   resize: none;
 }
 
@@ -172,7 +173,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 48vw;
   height: 100%;
   gap: 0 !important;
 }
@@ -182,8 +183,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 48vw;
   height: 100%;
+}
+
+.align-center-workPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4vw;
+}
+
+#loading-div {
+  display: none;
+}
+
+#loading-bar-workPage {
+  display: none;
 }
 
 #return-button {
@@ -215,4 +231,8 @@
   border-color: rgb(169, 135, 255);
   cursor: pointer;
   transition: 0.4s;
+}
+
+.mona {
+  border-radius: 1rem;
 }

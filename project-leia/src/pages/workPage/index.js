@@ -11,16 +11,19 @@ import { FormGroup } from "@mui/material";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { ToastContainer, toast } from "react-toastify";
-import { ClockLoader } from "react-spinners";
+import {
+  BarLoader,
+  PulseLoader,
+  RotateLoader,
+  ScaleLoader,
+} from "react-spinners";
 import "react-toastify/dist/ReactToastify.css";
 import "quill/dist/quill.snow.css";
-import ReactQuill from "react-quill";
 import TextEditor from "./components/Editor/editor.js";
 import TextEnv from "./components/Editor/env.js";
-import Editor from "monaco-editor"; // jogou mal
+import Editor from "@monaco-editor/react";
 
-function WorkPage() {
+function WorkPage({ notifySuccess }) {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
 
@@ -32,11 +35,9 @@ function WorkPage() {
   const [funcoesChecked, setFuncoesChecked] = useState("");
   const [variaveisChecked, setVariaveisChecked] = useState("");
   const [parametrosChecked, setParametrosChecked] = useState("");
-  const [title, setTitle] = React.useState("");
+  const [importacoesChecked, setImportacoesChecked] = useState("");
 
   const { state } = useLocation();
-
-  const notify = () => toast("Wow so easy!");
 
   const [info] = React.useState([
     {
@@ -54,21 +55,12 @@ function WorkPage() {
 
   function openNav() {
     setBtnState((btnState) => !btnState);
-    console.log(funcoesChecked, parametrosChecked, variaveisChecked);
-  }
-
-  async function SaveDoc() {
-    Axios.post("http://projetoleia.ddns.net:3001/savedocs", {
-      titulo: title,
-      content: content,
-      preview: content,
-      docsId: state[0].documentId,
-      id_project: state[0].projectId,
-      folderId: state[0].folderId,
-    }).then((response) => {
-      console.log(response);
-      window.location.reload();
-    });
+    console.log(
+      funcoesChecked,
+      parametrosChecked,
+      variaveisChecked,
+      importacoesChecked
+    );
   }
 
   function deleteDoc() {
@@ -90,8 +82,11 @@ function WorkPage() {
   }
 
   function sendRequest() {
-    const prompt = `Documente este código, separando ${funcoesChecked} ${variaveisChecked} ${parametrosChecked} e explicando: \n\n"${mensagem}`;
+    const prompt = `Documente este código, em portugues brasileiro, separando ${funcoesChecked} ${variaveisChecked} ${parametrosChecked} ${importacoesChecked} e explicando: \n\n"${mensagem} `;
     const temp = temperature;
+    var loadingbar = document.getElementById("loading-div");
+
+    loadingbar.style.display = "flex";
 
     const params = {
       model: "text-davinci-003",
@@ -102,7 +97,12 @@ function WorkPage() {
 
     client
       .post("https://api.openai.com/v1/completions", params)
-      .then((result) => setContent(result.data.choices[0].text))
+      .then((result) => {
+        if (result.status === 200) {
+          loadingbar.style.display = "none";
+        }
+        setAiResponse(result.data.choices[0].text);
+      })
       .catch((err) => console.log(err));
   }
 
@@ -138,12 +138,24 @@ function WorkPage() {
     }
   };
 
+  const handleImportacoesChange = (event) => {
+    if (importacoesChecked == "") {
+      setImportacoesChecked(event.target.value);
+    } else {
+      setImportacoesChecked("");
+    }
+  };
+
   function Return() {
     if (state[0].folderId) {
       navigate("/folder-page", { state: info });
     } else {
       navigate("/project-page", { state: info });
     }
+  }
+
+  function handleProcedureContentChange(text) {
+    setMensagem(text);
   }
 
   return (
@@ -171,6 +183,12 @@ function WorkPage() {
                 label="Parâmetros"
                 className="config-text"
                 onChange={handleParametrosChange}
+              />
+              <FormControlLabel
+                control={<Switch value="Importações," />}
+                label="Importações"
+                className="config-text"
+                onChange={handleImportacoesChange}
               />
             </FormGroup>
           </div>
@@ -202,12 +220,28 @@ function WorkPage() {
               onClick={Return}
             />
 
-            <div className="container-text code"></div>
+            <div className="container-text code">
+              <Editor
+                className="mona"
+                height="100%"
+                defaultLanguage="javascript"
+                defaultValue="// Insira seu código aqui"
+                value={mensagem}
+                onChange={handleProcedureContentChange}
+                width="100%"
+                theme="vs-dark"
+              />
+            </div>
             <div className="gpt-gap">
               <button className="workPage-button" onClick={sendRequest}>
                 Enviar
               </button>
               <img id="config-button" src={ConfigImage} onClick={openNav}></img>
+            </div>
+          </div>
+          <div className="align-center-workPage">
+            <div id="loading-div">
+              <ScaleLoader color="rgb(169, 135, 255) " />
             </div>
           </div>
 
@@ -218,12 +252,12 @@ function WorkPage() {
               userId={state[0].user}
               folderId={state[0].folderId}
               docsId={state[0].documentId}
-              airesponse={state[0].airesponse}
+              airesponse={airesponse}
+              notifySuccess={notifySuccess}
             />
           </React.StrictMode>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 }

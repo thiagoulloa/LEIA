@@ -30,17 +30,36 @@ function App() {
     });
   }
 
+  function notifyError(msg) {
+    toast.error(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<IntroductionPage />} />
-        <Route path="/project-page" element={<ProjectPage />} />
+        <Route
+          path="/project-page"
+          element={<ProjectPage notifySuccess={notifySuccess} />}
+        />
         <Route
           path="/login-page"
           element={<LoginPage notifySuccess={notifySuccess} />}
         />
         <Route path="/register-page" element={<RegisterPage />} />
-        <Route path="/work-page" element={<WorkPage />} />
+        <Route
+          path="/work-page"
+          element={<WorkPage notifySuccess={notifySuccess} />}
+        />
         <Route
           path="/edituserPage"
           element={<EdituserPage notifySuccess={notifySuccess} />}
@@ -60,7 +79,9 @@ function App() {
         />
         <Route
           path="/team-page"
-          element={<TeamPage notifySuccess={notifySuccess} />}
+          element={
+            <TeamPage notifySuccess={notifySuccess} notifyError={notifyError} />
+          }
         />
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/folder-page" element={<FolderPage />} />

@@ -15,6 +15,7 @@ export default function TextEditor({
   projectId,
   userId,
   folderId,
+  notifySuccess,
 }) {
   let navigate = useNavigate();
 
@@ -34,9 +35,12 @@ export default function TextEditor({
       getDocument();
     }
     if (airesponse) {
-      setNewContent(airesponse);
+      // Converte quebras de linha em elementos HTML
+      const formattedResponse = airesponse.replace(/\n/g, "<br>");
+      handleProcedureContentChange(formattedResponse);
+      console.log(airesponse);
     }
-  }, []);
+  }, [airesponse]);
 
   async function SaveDoc() {
     Axios.post("http://projetoleia.ddns.net:3001/savedocs", {
@@ -47,8 +51,9 @@ export default function TextEditor({
       id_project: projectId,
       folderId: folderId,
     }).then((response) => {
-      console.log(response);
-      window.location.reload();
+      if (response.status === 200) {
+        notifySuccess("Documento salvo com sucesso!");
+      }
     });
   }
 
@@ -73,6 +78,7 @@ export default function TextEditor({
       .then((response) => {
         if (response.status === 200) {
           navigate("/project-page", { state: info });
+          notifySuccess("Documento deletado com sucesso!");
           console.log(response);
         }
       })
@@ -162,7 +168,6 @@ export default function TextEditor({
   function handleProcedureContentChange(text) {
     setNewContent(text);
     setEditorText(text); //oi guinhoooooo
-    console.log(text);
   }
 
   return (

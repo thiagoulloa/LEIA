@@ -21,6 +21,7 @@ export default function ProjConfigPage({ notifySuccess }) {
   React.useEffect(() => {
     getTeams();
     getProject();
+    setTeamId(0);
   }, []);
 
   const handleChange = (event) => {

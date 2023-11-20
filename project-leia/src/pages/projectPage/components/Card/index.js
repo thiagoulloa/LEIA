@@ -22,6 +22,8 @@ export default function BasicCard({
   documentId,
   userId,
   folders,
+  notifySuccess,
+  getDocuments,
 }) {
   let navigate = useNavigate();
 
@@ -42,7 +44,8 @@ export default function BasicCard({
     })
       .then((response) => {
         if (response.status === 200) {
-          window.location.reload();
+          notifySuccess("Documento deletado com sucesso!");
+          getDocuments();
         }
       })
       .catch((error) => {
@@ -105,11 +108,9 @@ export default function BasicCard({
         </div>
 
         <div className="card-text-container">
-          renderHTML(
           <p className="card-text" id="content-text">
             {preview}...
           </p>
-          )
         </div>
         <div className="editar">
           <FontAwesomeIcon

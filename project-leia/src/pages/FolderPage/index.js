@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../../css/PagesDesign/folder&projectPage.css";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Popup from "reactjs-popup";
 import { faSearch, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Axios from "axios";
