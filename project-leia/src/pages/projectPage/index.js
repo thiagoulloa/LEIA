@@ -30,7 +30,6 @@ export default function ProjectPage() {
   React.useEffect(() => {
     getDocuments();
     getFolders();
-    console.log(state);
   }, []);
 
   function searchDocuments() {

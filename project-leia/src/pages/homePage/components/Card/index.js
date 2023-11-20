@@ -57,6 +57,36 @@ export default function ProjectCard({
     }
   }
 
+  async function GetTeam() {
+    try {
+      const response = await Axios.post(
+        "http://projetoleia.ddns.net:3001/getteambyid",
+        {
+          teamId: teamId,
+        }
+      );
+
+      const [infoTpg] = [
+        {
+          teamId: teamId,
+          userId: userId,
+          ownerId: response.data[0].id_usuarios,
+        },
+      ];
+      return infoTpg;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const navigateTeamPage = async () => {
+    const infoTpg = await GetTeam();
+
+    if (infoTpg) {
+      navigate("/team-page", { state: infoTpg });
+    }
+  };
+
   return (
     <div className="cardHome">
       <div
@@ -92,7 +122,7 @@ export default function ProjectCard({
                 className="ico"
                 id="team-icon"
                 icon={faPeopleGroup}
-                onClick={() => navigate("/team-page", { state: info })}
+                onClick={navigateTeamPage}
               />
             </div>
           )}

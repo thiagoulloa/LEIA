@@ -10,7 +10,7 @@ import BlobFunction from "../../MouseMove/MouseMove";
 const MAX_LOGIN_ATTEMPTS = 3;
 const LOCKOUT_DURATION = 10 * 60 * 100;
 
-function LoginPage() {
+function LoginPage({ notifySuccess }) {
   let navigate = useNavigate();
   const [loginAttempts, setLoginAttempts] = useState(0);
   const [isLockedOut, setIsLockedOut] = useState(false);
@@ -28,6 +28,7 @@ function LoginPage() {
       .then((response) => {
         if (response.status === 200) {
           navigate("/home-page", { state: response.data.userId });
+          notifySuccess("Usuário logado com sucesso!");
         }
       })
       .catch((error) => {

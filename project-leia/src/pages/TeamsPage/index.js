@@ -10,7 +10,7 @@ import Popup from "reactjs-popup";
 import Axios from "axios";
 import InviteCard from "./components/InvitesCard";
 
-export default function TeamsPage() {
+export default function TeamsPage({ notifySuccess }) {
   const [teamName, setTeamName] = React.useState("");
   const [createdTeams, setCreatedTeams] = React.useState("");
   const [invites, setInvites] = React.useState("");
@@ -31,7 +31,10 @@ export default function TeamsPage() {
       titulo: teamName,
     })
       .then((response) => {
-        window.location.reload();
+        if (response.status === 200) {
+          notifySuccess("Equipe criada com sucesso!");
+          GetCreatedTeams();
+        }
       })
       .catch((error) => console.log(error));
   }

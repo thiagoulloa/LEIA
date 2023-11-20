@@ -10,7 +10,7 @@ import CardUser from "./components/CardUser";
 import CardProjects from "./components/CardProjects";
 import CardOwner from "./components/CardOwner";
 
-export default function TeamPage() {
+export default function TeamPage({ notifySuccess }) {
   const [teamName, setTeamName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [projects, setProjects] = React.useState("");
@@ -36,7 +36,8 @@ export default function TeamPage() {
     })
       .then((response) => {
         if (response.status === 200) {
-          window.location.reload();
+          notifySuccess("Convite enviado");
+          setEmail("");
         }
         console.log(response);
       })

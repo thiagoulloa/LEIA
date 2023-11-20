@@ -9,7 +9,7 @@ import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons";
 import SideMenu from "../../components/SideMenu/sidemenu";
 import Axios from "axios";
 
-function EditUserPage() {
+function EditUserPage({ notifySuccess }) {
   let navigate = useNavigate();
 
   const [userData, setUserData] = React.useState([]);
@@ -38,6 +38,8 @@ function EditUserPage() {
       .then((response) => {
         if (response.status === 200) {
           console.log(response);
+          notifySuccess("Senha alterada com sucesso!");
+          window.location.reload();
         }
       })
       .catch((error) => {

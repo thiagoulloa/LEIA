@@ -10,7 +10,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-export default function NewProjPage() {
+export default function NewProjPage({ notifySuccess }) {
   let navigate = useNavigate();
 
   const [projectName, setProjectName] = React.useState("");
@@ -23,6 +23,7 @@ export default function NewProjPage() {
 
   React.useEffect(() => {
     console.log(state);
+    setTeamId(0);
     getTeams();
   }, []);
 
@@ -40,11 +41,16 @@ export default function NewProjPage() {
       .then((response) => {
         if (response.status === 200) {
           navigate("/home-page", { state: state });
+          notifySuccess("Projeto criado com sucesso");
           console.log(response);
         }
       })
       .catch((error) => {
-        if (error.response.status === 401 || error.response.satus === 500) {
+        if (
+          error.response.status === 401 ||
+          error.response.satus === 500 ||
+          error.response.satus === 400
+        ) {
           console.log(error);
         }
       });
@@ -55,7 +61,6 @@ export default function NewProjPage() {
       userId: state,
     })
       .then((response) => {
-        console.log(response);
         setTeams(response.data);
       })
       .catch((error) => {

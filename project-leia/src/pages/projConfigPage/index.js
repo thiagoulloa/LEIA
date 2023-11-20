@@ -9,7 +9,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function ProjConfigPage() {
+export default function ProjConfigPage({ notifySuccess }) {
+  let navigate = useNavigate();
   const { state } = useLocation();
 
   const [teams, setTeams] = React.useState("");
@@ -67,7 +68,8 @@ export default function ProjConfigPage() {
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          window.location.reload();
+          notifySuccess("Projeto alterado com sucesso!");
+          navigate("/home-page", { state: state[0].userId });
         }
       })
       .catch((error) => {

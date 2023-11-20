@@ -105,9 +105,11 @@ export default function BasicCard({
         </div>
 
         <div className="card-text-container">
+          renderHTML(
           <p className="card-text" id="content-text">
             {preview}...
           </p>
+          )
         </div>
         <div className="editar">
           <FontAwesomeIcon
