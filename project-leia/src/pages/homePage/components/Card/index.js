@@ -8,6 +8,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 
 export default function ProjectCard({
   titulo,
@@ -16,8 +22,20 @@ export default function ProjectCard({
   userId,
   teamId,
   projectOwner,
+  notifySuccess,
+  getProjects,
 }) {
   let navigate = useNavigate();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const [info] = React.useState([
     {
@@ -43,8 +61,15 @@ export default function ProjectCard({
       })
         .then((response) => {
           if (response.status === 200) {
-            console.log("projeto deletado");
-            window.location.reload();
+            if (response.data.msg) {
+              notifySuccess(response.data.msg);
+              getProjects();
+            }
+            if (response.data.warning) {
+              if (response.data.warning === 1) {
+                handleClickOpen();
+              }
+            }
           }
         })
         .catch((error) => {
@@ -55,6 +80,29 @@ export default function ProjectCard({
     } else {
       console.log("Sem Permissão");
     }
+  }
+
+  function DeleteFullProject() {
+    if (userId === projectOwner) {
+      Axios.post("http://projetoleia.ddns.net:3001/deletefullproject", {
+        id_project: projectId,
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            notifySuccess(response.data.msg);
+            console.log(response);
+            getProjects();
+          }
+        })
+        .catch((error) => {
+          if (error.response.status === 500) {
+            console.log(error);
+          }
+        });
+    } else {
+      console.log("Sem Permissão");
+    }
+    handleClose();
   }
 
   async function GetTeam() {
@@ -128,6 +176,31 @@ export default function ProjectCard({
           )}
         </div>
       </div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {
+            "Este projeto ainda contém documentos. Deseja deletar o projeto com todos seus documentos filhos?"
+          }
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Caso o projeto seja deletado, não será possível recuperar nenhum de
+            seus antigos arquivos. Certifique-se de que não há documentos
+            importantes antes de deletar o projeto.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={DeleteFullProject} autoFocus>
+            Deletar Projeto
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

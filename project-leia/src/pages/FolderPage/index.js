@@ -5,12 +5,16 @@ import "../../css/PagesDesign/folder&projectPage.css";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Popup from "reactjs-popup";
-import { faSearch, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faArrowLeft,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 import Axios from "axios";
 import SideMenu from "../../components/SideMenu/sidemenu";
 
-export default function FolderPage() {
+export default function FolderPage({ notifyError, notifySuccess }) {
   let navigate = useNavigate();
   const [documents, setDocuments] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
@@ -20,7 +24,7 @@ export default function FolderPage() {
 
   const [info] = React.useState([
     {
-      user: state[0].user,
+      userId: state[0].userId,
       projectId: state[0].projectId,
       folderId: state[0].folderId,
     },
@@ -68,9 +72,28 @@ export default function FolderPage() {
       .catch((error) => console.log(error));
   }
 
+  function delFolder() {
+    if (documents.length !== 0) {
+      notifyError("Não é possível apagar pastas que contém documentos");
+      console.log(documents);
+    } else {
+      Axios.post("http://projetoleia.ddns.net:3001/deletefolder", {
+        folderId: state[0].folderId,
+        userId: state[0].userId,
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            navigate("/project-page", { state: info });
+            notifySuccess(response.data.msg);
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+  }
+
   return (
     <div className="folderPage">
-      <SideMenu state={state[0].user} />
+      <SideMenu state={state[0].userId} />
       <div className="content folderPage">
         <div className="align-top-folderpage">
           <div className="align-left-folderpage">
@@ -96,6 +119,7 @@ export default function FolderPage() {
               <FontAwesomeIcon
                 className="busca"
                 icon={faSearch}
+                title="Pesquisar pasta"
                 onClick={searchDocuments}
               />
             </div>
@@ -105,6 +129,12 @@ export default function FolderPage() {
             >
               Novo Arquivo
             </button>
+            <FontAwesomeIcon
+              id="del-folder-icon"
+              icon={faTrash}
+              title="Apagar pasta"
+              onClick={delFolder}
+            />
           </div>
         </div>
 

@@ -23,7 +23,7 @@ function App() {
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
       theme: "dark",
@@ -36,7 +36,20 @@ function App() {
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+
+  function notifyWarning(msg) {
+    toast.warn(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
       theme: "dark",
@@ -83,8 +96,19 @@ function App() {
             <TeamPage notifySuccess={notifySuccess} notifyError={notifyError} />
           }
         />
-        <Route path="/home-page" element={<HomePage />} />
-        <Route path="/folder-page" element={<FolderPage />} />
+        <Route
+          path="/home-page"
+          element={<HomePage notifySuccess={notifySuccess} />}
+        />
+        <Route
+          path="/folder-page"
+          element={
+            <FolderPage
+              notifyError={notifyError}
+              notifySuccess={notifySuccess}
+            />
+          }
+        />
       </Routes>
       <ToastContainer
         position="top-right"

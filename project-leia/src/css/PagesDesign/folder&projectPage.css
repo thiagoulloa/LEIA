@@ -204,3 +204,16 @@
   border-color: rgb(169, 135, 255);
   border-style: ridge;
 }
+
+#del-folder-icon {
+  cursor: pointer;
+  height: 3vh;
+  color: white;
+  transition: 0.2s;
+}
+
+#del-folder-icon:hover {
+  transform: translateY(-2px);
+  transition: 0.2s ease-in;
+  height: 3.3vh;
+}
