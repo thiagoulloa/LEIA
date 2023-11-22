@@ -1,6 +1,6 @@
 .quill {
   background-color: white;
-  overflow-y: none;
+  overflow-y: hidden;
   border-radius: 1rem;
   width: 38.4vw;
   height: 100%;
@@ -24,14 +24,15 @@
   max-width: 100% !important;
   max-height: 80vh !important;
   border: none;
+  overflow-y: hidden;
 }
 .ql-toolbar.ql-snow {
   border: none;
 }
 .ql-editor {
-  min-height: 80vh;
-  max-height: 80vh;
-  overflow-y: none;
+  height: 77vh;
+
+  overflow-y: scroll;
 }
 
 .container-editor {
