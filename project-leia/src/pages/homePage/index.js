@@ -9,12 +9,6 @@ import ProjectCard from "./components/Card";
 import TeamProjectCard from "./components/TeamProjectCard";
 import Axios from "axios";
 import SideMenu from "../../components/SideMenu/sidemenu";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 
 export default function HomePage({ notifySuccess }) {
   let navigate = useNavigate();

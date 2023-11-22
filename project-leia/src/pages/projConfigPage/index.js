@@ -132,7 +132,7 @@ export default function ProjConfigPage({ notifySuccess }) {
         </div>
       </div>
       <div className="bottom-projConfigPage">
-        <button className="glow" onClick={() => sendProject()}>
+        <button className="newProjectPage-button" onClick={() => sendProject()}>
           Confirmar
         </button>
       </div>

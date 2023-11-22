@@ -23,7 +23,7 @@ import TextEditor from "./components/Editor/editor.js";
 import TextEnv from "./components/Editor/env.js";
 import Editor from "@monaco-editor/react";
 
-function WorkPage({ notifySuccess }) {
+function WorkPage({ notifySuccess, notifyError }) {
   let navigate = useNavigate();
   const [btnState, setBtnState] = React.useState(false);
 
@@ -36,6 +36,7 @@ function WorkPage({ notifySuccess }) {
   const [variaveisChecked, setVariaveisChecked] = useState("");
   const [parametrosChecked, setParametrosChecked] = useState("");
   const [importacoesChecked, setImportacoesChecked] = useState("");
+  const [requisicoesChecked, setRequisicoesChecked] = useState("");
 
   const { state } = useLocation();
 
@@ -59,7 +60,8 @@ function WorkPage({ notifySuccess }) {
       funcoesChecked,
       parametrosChecked,
       variaveisChecked,
-      importacoesChecked
+      importacoesChecked,
+      requisicoesChecked
     );
   }
 
@@ -82,28 +84,41 @@ function WorkPage({ notifySuccess }) {
   }
 
   function sendRequest() {
-    const prompt = `Documente este código, em portugues brasileiro, separando ${funcoesChecked} ${variaveisChecked} ${parametrosChecked} ${importacoesChecked} e explicando: \n\n"${mensagem} `;
+    const prompt = `Documente este código, em portugues brasileiro, separando ${funcoesChecked} ${variaveisChecked} ${parametrosChecked} ${importacoesChecked} ${requisicoesChecked} e explicando: \n\n"${mensagem} `;
     const temp = temperature;
     var loadingbar = document.getElementById("loading-div");
 
     loadingbar.style.display = "flex";
 
     const params = {
-      model: "text-davinci-003",
-      prompt: prompt,
-      max_tokens: 1000,
+      model: "gpt-3.5-turbo-16k",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      max_tokens: 8192,
       temperature: temp,
     };
 
     client
-      .post("https://api.openai.com/v1/completions", params)
+      .post("https://api.openai.com/v1/chat/completions", params)
       .then((result) => {
         if (result.status === 200) {
           loadingbar.style.display = "none";
+        } else {
+          loadingbar.style.display = "none";
+          notifyError("API Error");
         }
-        setAiResponse(result.data.choices[0].text);
+
+        setAiResponse(result.data.choices[0].message.content);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        notifyError("API ERROR");
+        loadingbar.style.display = "none";
+      });
   }
 
   let toggleClassCheck = btnState ? "-open" : "";
@@ -143,6 +158,14 @@ function WorkPage({ notifySuccess }) {
       setImportacoesChecked(event.target.value);
     } else {
       setImportacoesChecked("");
+    }
+  };
+
+  const handleRequisicoesChange = (event) => {
+    if (requisicoesChecked == "") {
+      setRequisicoesChecked(event.target.value);
+    } else {
+      setRequisicoesChecked("");
     }
   };
 
@@ -190,6 +213,12 @@ function WorkPage({ notifySuccess }) {
                 className="config-text"
                 onChange={handleImportacoesChange}
               />
+              <FormControlLabel
+                control={<Switch value="Requisições," />}
+                label="Requisições"
+                className="config-text"
+                onChange={handleRequisicoesChange}
+              />
             </FormGroup>
           </div>
           <div className="slider">
@@ -197,14 +226,14 @@ function WorkPage({ notifySuccess }) {
             <Box sx={{}}>
               <Slider
                 aria-label="Temperature"
-                defaultValue={0.3}
+                defaultValue={0.6}
                 getAriaValueText={valuetext}
                 onChange={(valuetext) => setTemperature(valuetext.target.value)}
                 valueLabelDisplay="auto"
                 step={0.1}
                 marks
                 min={0.1}
-                max={1}
+                max={1.5}
               />
             </Box>
           </div>

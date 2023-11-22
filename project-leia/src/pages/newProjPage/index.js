@@ -17,7 +17,6 @@ export default function NewProjPage({ notifySuccess }) {
   const [teamId, setTeamId] = React.useState("");
   const [teams, setTeams] = React.useState("");
   const [projDesc, setProjDesc] = React.useState("");
-  const [collaborators, setCollaborators] = React.useState("");
 
   const { state } = useLocation();
 
@@ -71,68 +70,63 @@ export default function NewProjPage({ notifySuccess }) {
   }
 
   return (
-    <div className="newProjPage">
+    <div className="projConfigPage">
       <SideMenu state={state} />
 
-      <div className="align-top-new-project-page">
-        <h1 id="title">Configure seu projeto</h1>
+      <div className="align-top">
+        <h1 id="title">Crie do Projeto</h1>
       </div>
-      <div className="align-center">
-        <Formik initialValues={{}} onSubmit={sendProject}>
-          <Form className="projConfig-form">
-            <div className="input-div">
-              <label className="label">Nome do Projeto: </label>
-              <Field
-                type="textarea"
-                name="projName"
-                className="inputsForm"
-                value={projectName}
-                onChange={(e) => setProjectName(e.target.value)}
-              />
-            </div>
-            <div className="input-div">
-              <label className="label">Descrição do projeto: </label>
-              <Field
-                type="text"
-                name="projDesc"
-                className="inputsForm desc"
-                value={projDesc}
-                onChange={(e) => setProjDesc(e.target.value)}
-                component="textarea"
-                id="desc"
-              />
-            </div>
-            <div className="input-div">
-              <div className="collab-div">
-                <FormControl sx={{ m: 1, minWidth: 250 }}>
-                  <InputLabel id="demo-simple-select-autowidth-label">
-                    Equipe
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-autowidth-label"
-                    id="demo-simple-select-autowidth"
-                    value={teamId}
-                    onChange={handleChange}
-                    autoWidth
-                    label="Equipe"
-                  >
-                    <MenuItem value="">
-                      <em>Nenhuma</em>
-                    </MenuItem>
+      <div className="align-center-projConfigPage">
+        <div className="input-form">
+          <label className="label">Nome do Projeto: </label>
+          <input
+            className="input-projConfigPage"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+          ></input>
+        </div>
+        <div className="input-form">
+          <label className="label">Descrição do projeto: </label>
+          <textarea
+            className="input-projConfigPage desc"
+            value={projDesc}
+            onChange={(e) => setProjDesc(e.target.value)}
+          ></textarea>
+        </div>
+        <div className="collab-projConfigPage">
+          <FormControl sx={{ m: 1, minWidth: 250 }}>
+            <InputLabel id="demo-simple-select-autowidth-label">
+              Equipe
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-autowidth-label"
+              id="demo-simple-select-autowidth"
+              value={teamId}
+              onChange={handleChange}
+              autoWidth
+              label="Equipe"
+            >
+              <MenuItem value={0}>
+                <em>Nenhuma</em>
+              </MenuItem>
 
-                    {teams.length > 0 &&
-                      teams.map((team) => (
-                        <MenuItem value={team.id}>{team.titulo}</MenuItem>
-                      ))}
-                  </Select>
-                </FormControl>
-              </div>
-            </div>
-            <button className="glow" type="submit">
-              Confirmar
-            </button>
-          </Form>
-        </Formik>
+              {teams.length > 0 &&
+                teams.map((team) => (
+                  <MenuItem value={team.id} key={team.id}>
+                    {team.titulo}
+                  </MenuItem>
+                ))}
+            </Select>
+          </FormControl>
+        </div>
+        <div className="bottom-projConfigPage">
+          <button
+            className="newProjectPage-button"
+            onClick={() => sendProject()}
+          >
+            Confirmar
+          </button>
+        </div>
       </div>
     </div>
   );

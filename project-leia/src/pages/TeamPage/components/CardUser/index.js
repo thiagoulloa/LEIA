@@ -1,11 +1,8 @@
 import Axios from "axios";
 import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faPeopleGroup,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { faUser, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../../../../css/PagesDesign/teamPage.css";
 
 export default function CardUser({
@@ -17,11 +14,16 @@ export default function CardUser({
   notifySuccess,
   GetTeamUsers,
 }) {
+  let navigate = useNavigate();
+
   const [username, setUsername] = React.useState("");
 
   React.useEffect(() => {
     getUsername();
-    console.log(logUserId, ownerId);
+    console.log("card:");
+    console.log("owner:" + ownerId);
+    console.log("card:" + userId);
+    console.log("logado:" + logUserId);
   }, []);
 
   function getUsername() {
@@ -60,16 +62,15 @@ export default function CardUser({
       </div>
       <h1 className="UsersName">{username}</h1>
       <div className="alignBottom-CardUser">
-        <div className="icons proj-card">
-          <div className="excluir">
-            <FontAwesomeIcon
-              className="ico"
-              id="delete-icon"
-              icon={faTrash}
-              onClick={() => deleteUser()}
-            />
-          </div>
+        <div className="excluir">
+          <FontAwesomeIcon
+            className="ico"
+            id="delete-icon-tpg"
+            icon={faTrash}
+            onClick={() => deleteUser()}
+          />
         </div>
+        <div className="leave-team-div"></div>
       </div>
     </div>
   );

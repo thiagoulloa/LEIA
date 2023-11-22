@@ -14,7 +14,11 @@ import {
 import Axios from "axios";
 import SideMenu from "../../components/SideMenu/sidemenu";
 
-export default function FolderPage({ notifyError, notifySuccess }) {
+export default function FolderPage({
+  notifyError,
+  notifySuccess,
+  notifyWarning,
+}) {
   let navigate = useNavigate();
   const [documents, setDocuments] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
@@ -74,7 +78,7 @@ export default function FolderPage({ notifyError, notifySuccess }) {
 
   function delFolder() {
     if (documents.length !== 0) {
-      notifyError("Não é possível apagar pastas que contém documentos");
+      notifyWarning("Não é possível apagar pastas que contém documentos");
       console.log(documents);
     } else {
       Axios.post("http://projetoleia.ddns.net:3001/deletefolder", {

@@ -26,7 +26,7 @@ function App() {
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: "colored",
     });
   }
 
@@ -39,7 +39,7 @@ function App() {
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: "colored",
     });
   }
 
@@ -52,7 +52,7 @@ function App() {
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: "colored",
     });
   }
 
@@ -71,7 +71,9 @@ function App() {
         <Route path="/register-page" element={<RegisterPage />} />
         <Route
           path="/work-page"
-          element={<WorkPage notifySuccess={notifySuccess} />}
+          element={
+            <WorkPage notifySuccess={notifySuccess} notifyError={notifyError} />
+          }
         />
         <Route
           path="/edituserPage"
@@ -93,7 +95,11 @@ function App() {
         <Route
           path="/team-page"
           element={
-            <TeamPage notifySuccess={notifySuccess} notifyError={notifyError} />
+            <TeamPage
+              notifySuccess={notifySuccess}
+              notifyError={notifyError}
+              notifyWarning={notifyWarning}
+            />
           }
         />
         <Route
@@ -106,6 +112,7 @@ function App() {
             <FolderPage
               notifyError={notifyError}
               notifySuccess={notifySuccess}
+              notifyWarning={notifyWarning}
             />
           }
         />

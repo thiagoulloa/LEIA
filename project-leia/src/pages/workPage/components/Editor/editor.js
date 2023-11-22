@@ -34,11 +34,12 @@ export default function TextEditor({
     if (docsId) {
       getDocument();
     }
+  }, []);
+
+  React.useEffect(() => {
     if (airesponse) {
-      // Converte quebras de linha em elementos HTML
       const formattedResponse = airesponse.replace(/\n/g, "<br>");
       handleProcedureContentChange(formattedResponse);
-      console.log(airesponse);
     }
   }, [airesponse]);
 
@@ -65,7 +66,6 @@ export default function TextEditor({
         setNewContent(response.data[0].content);
         setEditorText(response.data[0].content);
         setTitle(response.data[0].titulo);
-        console.log(response.data);
       })
       .catch((error) => console.log(error));
   }
@@ -167,7 +167,7 @@ export default function TextEditor({
 
   function handleProcedureContentChange(text) {
     setNewContent(text);
-    setEditorText(text); //oi guinhoooooo
+    setEditorText(text);
   }
 
   return (
@@ -200,7 +200,7 @@ export default function TextEditor({
         <button className="workPage-button" onClick={() => SaveDoc()}>
           Salvar
         </button>
-        <FontAwesomeIcon icon={faTrash} className="ico" onClick={deleteDoc} />
+        <FontAwesomeIcon icon={faTrash} className="ico" />
       </div>
     </div>
   );

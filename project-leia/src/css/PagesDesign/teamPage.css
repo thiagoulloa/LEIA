@@ -44,8 +44,34 @@
   width: 100%;
   height: 85vh;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 5svh;
+  justify-content: flex-start;
+}
+
+.container-right-teampage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 85vh;
+  justify-content: flex-start;
+}
+
+.team-page-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  gap: 1.2vh;
+}
+
+.team-page-bottom-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 10%;
+  gap: 1.2vh;
 }
 
 .card-users,
@@ -80,26 +106,29 @@
   transform: translateY(-2px);
 }
 
-.card-users:hover #delete-icon {
+.card-users:hover #delete-icon-tpg {
   display: block;
 }
 
 .alignBottom-CardUser {
   display: flex;
-  gap: 5vh;
-  height: 1.5vh;
+  justify-content: center;
+  gap: 0.5vw;
+  width: 80%;
+
+  height: 3vh;
 }
 
-#delete-icon {
+#delete-icon-tpg {
   color: white;
-  height: 15px;
-  width: 15px;
+  height: 100%;
+  width: auto;
   display: none;
 }
 
-#delete-icon:hover {
-  height: 20px;
-  width: 20px;
+#delete-icon-tpg:hover {
+  height: 120%;
+  width: auto;
   transition: 0.1s ease-in;
 }
 
@@ -122,19 +151,35 @@
   display: flex;
   gap: 2rem;
   align-items: flex-start;
-  padding-top: 1vh;
-  height: 70%;
+  padding-top: 6vh;
+  height: 72vh;
   overflow-y: auto;
 }
 
 .container-projects {
   display: flex;
   width: 100%;
-  height: 90vh;
+  height: 72vh;
   flex-direction: column;
   justify-content: top;
+  padding-top: 6vh;
   gap: 5vh;
-  padding-top: 1vh;
+}
+
+.add-colab-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  border: 3.5px;
+  border-style: solid;
+  overflow: hidden;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: white;
+  transition: 0.3s;
 }
 
 .users-projects {
@@ -179,4 +224,40 @@
   font-style: italic;
   font-size: small;
   color: rgba(255, 255, 255, 0.685);
+}
+
+.deleteTeam-button {
+  height: 35px;
+  width: 95%;
+  padding: 5px;
+  border-radius: 7px;
+  border-width: 1.7px;
+  border-color: red;
+  border-style: ridge;
+  color: red;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deleteTeam-button:hover {
+  transition: 0.3s;
+  border-color: black;
+  color: white;
+  background-color: red;
+  border-style: ridge;
+}
+
+#leave-icon-tpg {
+  color: white;
+  height: 35px;
+  width: auto;
+  display: block;
+}
+
+#leave-icon-tpg:hover {
+  color: #45c4b0;
+  height: 40px;
+  width: auto;
+  transition: 0.1s ease-in;
 }

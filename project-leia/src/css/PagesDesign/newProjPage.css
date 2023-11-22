@@ -52,12 +52,12 @@
 
 .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused
   .MuiOutlinedInput-notchedOutline {
-  border-color: #1976d2 !important;
+  border-color: #3c8bc3 !important;
   border-width: 2px;
 }
 
 .css-bpeome-MuiSvgIcon-root-MuiSelect-icon {
-  color: #1976d2 !important;
+  color: #3c8bc3 !important;
 }
 
 .collab-input {
@@ -74,4 +74,22 @@
   width: 35px;
   height: auto;
   cursor: pointer;
+}
+
+.newProjectPage-button {
+  width: 70%;
+  height: 5.5vh;
+  background-color: #051e38;
+  border-style: solid;
+  border-color: #051e38;
+  border-width: 2px;
+  transition: 0.3s;
+  color: white;
+  border-radius: 5px;
+}
+
+.newProjectPage-button:hover {
+  border-color: #3c8bc3;
+  cursor: pointer;
+  transition: 0.4s;
 }
